@@ -1,0 +1,44 @@
+<%- include("partials/header") %>
+
+<section class="content--body register">
+  <section class="registrationCard">
+    <h2 class="registrationCard--title">Sign up with Email</h2>
+
+    <section class="registrationCard--alert">
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %>
+    </section>
+
+    <form action="/signup" method="POST" class="registrationCard--form">
+      <label for="userName">Username</label>
+      <input
+        type="text"
+        name="userName"
+        placeholder="Enter user name"
+        class="registration--inpt"
+      />
+      <label for="email">Email address</label>
+      <input type="email" name="email" placeholder="Enter email" class="registration--inpt" />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter password"
+        class="registration--inpt"
+      />
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm password"
+        class="registration--inpt"
+      />
+      <input type="submit" value="Sign Up" class="registration--btn" />
+    </form>
+
+    <section class="registrationCard--navigate">
+      <p>Already have an account? <a href="/login">Sign in</a></p>
+    </section>
+  </section>
+</section>

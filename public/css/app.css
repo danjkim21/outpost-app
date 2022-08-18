@@ -1,0 +1,59 @@
+/* --------- FLEX LAYOUT FOR SIDE BAR & APP --------- */
+body {
+  display: flex;
+}
+
+/* --------- SIDE BAR STYLING --------- */
+.sidebar {
+  height: 100vh;
+  width: 25vw;
+  background: #f2f5fd;
+  /* padding: 5vh 3.5vw; */
+}
+
+.sidebar .profile {
+  padding: 5vh 3.5vw;
+}
+.sidebar .profile--img {
+  padding: 5px 6px;
+  border: 2px solid #335AE5;
+  border-radius: 50%;
+}
+.sidebar .profile--userName {
+  font-size: 1.25rem;
+  padding-left: 0.55rem;
+}
+
+.sidebar .sidebar--nav {
+  margin: 0;
+  padding: 0;
+}
+.sidebar .sidebar--nav li {
+  display: block;
+  padding: 2vh 3.5vw;
+}
+.sidebar .sidebar--nav li:hover {
+  background-color: #CCD6F8;
+}
+.sidebar .sidebar--nav a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* --------- MAIN APP STYLING --------- */
+.content--body.appmain {
+  height: 100%;
+  width: 75vw;
+  padding-top: 7.5vh;
+}
+
+/* --------- MY TRIPS STYLING --------- */
+
+
+
+/* OLD - FROM TODO APP TEST */
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
