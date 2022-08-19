@@ -35,7 +35,7 @@ module.exports = {
           completed: true,
         }
       );
-      console.log('Marked Complete');
+      console.log(`Marked Complete: ${req.body.tripIdFromJSFile}`);
       res.json('Marked Complete');
     } catch (err) {
       console.log(err);
@@ -49,7 +49,7 @@ module.exports = {
           completed: false,
         }
       );
-      console.log('Marked Incomplete');
+      console.log(`Marked Incomplete: ${req.body.tripIdFromJSFile}`);
       res.json('Marked Incomplete');
     } catch (err) {
       console.log(err);
@@ -59,7 +59,7 @@ module.exports = {
     console.log(req.body.tripIdFromJSFile);
     try {
       await Trip.findOneAndDelete({ _id: req.body.tripIdFromJSFile });
-      console.log('Deleted Trip');
+      console.log(`Deleted: ${req.body.tripIdFromJSFile}`);
       res.json('Deleted It');
     } catch (err) {
       console.log(err);

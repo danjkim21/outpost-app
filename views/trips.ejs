@@ -3,28 +3,54 @@
   <section class="content--body appmain">
     <h1>Trips Dashboard</h1>
 
-    <form action="/trips/createTrip" method='POST'>
-      <input type="text" placeholder="Enter Trip Name" name='tripItem'>
-      <input type="submit">
-    </form>
-
     <p><%= user.userName %> has <%= left %> <%= left === 1 ? "trip" : "trips" %> left.</p>
 
-    <ul>
-      <% trips.forEach( el => { %>
+    <section>
+      <h3>Upcoming</h3>
+      <ul>
+        <% trips.filter( el => !el.completed ).map( el => { %>
+  
+          <li class='todoItem' data-id='<%=el._id%>'>
+              <span class='<%= el.completed === true ? 'completed' : 'not' %>'> <%= el.trip %></span>
+              <span class='del'> - Delete </span>
+          </li>
+          
+        <% }) %>    
+      </ul>
+    </section>
+    
+    <section>
+      <h3>Completed</h3>
+      <ul>
+        <% trips.filter( el => el.completed ).map( el => { %>
+  
+          <li class='todoItem' data-id='<%=el._id%>'>
+              <span class='<%= el.completed === true ? 'completed' : 'not' %>'> <%= el.trip %> </span>
+              <span class='del'> - Delete </span>
+          </li>
+          
+        <% }) %>    
+      </ul>
+    </section>
 
-        <li class='todoItem' data-id='<%=el._id%>'>
-            <span class='<%= el.completed === true ? 'completed' : 'not' %>'> <%= el.trip %></span>
-            <section>
-              <span><a href="">Edit</a></span>
-              <span class='del'> Delete </span>
-            </section>
-        </li>
-        
-      <% }) %>    
-    </ul>
+    <!-- Create New Trip Modal -->
+    <section>
+      <div class="wrapper">
+        <a href="#modal"> <i class="fa-solid fa-plus"></i> </a>
+      </div>
 
+      <div id="modal" class="modal">
+        <div class="modal--content">
+            <form class="addTripForm" action="/trips/createTrip" method='POST'>
+              <input class="addTripForm--input" type="text" placeholder="Enter Trip Name" name='tripItem'>
+              <!-- <input class="addtTripForm--submit" type="submit"> -->
+            </form>
 
+            <a href="#" class="modal--close">&times;</a>
+        </div>
+      </div>
+    </section>
+    
   </section>
 
   <script src="js/main.js"></script>
