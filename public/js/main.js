@@ -1,7 +1,10 @@
+// ********** Query Selectors ********** //
 const deleteBtn = document.querySelectorAll('.del');
 const tripItem = document.querySelectorAll('span.not');
 const tripComplete = document.querySelectorAll('span.completed');
+const tripEditor = document.querySelectorAll('.editTrip');
 
+// ********** Event Listeners ********** //
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener('click', deleteTrip);
 });
@@ -14,6 +17,7 @@ Array.from(tripComplete).forEach((el) => {
   el.addEventListener('click', markIncomplete);
 });
 
+// ********** Functions ********** //
 async function deleteTrip() {
   const tripId = this.parentNode.dataset.id;
   try {
@@ -28,7 +32,7 @@ async function deleteTrip() {
     console.log(data);
     location.reload();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }
 
@@ -46,7 +50,7 @@ async function markComplete() {
     console.log(data);
     location.reload();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }
 
@@ -64,6 +68,6 @@ async function markIncomplete() {
     console.log(data);
     location.reload();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }

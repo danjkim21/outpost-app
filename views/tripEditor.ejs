@@ -1,0 +1,36 @@
+<%- include("partials/sidebar") %>
+
+  <section class="content--body appmain">
+    <h1><%= trip[0].trip %></h1>
+    
+    <p>Travelers: <%= user.userName %></p>
+    <p>Stops: <%= trip[0].destinations.length %></p>
+    <p>Total Duration: </p>
+
+    <section>
+      <h3>Destinations</h3>
+
+    </section>
+
+      <!-- Create New Trip Modal -->
+      <section>
+        <div class="wrapper">
+          <a href="#modal"> <i class="fa-solid fa-plus"></i> </a>
+        </div>
+  
+        <div id="modal" class="modal">
+          <div class="modal--content">
+              <!-- <form class="addTripForm" action="/trips/createTrip" method='POST'>
+                <input class="addTripForm--input" type="text" placeholder="Enter New Destination" name='tripItem'>
+                <input class="addtTripForm--submit" type="submit">
+              </form> -->
+  
+              <a href="#" class="modal--close">&times;</a>
+          </div>
+        </div>
+      </section>
+    
+  </section>
+  <script src="js/main.js"></script>
+  </body>
+</html>

@@ -13,6 +13,8 @@
           <li class='todoItem' data-id='<%=el._id%>'>
               <span class='<%= el.completed === true ? 'completed' : 'not' %>'> <%= el.trip %></span>
               <span class='del'> - Delete </span>
+              <span> - </span>
+              <a class="editTrip" href="/tripEditor/<%= el._id%>">Edit</a>
           </li>
           
         <% }) %>    
@@ -27,6 +29,7 @@
           <li class='todoItem' data-id='<%=el._id%>'>
               <span class='<%= el.completed === true ? 'completed' : 'not' %>'> <%= el.trip %> </span>
               <span class='del'> - Delete </span>
+              <span> - <a class="editTrip" href="/tripEditor/<%= el._id%>">Edit</a></span>
           </li>
           
         <% }) %>    
