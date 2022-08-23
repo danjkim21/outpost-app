@@ -3,6 +3,8 @@ const deleteBtn = document.querySelectorAll('.del');
 const tripItem = document.querySelectorAll('span.not');
 const tripComplete = document.querySelectorAll('span.completed');
 const tripEditor = document.querySelectorAll('.editTrip');
+const tripTitleEdit = document.querySelector('.trip--title');
+const tripDescEdit = document.querySelector('.trip--description');
 
 // ********** Event Listeners ********** //
 Array.from(deleteBtn).forEach((el) => {
@@ -16,6 +18,10 @@ Array.from(tripItem).forEach((el) => {
 Array.from(tripComplete).forEach((el) => {
   el.addEventListener('click', markIncomplete);
 });
+
+tripTitleEdit.addEventListener('focusout', editTitle);
+
+tripDescEdit.addEventListener('focusout', editDescription);
 
 // ********** Functions ********** //
 async function deleteTrip() {
@@ -67,6 +73,48 @@ async function markIncomplete() {
     const data = await response.json();
     console.log(data);
     location.reload();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function editTitle() {
+  const tripId = this.parentNode.dataset.id;
+  const tripTitle = this.textContent.trim()
+
+  console.log(tripId, tripTitle);
+  try {
+    const response = await fetch('editTitle', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        updatedTitle: tripTitle,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function editDescription() {
+  const tripId = this.parentNode.dataset.id;
+  const tripDesc = this.textContent.trim()
+
+  console.log(tripId, tripDesc);
+  try {
+    const response = await fetch('editDescription', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        updatedDesc: tripDesc,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
   } catch (err) {
     console.error(err);
   }

@@ -1,36 +1,55 @@
 <%- include("partials/sidebar") %>
 
-  <section class="content--body appmain">
-    <h1><%= trip[0].trip %></h1>
-    
-    <p>Travelers: <%= user.userName %></p>
-    <p>Stops: <%= trip[0].destinations.length %></p>
-    <p>Total Duration: </p>
+  <section class="content--body appmain" data-id="<%=trip[0]._id%>"">
+    <h1 class="trip--title editable" contenteditable="true"><%= trip[0].trip %></h1>
 
-    <section>
-      <h3>Destinations</h3>
+    <p class="trip--description editable" contenteditable="true"><%= trip[0].description ? trip[0].description : 'Enter trip description' %></p> 
+    
+    <section class="trip--overview">
+      <section class="overview--details">
+        <span class="detail--title">Travelers: </span>
+        <span class="detail--value"><%= user.userName %></span>
+      </section>
+      <section class="overview--details">
+        <span class="detail--title">Stops: </span>
+        <span class="detail--value"><%= trip[0].destinations.length %></span>
+      </section>
+      <section class="overview--details">
+        <span class="detail--title">Start Date: </span>
+        <span class="detail--value"></span>
+      </section>
+      <section class="overview--details">
+        <span class="detail--title">End Date: </span>
+        <span class="detail--value"></span>
+      </section>
+    </section>
+
+    <section class="trip--destinations">
+      <h3 class="destination--title">Destinations</h3>
+
+      <button class="btn--newDestination"> <i class="fa-solid fa-plus"></i> </button>
 
     </section>
 
       <!-- Create New Trip Modal -->
-      <section>
+      <!-- <section>
         <div class="wrapper">
           <a href="#modal"> <i class="fa-solid fa-plus"></i> </a>
         </div>
   
         <div id="modal" class="modal">
           <div class="modal--content">
-              <!-- <form class="addTripForm" action="/trips/createTrip" method='POST'>
+              <form class="addTripForm" action="/trips/createTrip" method='POST'>
                 <input class="addTripForm--input" type="text" placeholder="Enter New Destination" name='tripItem'>
                 <input class="addtTripForm--submit" type="submit">
-              </form> -->
+              </form>
   
               <a href="#" class="modal--close">&times;</a>
           </div>
         </div>
-      </section>
+      </section> -->
     
   </section>
-  <script src="js/main.js"></script>
+  <script src="/js/main.js"></script>
   </body>
 </html>
