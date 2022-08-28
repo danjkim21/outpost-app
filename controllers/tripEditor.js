@@ -40,4 +40,40 @@ module.exports = {
       console.log(err);
     }
   },
+  addDestination: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        { _id: req.body.tripIdFromJSFile },
+        {
+          $push: {
+            destinations: { location: req.body.newDestination },
+          },
+        },
+        { upsert: true }
+      );
+      console.log(`Added Destination: ${req.body.tripIdFromJSFile}`);
+      res.json('Added Destination');
+      res.redirect('/');
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  deleteDestination: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        { _id: req.body.tripIdFromJSFile },
+        {
+          $pull: {
+            destinations: {location: req.body.destinationFromJSFile},
+          },
+        }
+      );
+      console.log(
+        `Deleted: ${req.body.destinationFromJSFile} from ${req.body.tripIdFromJSFile}`
+      );
+      res.json(`Deleted: ${req.body.destinationFromJSFile}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

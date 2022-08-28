@@ -9,4 +9,8 @@ router.put('/editTitle', tripEditorController.editTitle);
 
 router.put('/editDescription', tripEditorController.editDescription);
 
+router.put('/addDestination', tripEditorController.addDestination);
+
+router.put('/deleteDestination', tripEditorController.deleteDestination);
+
 module.exports = router;

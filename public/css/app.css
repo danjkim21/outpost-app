@@ -59,6 +59,27 @@ body {
 
 }
 
+/* New Destination Item Styling  */
+.newDestination--item {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  background-color: #CCD6F8;
+  border-radius: 4px;
+}
+.newDestination--icon {
+  margin-right: 1rem;
+}
+.newDestination--icon > i {
+  color: #335AE5;
+  font-size: 2.5rem;
+}
+.newDestination--btns {
+  margin-left: auto;
+}
+
 /* Create Trip btn modal */
 .wrapper {
   position: absolute;

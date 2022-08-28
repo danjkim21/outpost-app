@@ -8,6 +8,11 @@ const TripSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  creationDate: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  },
   completed: {
     type: Boolean,
     required: true,
@@ -18,7 +23,7 @@ const TripSchema = new mongoose.Schema({
   },
   destinations: {
     type: Array,
-  }
+  },
 });
 
 module.exports = mongoose.model('Trip', TripSchema);
