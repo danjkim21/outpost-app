@@ -46,7 +46,12 @@ module.exports = {
         { _id: req.body.tripIdFromJSFile },
         {
           $push: {
-            destinations: { location: req.body.newDestination },
+            destinations: {
+              location: req.body.newDestination,
+              notes: '',
+              startDate: '',
+              endDate: '',
+            },
           },
         },
         { upsert: true }
@@ -64,7 +69,7 @@ module.exports = {
         { _id: req.body.tripIdFromJSFile },
         {
           $pull: {
-            destinations: {location: req.body.destinationFromJSFile},
+            destinations: { location: req.body.destinationFromJSFile },
           },
         }
       );
@@ -72,6 +77,24 @@ module.exports = {
         `Deleted: ${req.body.destinationFromJSFile} from ${req.body.tripIdFromJSFile}`
       );
       res.json(`Deleted: ${req.body.destinationFromJSFile}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  editDestStartDate: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        {
+          _id: req.body.tripIdFromJSFile,
+          'destinations.location': req.body.destinationFromJSFile,
+        },
+        {
+          $set: { 'destinations.startDate': req.body.startDateFromJSFile },
+        },
+        { upsert: true }
+      );
+      console.log(`Edited Start Date`);
+      res.json('Edited Start Date');
     } catch (err) {
       console.log(err);
     }

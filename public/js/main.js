@@ -7,7 +7,8 @@ const tripTitleEdit = document.querySelector('.trip--title');
 const tripDescEdit = document.querySelector('.trip--description');
 const addDestination = document.querySelector('.newDestination--btn');
 const deleteDestinationBtn = document.querySelectorAll('.deleteDestination--btn');
-const editDestinationBtn = document.querySelectorAll('.editDestination--btn');
+const destinationStartDate = document.querySelectorAll('.destination--startDate');
+const destinationEndDate = document.querySelectorAll('.destination--endDate');
 
 // ********** Event Listeners ********** //
 Array.from(deleteBtn).forEach((el) => {
@@ -26,8 +27,12 @@ Array.from(deleteDestinationBtn).forEach((el) => {
   el.addEventListener('click', deleteDestination);
 });
 
-Array.from(editDestinationBtn).forEach((el) => {
-  el.addEventListener('click', editDestination);
+Array.from(destinationStartDate).forEach((el) => {
+  el.addEventListener('input', editDestStartDate);
+});
+
+Array.from(destinationEndDate).forEach((el) => {
+  el.addEventListener('input', editDestEndDate);
 });
 
 tripTitleEdit.addEventListener('focusout', editTitle);
@@ -179,6 +184,32 @@ async function deleteDestination() {
   }
 }
 
-async function editDestination() {
+async function editDestStartDate() {
   const tripId = this.parentNode.dataset.id;
+  const destination = this.parentNode.dataset.loc;
+  const startDate = this.value;
+  console.log(tripId, destination, startDate)
+
+  try {
+    const response = await fetch('editDestStartDate', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        destinationFromJSFile: destination,
+        startDateFromJSFile: startDate,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function editDestEndDate() {
+  const tripId = this.parentNode.dataset.id;
+  const endDate = this.value;
+  console.log(tripId, endDate)
+
 }

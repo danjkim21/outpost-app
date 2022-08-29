@@ -1,59 +1,90 @@
 <%- include("partials/sidebar") %>
 
-  <section class="content--body appmain" data-id="<%=trip[0]._id%>"">
+  <section class="content--body appmain" data-id="<%=trip[0]._id%>">
     <h1 class="trip--title editable" contenteditable="true"><%= trip[0].trip %></h1>
 
-    <p class="trip--createInfo">Created by <span> <%= user.userName %> </span> on <%= trip[0].creationDate %></p>
+    <p class="trip--createInfo">Created by <span class="trip--user"> <%= user.userName %> </span> on <%= trip[0].creationDate %></p>
 
     <p class="trip--description editable" contenteditable="true"><%= trip[0].description ? trip[0].description : 'Enter trip description...' %></p> 
     
     <section class="trip--overview">
       <section class="overview--details">
-        <span class="detail--title">Travelers: </span>
+        <span class="detail--title">
+          <i class="fa-solid fa-user-group"></i> Travelers: </span>
         <span class="detail--value"><%= user.userName %></span>
       </section>
       <section class="overview--details">
-        <span class="detail--title">Stops: </span>
+        <span class="detail--title">
+          <i class="fa-solid fa-location-dot"></i> Stops: </span>
         <span class="detail--value"><%= trip[0].destinations.length %></span>
       </section>
       <section class="overview--details">
-        <span class="detail--title">Start Date: </span>
-        <span class="detail--value"></span>
-      </section>
-      <section class="overview--details">
-        <span class="detail--title">End Date: </span>
-        <span class="detail--value"></span>
+        <span class="detail--title">
+          <i class="fa-solid fa-calendar-day"></i> Travel Dates: </span>
+        <span class="detail--value">   </span>
       </section>
     </section>
 
+    <!-- Trip Destination Card Template EJS -->
     <section class="trip--destinations">
       <h3 class="destination--title">Destinations</h3>
 
+      <!-- Add new destination components -->
+      <section class="newDestination" data-id="<%=trip[0]._id%>">
+        <input class="newDestination--input" type="text" name="newDestination" placeholder="Enter New Destination">
+        <button class="newDestination--btn"> Add Destination </button>
+      </section>
+      
+      <!-- Render destination cards if available -->
       <% if (trip[0].destinations) { %>
 
         <% trip[0].destinations.map(destination => { %>
-
           <section class="newDestination--item" data-id="<%=trip[0]._id%>" >
+            <!-- Card Icon -->
             <section class="newDestination--icon" data-id="<%=trip[0]._id%>">
               <i class="fa-solid fa-plane"></i>
             </section>
+
+            <!-- Editable Card Information -->
             <section class="newDestination--info" data-id="<%=trip[0]._id%>" >
+              <!-- Location -->
               <h4 class="newDestination--location editable" contenteditable="true"> <%= destination.location %> </h4> 
-              <p class="newDestination--desc editable" contenteditable="true">Enter brief description... </p> 
+              <!-- Start - End Dates -->
+              <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
+                <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
+                <input class="destination--endDate" type="date" 
+                name="destination--endDate" id="" value="<%= destination.endDate %>">
+              </section>
             </section>
+
+            <!-- Card Btns -->
             <section class="newDestination--btns" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" >
-              <i class="editDestination--btn fa-solid fa-expand"></i>
+              <a href="#<%= destination.location %>"><i class="editDestination--btn fa-solid fa-expand"></i></a>
               <i class="deleteDestination--btn fa-solid fa-trash-can"></i>
+            </section>
+          </section>
+
+          <!-- Destination Expanded Modal -->
+          <section id="<%= destination.location %>" class="modal expanded">
+            <section class="modal--content expanded">
+              <!-- Location -->
+              <h2 class="newDestination--location editable" contenteditable="true"><%= destination.location %></h2>
+
+              <!-- Start - End Dates -->
+              <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
+                <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
+                <input class="destination--endDate" type="date" 
+                name="destination--endDate" id="" value="<%= destination.endDate %>">
+              </section>
+
+              <!-- Editable Notes -->
+              <p class="destination--notes editable" contenteditable="true"><%= destination.description ? destination.description : "Add notes..." %></p>
+              <a href="#" class="modal--close">&times;</a>
             </section>
           </section>
 
         <% }) %>
       <% } %>
-
-    <section class="newDestination" data-id="<%=trip[0]._id%>">
-      <input class="newDestination--input" type="text" name="newDestination" placeholder="Enter New Destination">
-      <button class="newDestination--btn"> Add Destination </button>
-    </section>
 
     </section>
     

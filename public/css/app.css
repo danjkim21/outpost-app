@@ -46,41 +46,7 @@ body {
   width: 75vw;
   padding-top: 7.5vh;
 }
-
-/* --------- MY TRIPS STYLING --------- */
-/* Add Trip form Styling */
-.addTripForm--input {
-  height: 40px;
-  width: 100%;
-  padding-left: 5px;
-  border: none;
-  border-bottom: 1.5px solid rgb(158, 158, 158);
-  background-color: transparent;
-
-}
-
-/* New Destination Item Styling  */
-.newDestination--item {
-  display: flex;
-  justify-content:space-between;
-  align-items: center;
-  margin: 1rem 0;
-  padding: 0 1rem;
-  background-color: #CCD6F8;
-  border-radius: 4px;
-}
-.newDestination--icon {
-  margin-right: 1rem;
-}
-.newDestination--icon > i {
-  color: #335AE5;
-  font-size: 2.5rem;
-}
-.newDestination--btns {
-  margin-left: auto;
-}
-
-/* Create Trip btn modal */
+/* Modal Styling */
 .wrapper {
   position: absolute;
   right: 3.5vw;
@@ -90,35 +56,37 @@ body {
   display: inline-block;
   text-decoration: none;
   padding: 12.5px;
-  background-color: #335AE5;
+  background-color: #335ae5;
   border-radius: 3px;
   text-transform: uppercase;
   color: white;
+}
+.modal--content {
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  background: #f2f5fd;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.15);
+  padding: 1em 2em;
 }
 .modal {
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  right: 10vw;
-  bottom: 5vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* background: rgba(77, 77, 77, 0.7); */
   transition: all 0.4s;
 }
 .modal:target {
   visibility: visible;
   opacity: 1;
-}
-.modal--content {
-  border-radius: 4px;
-  position: relative;
-  height: 75px;
-  width: 375px;
-  max-width: 90%;
-  background: #f2f5fd;
-  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
-  padding: 1em 2em;
 }
 .modal--close {
   position: absolute;
@@ -127,8 +95,124 @@ body {
   color: #585858;
   text-decoration: none;
 }
+/* Destination expanded specific styling */
+.modal--content.expanded {
+  width: 850px;
+}
+.modal.expanded {
+  background: rgba(77, 77, 77, 0.45);
+}
 
-/* OLD - FROM TODO APP TEST */
+/* --------- MY TRIPS PAGE STYLING --------- */
+/* Add Trip form Styling */
+.addTripForm--input {
+  height: 40px;
+  width: 100%;
+  padding-left: 5px;
+  border: none;
+  border-bottom: 1.5px solid rgb(158, 158, 158);
+  background-color: transparent;
+}
+
+/* --------- TRIPS EDITOR PAGE STYLING --------- */
+/* Top line info Styling */
+.trip--title {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin-top: 0;
+}
+.trip--user {
+  font-weight: 700;
+}
+.trip--description {
+  padding: 0.95rem 0 ;
+  border-top: 1px solid #ccd6f8;
+  border-bottom: 1px solid #ccd6f8;
+}
+
+/* Trip Overview Section Styling */
+.trip--overview > .overview--details > span {
+ display: inline-block;
+}
+.overview--details > .detail--title {
+  padding: 0.35rem;
+  padding-right: 1rem;
+  width: 30%;
+}
+.detail--title > i {
+  color: #667dd1;
+
+}
+.overview--details > .detail--value {
+  padding: 0.35rem;
+  width: 65%;
+}
+.detail--title:hover, .detail--value:hover {
+  background-color: #ccd6f8;
+  border-radius: 4px;
+}
+
+/* New Destination Card Item Styling  */
+.newDestination--item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 115px;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  background-color: #f2f5fd;
+  border-radius: 4px;
+}
+.newDestination--location {
+  font-weight: 400;
+}
+.newDestination--info > .newDestination--location {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.destination--startDate, .destination--endDate {
+  border: 2px solid #ccd6f8;
+  border-radius: 4px;
+}
+.newDestination--icon {
+  margin-right: 1rem;
+}
+.newDestination--icon > i {
+  color: #99ADF2;
+  font-size: 2.5rem;
+}
+.newDestination--btns {
+  margin-left: auto;
+}
+.newDestination--btns i {
+  color: #6683EB;
+}
+.newDestination--btns i:hover {
+  cursor: pointer;
+}
+
+/* Add new destination input/btn component */
+.newDestination--input {
+  padding: 10px 5px;
+  width: 250px;
+  border: 2px solid #ccd6f8;
+  border-radius: 4px;
+}
+.newDestination--btn {
+  padding: 10px 2px;
+  width: 155px;
+  background-color: #335ae5;
+  color: #ffffff;
+  border: 1px solid #335ae5;
+  border-radius: 4px;
+}
+.newDestination--btn:hover {
+  cursor: pointer;
+}
+
+
+/* --------- OLD - FROM TODO APP TEST --------- */
 .completed {
   text-decoration: line-through;
   color: gray;

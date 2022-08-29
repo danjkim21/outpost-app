@@ -13,4 +13,6 @@ router.put('/addDestination', tripEditorController.addDestination);
 
 router.put('/deleteDestination', tripEditorController.deleteDestination);
 
+router.put('/editDestStartDate', tripEditorController.editDestStartDate);
+
 module.exports = router;
