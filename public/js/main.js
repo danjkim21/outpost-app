@@ -209,7 +209,23 @@ async function editDestStartDate() {
 
 async function editDestEndDate() {
   const tripId = this.parentNode.dataset.id;
+  const destination = this.parentNode.dataset.loc;
   const endDate = this.value;
   console.log(tripId, endDate)
 
+  try {
+    const response = await fetch('editDestEndDate', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        destinationFromJSFile: destination,
+        endDateFromJSFile: endDate,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
 }

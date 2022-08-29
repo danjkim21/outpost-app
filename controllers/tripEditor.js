@@ -86,15 +86,43 @@ module.exports = {
       await Trip.findOneAndUpdate(
         {
           _id: req.body.tripIdFromJSFile,
-          'destinations.location': req.body.destinationFromJSFile,
         },
         {
-          $set: { 'destinations.startDate': req.body.startDateFromJSFile },
+          $set: { 'destinations.$[destination].startDate': req.body.startDateFromJSFile },
         },
-        { upsert: true }
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.body.destinationFromJSFile,
+            },
+          ],
+        }
       );
       console.log(`Edited Start Date`);
       res.json('Edited Start Date');
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  editDestEndDate: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        {
+          _id: req.body.tripIdFromJSFile,
+        },
+        {
+          $set: { 'destinations.$[destination].endDate': req.body.endDateFromJSFile },
+        },
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.body.destinationFromJSFile,
+            },
+          ],
+        }
+      );
+      console.log(`Edited End Date`);
+      res.json('Edited End Date');
     } catch (err) {
       console.log(err);
     }
