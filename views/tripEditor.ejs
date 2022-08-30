@@ -3,7 +3,7 @@
   <section class="content--body appmain" data-id="<%=trip[0]._id%>">
     <h1 class="trip--title editable" contenteditable="true"><%= trip[0].trip %></h1>
 
-    <p class="trip--createInfo">Created by <span class="trip--user"> <%= user.userName %> </span> on <%= trip[0].creationDate %></p>
+    <p class="trip--createInfo">Created by <span class="trip--user"> <%= user.userName %> </span> on <%= trip[0].creationDate.toDateString() %></p>
 
     <p class="trip--description editable" contenteditable="true"><%= trip[0].description ? trip[0].description : 'Enter trip description...' %></p> 
     
@@ -11,7 +11,7 @@
       <section class="overview--details">
         <span class="detail--title">
           <i class="fa-solid fa-user-group"></i> Travelers: </span>
-        <span class="detail--value"><%= user.userName %></span>
+        <span class="detail--value"><%= trip[0].sharedUsers.map(user => Object.values(user)) %></span>
       </section>
       <section class="overview--details">
         <span class="detail--title">
@@ -54,6 +54,12 @@
                 <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
                 <input class="destination--endDate" type="date" 
                 name="destination--endDate" id="" value="<%= destination.endDate %>">
+                <!-- <% if (destination.startDate && destination.endDate) { %>
+                  <section>
+                    <span><%= destination.startDate.split('-').join('.') %></span> → 
+                    <span><%= destination.endDate.split('-').join('.') %></span>
+                  </section>
+                <% } %> -->
               </section>
             </section>
 
@@ -79,6 +85,16 @@
 
               <!-- Editable Notes -->
               <p class="destination--notes editable" contenteditable="true"><%= destination.description ? destination.description : "Add notes..." %></p>
+
+              <!-- Destination Content Tabs -->
+              <section class="content--nav">
+                <button class="content--tabs active">Summary</button>
+                <button class="content--tabs">Itinerary</button>
+                <button class="content--tabs">Flights/Travel</button>
+                <button class="content--tabs">Accomodations</button>
+              </section>
+
+              <!-- Close Modal Btn -->
               <a href="#" class="modal--close">&times;</a>
             </section>
           </section>

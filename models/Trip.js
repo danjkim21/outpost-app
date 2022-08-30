@@ -21,6 +21,10 @@ const TripSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  sharedUsers: {
+    type: Array,
+
+  },
   destinations: {
     type: Array,
   },

@@ -20,6 +20,7 @@ module.exports = {
         trip: req.body.tripItem,
         completed: false,
         userId: req.user.id,
+        sharedUsers: {[req.user.id]: req.user.userName},
       });
       console.log('Trip has been added!');
       res.redirect('/trips');

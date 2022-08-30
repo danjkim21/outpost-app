@@ -9,6 +9,7 @@ const addDestination = document.querySelector('.newDestination--btn');
 const deleteDestinationBtn = document.querySelectorAll('.deleteDestination--btn');
 const destinationStartDate = document.querySelectorAll('.destination--startDate');
 const destinationEndDate = document.querySelectorAll('.destination--endDate');
+const destinationContentTabs = document.querySelectorAll('.content--tabs')
 
 // ********** Event Listeners ********** //
 Array.from(deleteBtn).forEach((el) => {
@@ -33,6 +34,10 @@ Array.from(destinationStartDate).forEach((el) => {
 
 Array.from(destinationEndDate).forEach((el) => {
   el.addEventListener('input', editDestEndDate);
+});
+
+Array.from(destinationContentTabs).forEach((el) => {
+  el.addEventListener('click', toggleContentTab);
 });
 
 tripTitleEdit.addEventListener('focusout', editTitle);
@@ -228,4 +233,12 @@ async function editDestEndDate() {
   } catch (err) {
     console.error(err);
   }
+}
+
+async function toggleContentTab() {
+  Array.from(destinationContentTabs).forEach(tab => {
+    tab.classList.remove('active') 
+  });
+
+  this.classList.toggle('active')
 }

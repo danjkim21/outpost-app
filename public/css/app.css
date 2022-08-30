@@ -5,6 +5,9 @@ body {
 
 /* --------- SIDE BAR STYLING --------- */
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 25vw;
   background: #f2f5fd;
@@ -45,6 +48,7 @@ body {
   height: 100%;
   width: 75vw;
   padding-top: 7.5vh;
+  margin-left: 25vw;
 }
 /* Modal Styling */
 .wrapper {
@@ -98,6 +102,9 @@ body {
 /* Destination expanded specific styling */
 .modal--content.expanded {
   width: 850px;
+  height: 650px;
+  max-height: 90%;
+  overflow: auto;
 }
 .modal.expanded {
   background: rgba(77, 77, 77, 0.45);
@@ -126,14 +133,14 @@ body {
   font-weight: 700;
 }
 .trip--description {
-  padding: 0.95rem 0 ;
+  padding: 0.95rem 0;
   border-top: 1px solid #ccd6f8;
   border-bottom: 1px solid #ccd6f8;
 }
 
 /* Trip Overview Section Styling */
 .trip--overview > .overview--details > span {
- display: inline-block;
+  display: inline-block;
 }
 .overview--details > .detail--title {
   padding: 0.35rem;
@@ -142,13 +149,13 @@ body {
 }
 .detail--title > i {
   color: #667dd1;
-
 }
 .overview--details > .detail--value {
   padding: 0.35rem;
   width: 65%;
 }
-.detail--title:hover, .detail--value:hover {
+.detail--title:hover,
+.detail--value:hover {
   background-color: #ccd6f8;
   border-radius: 4px;
 }
@@ -171,7 +178,10 @@ body {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
-.destination--startDate, .destination--endDate {
+.destination--startDate,
+.destination--endDate {
+  color: #303030;
+  background-color: #f2f5fd;
   border: 2px solid #ccd6f8;
   border-radius: 4px;
 }
@@ -179,17 +189,41 @@ body {
   margin-right: 1rem;
 }
 .newDestination--icon > i {
-  color: #99ADF2;
+  color: #99adf2;
   font-size: 2.5rem;
 }
 .newDestination--btns {
   margin-left: auto;
 }
 .newDestination--btns i {
-  color: #6683EB;
+  color: #667dd1;
 }
 .newDestination--btns i:hover {
   cursor: pointer;
+}
+
+/* New Destination Card Modal Content Styling */
+.destination--notes {
+  padding: 0.95rem 0;
+  border-top: 1px solid #ccd6f8;
+  border-bottom: 1px solid #ccd6f8;
+}
+.content--nav {
+  width: auto;
+  overflow-x: overlay;
+}
+.content--tabs {
+  background-color: #f2f5fd;
+  border: 1px solid #ccd6f8;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.content--tabs:hover {
+  cursor: pointer;
+}
+.content--tabs.active {
+  color: #1d48e4;
+  background-color: #ccd6f8;
 }
 
 /* Add new destination input/btn component */
@@ -210,7 +244,6 @@ body {
 .newDestination--btn:hover {
   cursor: pointer;
 }
-
 
 /* --------- OLD - FROM TODO APP TEST --------- */
 .completed {
