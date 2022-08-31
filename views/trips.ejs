@@ -13,12 +13,14 @@
 
         <section class="tripsCard--upcoming" data-id='<%=el._id%>'>
           <img class="tripsCard--img" src="<%= el.displayImg %>" alt="trip img placeholder">
-          <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>
-          <section class="tripsCard-btns" data-id='<%=el._id%>'>
-            <span class='del'>Delete </span>
-            <span> - </span>
-            <a class="editTrip" href="/tripEditor/<%= el._id%>">Edit</a>
+          <section class="tripsCard--overview">
+            <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>
+            <section class="tripsCard-btns" data-id='<%=el._id%>'>
+              <span class='del'><i class="fa-regular fa-circle-xmark"></i> </span>
+              <a class="editTrip" href="/tripEditor/<%= el._id%>"><i class="fa-regular fa-pen-to-square"></i></a>
+            </section>
           </section>
+          
         </section>
 
       <% }) %> 
@@ -32,12 +34,14 @@
 
         <section class="tripsCard--completed" data-id='<%=el._id%>'>
           <img class="tripsCard--img <%= el.completed && 'hidden-img' %>" src="<%= el.displayImg %>" alt="trip img placeholder">
-          <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>            
-           <section class="tripsCard-btns" data-id='<%=el._id%>'>
-            <span class='del'>Delete </span>
-            <span> - </span>
-            <a class="editTrip" href="/tripEditor/<%= el._id%>">Edit</a>
+          <section class="tripsCard--overview">
+            <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>            
+            <section class="tripsCard-btns" data-id='<%=el._id%>'>
+             <span class='del'><i class="fa-regular fa-circle-xmark"></i></span>
+             <a class="editTrip" href="/tripEditor/<%= el._id%>"><i class="fa-regular fa-pen-to-square"></i></a>
+           </section>
           </section>
+          
         </section>
 
       <% }) %> 

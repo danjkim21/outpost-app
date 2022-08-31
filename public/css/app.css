@@ -125,16 +125,19 @@ body {
 .tripsCard {
   display: flex;
   justify-content: flex-start;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
 }
-.tripsCard--upcoming, .tripsCard--completed {
+.tripsCard--upcoming,
+.tripsCard--completed {
   height: 265px;
   width: 200px;
   background-color: #f2f5fd;
   border: 1px solid #f2f5fd;
   border-radius: 4px;
   padding: 0.55rem;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2.5px 2.5px 15px 5.5px rgba(163, 163, 163, 0.3);
 }
 .tripsCard--img {
   height: 180px;
@@ -145,10 +148,33 @@ body {
 .tripsCard--img.hidden-img {
   filter: grayscale(100%);
 }
-
+.tripsCard--overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0.55rem 0;
+}
 .tripsCard--title {
-  margin-top: 0.55rem;
-  margin-bottom: 0.55rem;
+  margin: 0;
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tripsCard-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.tripsCard-btns > a, .tripsCard-btns i {
+  color: #667dd1;
+}
+.tripsCard-btns i {
+  font-size: 20px;
+}
+.tripsCard-btns > a:hover, .tripsCard-btns span:hover {
+  cursor: pointer;
 }
 
 /* --------- TRIPS EDITOR PAGE STYLING --------- */
