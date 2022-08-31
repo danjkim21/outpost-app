@@ -121,6 +121,32 @@ body {
   background-color: transparent;
 }
 
+/* Trips Cards Styling */
+.tripsCard {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  align-items: center;
+}
+.tripsCard--upcoming, .tripsCard--completed {
+  height: 265px;
+  width: 200px;
+  background-color: #f2f5fd;
+  border: 1px solid #f2f5fd;
+  border-radius: 4px;
+  padding: 0.55rem;
+}
+.tripsCard--img {
+  height: 180px;
+  width: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.tripsCard--title {
+  margin-top: 0.55rem;
+  margin-bottom: 0.55rem;
+}
+
 /* --------- TRIPS EDITOR PAGE STYLING --------- */
 /* Top line info Styling */
 .trip--title {

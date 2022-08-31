@@ -1,7 +1,7 @@
 // ********** Query Selectors ********** //
 const deleteBtn = document.querySelectorAll('.del');
-const tripItem = document.querySelectorAll('span.not');
-const tripComplete = document.querySelectorAll('span.completed');
+const tripItem = document.querySelectorAll('h4.not');
+const tripComplete = document.querySelectorAll('h4.completed');
 const tripEditor = document.querySelectorAll('.editTrip');
 const tripTitleEdit = document.querySelector('.trip--title');
 const tripDescEdit = document.querySelector('.trip--description');
