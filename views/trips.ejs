@@ -31,7 +31,7 @@
       <% trips.filter( el => el.completed ).map( el => { %>
 
         <section class="tripsCard--completed" data-id='<%=el._id%>'>
-          <img class="tripsCard--img" src="#" alt="trip img placeholder">
+          <img class="tripsCard--img <%= el.completed && 'hidden-img' %>" src="<%= el.displayImg %>" alt="trip img placeholder">
           <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>            
            <section class="tripsCard-btns" data-id='<%=el._id%>'>
             <span class='del'>Delete </span>

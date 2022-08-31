@@ -142,6 +142,10 @@ body {
   object-fit: cover;
   border-radius: 4px;
 }
+.tripsCard--img.hidden-img {
+  filter: grayscale(100%);
+}
+
 .tripsCard--title {
   margin-top: 0.55rem;
   margin-bottom: 0.55rem;
