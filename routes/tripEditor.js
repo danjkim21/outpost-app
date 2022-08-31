@@ -9,6 +9,8 @@ router.put('/editTitle', tripEditorController.editTitle);
 
 router.put('/editDescription', tripEditorController.editDescription);
 
+router.put('/changeCoverImg', tripEditorController.changeCoverImg);
+
 router.put('/addDestination', tripEditorController.addDestination);
 
 router.put('/deleteDestination', tripEditorController.deleteDestination);

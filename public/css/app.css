@@ -178,12 +178,45 @@ body {
 }
 
 /* --------- TRIPS EDITOR PAGE STYLING --------- */
+/* Cover Img Styling */
+.trip--cover:hover .changeCoverImg {
+  display: block;
+}
+.trip--coverImg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 25vh;
+  width: 75vw;
+  object-fit: cover;
+}
+.changeCoverImg {
+  display: none;
+  position: absolute;
+  right: 5.5vw;
+  top: 10vw;
+}
+.changeCoverImg-input {
+  width: 185px;
+  padding: 5px 5px;
+  border: 2px solid #ccd6f8;
+  border-radius: 4px 0 0 4px;
+}
+.changeCoverImg-btn {
+  width: 135px;
+  padding: 5px 5px;
+  color: white; 
+  background-color: #335ae5;
+  border: 2px solid #335ae5;
+  border-radius: 0 4px 4px 0;
+}
+
 /* Top line info Styling */
 .trip--title {
   display: inline-block;
   width: auto;
   height: auto;
-  margin-top: 0;
+  margin-top: 22.5vh;
 }
 .trip--user {
   font-weight: 700;

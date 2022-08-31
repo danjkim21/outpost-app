@@ -1,6 +1,14 @@
 <%- include("partials/sidebar") %>
 
   <section class="content--body appmain" data-id="<%=trip[0]._id%>">
+    <section class="trip--cover">
+      <img class="trip--coverImg" src="<%= trip[0].displayImg %>" alt="">
+
+      <section class="changeCoverImg" data-id="<%=trip[0]._id%>">
+        <input class="changeCoverImg-input" type="text" name="displayImg" placeholder="enter URL"><button class="changeCoverImg-btn">Change Cover</button>
+      </section>
+    </section>
+
     <h1 class="trip--title editable" contenteditable="true"><%= trip[0].trip %></h1>
     
     <section class="trip--overview">

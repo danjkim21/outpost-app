@@ -40,6 +40,22 @@ module.exports = {
       console.log(err);
     }
   },
+  changeCoverImg: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        {
+          _id: req.body.tripIdFromJSFile,
+        },
+        {
+          $set: { displayImg: req.body.coverImgFromJSFile },
+        }
+      );
+      console.log(`Changed Cover Image`);
+      res.json('Changed Cover Image');
+    } catch (err) {
+      console.log(err);
+    }
+  },
   addDestination: async (req, res) => {
     try {
       await Trip.findOneAndUpdate(

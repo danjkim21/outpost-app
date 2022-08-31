@@ -5,6 +5,7 @@ const tripComplete = document.querySelectorAll('h4.completed');
 const tripEditor = document.querySelectorAll('.editTrip');
 const tripTitleEdit = document.querySelector('.trip--title');
 const tripDescEdit = document.querySelector('.trip--description');
+const coverImgEdit = document.querySelector('.changeCoverImg-btn')
 const addDestination = document.querySelector('.newDestination--btn');
 const deleteDestinationBtn = document.querySelectorAll('.deleteDestination--btn');
 const destinationStartDate = document.querySelectorAll('.destination--startDate');
@@ -43,6 +44,8 @@ Array.from(destinationContentTabs).forEach((el) => {
 tripTitleEdit.addEventListener('focusout', editTitle);
 
 tripDescEdit.addEventListener('focusout', editDescription);
+
+coverImgEdit.addEventListener('click', changeCoverImage)
 
 addDestination.addEventListener('click', addNewDestination);
 
@@ -140,6 +143,27 @@ async function editDescription() {
     });
     const data = await response.json();
     console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function changeCoverImage() {
+  const tripId = this.parentNode.dataset.id;
+  const newUrl = document.querySelector('.changeCoverImg-input').value.trim();
+
+  try {
+    const response = await fetch('changeCoverImg', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        coverImgFromJSFile: newUrl,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    location.reload();
   } catch (err) {
     console.error(err);
   }
