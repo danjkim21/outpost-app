@@ -1,6 +1,7 @@
 <%- include("partials/sidebar") %>
 
   <section class="content--body appmain" data-id="<%=trip[0]._id%>">
+    <!-- Editable Trip Cover Image -->
     <section class="trip--cover">
       <img class="trip--coverImg" src="<%= trip[0].displayImg %>" alt="">
 
@@ -9,8 +10,10 @@
       </section>
     </section>
 
+    <!-- Trip Title -->
     <h1 class="trip--title editable" contenteditable="true"><%= trip[0].trip %></h1>
     
+    <!-- Trip Overview Section -->
     <section class="trip--overview">
       <section class="overview--details">
         <span class="detail--title">
@@ -30,10 +33,19 @@
       <section class="overview--details">
         <span class="detail--title">
           <i class="fa-solid fa-calendar-day"></i> Travel Dates: </span>
-        <span class="detail--value">   </span>
+
+        <span class="detail--value">
+          <% if (trip[0].destinations.length >= 1) { %>
+            <!-- Get Earliest Start Date by sorted array at 0th position-->
+            <span><%= trip[0].destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[0].startDate %> → </span>  
+            <!-- Get Latest End Date by sorted array at end position -->
+            <span><%= trip[0].destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[trip[0].destinations.length - 1].endDate %></span>  
+          <% } %>
+        </span>
       </section>
     </section>
 
+    <!-- Editable Trip Description -->
     <p class="trip--description editable" contenteditable="true"><%= trip[0].description ? trip[0].description : 'Enter trip description...' %></p> 
 
     <!-- Trip Destination Card Template EJS -->
@@ -45,11 +57,11 @@
         <input class="newDestination--input" type="text" name="newDestination" placeholder="Enter New Destination">
         <button class="newDestination--btn"> Add Destination </button>
       </section>
-      
+
       <!-- Render destination cards if available -->
       <% if (trip[0].destinations) { %>
 
-        <% trip[0].destinations.map(destination => { %>
+        <% trip[0].destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1).map(destination => { %>
           <section class="newDestination--item" data-id="<%=trip[0]._id%>" >
             <!-- Card Icon -->
             <section class="newDestination--icon" data-id="<%=trip[0]._id%>">
