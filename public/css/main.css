@@ -9,11 +9,11 @@
 }
 .header--title {
   margin-right: auto;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 20px;
 }
 .header--logo {
-  margin-right: 10px;
+  margin-right: 15px;
   height: 38.5px;
 }
 
@@ -33,16 +33,32 @@
 
 /* --------- LANDING PAGE STYLING --------- */
 .content--body.main {
-  padding-top: 12.5vh;
+  padding-top: 2.5vh;
 }
 .hero {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  height: 500px;
+  align-items: center;
+  height: 650px;
 }
 .hero--content {
   width: 50vw;
+}
+.hero--title {
+  font-weight: 400;
+}
+.hero--desc {
+  line-height: 1.35rem;
+}
+.hero--content {
+  z-index: 2;
+}
+.hero--img__backdrop {
+  position: absolute;
+  max-width: 550px;
+  left: 10%;
+  top: 20%;
+  z-index: 0;
 }
 
 .btns--primary {
@@ -112,7 +128,17 @@ footer {
   margin: 1vh 0;
 	padding-top: 5.5vh;
 	padding-bottom: 5.5vh;
-	border-top: 1px solid #74797865;
+	border-top: 1px solid #70747a46;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer small {
+  font-size: 14px;
+}
+footer .socials--link {
+  color:#0030deb6;
+  font-size: 25px;
 }
 
 /* --------- MEDIA QUERIES --------- */
