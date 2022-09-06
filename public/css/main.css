@@ -83,6 +83,12 @@
   border-radius: 4px;
 }
 
+.textGradient {
+  font-weight: 700;
+  background: -webkit-linear-gradient(60deg, #5f5cf2, #7dc8ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 /* --------- LOGIN/SIGNUP STYLING --------- */
 .content--body.register {
   display: flex;
