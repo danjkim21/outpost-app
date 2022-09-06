@@ -18,22 +18,24 @@
       <section class="overview--details">
         <span class="detail--title">
           <i class="fa-solid fa-user-group"></i> Travelers: </span>
+          <!-- Gets all usernames from sharedUsers Object -->
         <span class="detail--value"><%= trip[0].sharedUsers.map(user => Object.values(user)) %></span>
       </section>
       <section class="overview--details">
         <span class="detail--title">
           <i class="fa-solid fa-clock"></i> Created: </span>
+          <!-- Formats and gets the date trip was created -->
         <span class="detail--value"><%= trip[0].creationDate.toDateString() %></span>
       </section>
       <section class="overview--details">
         <span class="detail--title">
           <i class="fa-solid fa-location-dot"></i> Stops: </span>
+          <!-- Calculates the total number of trip destinations -->
         <span class="detail--value"><%= trip[0].destinations.length %></span>
       </section>
       <section class="overview--details">
         <span class="detail--title">
           <i class="fa-solid fa-calendar-day"></i> Travel Dates: </span>
-
         <span class="detail--value">
           <% if (trip[0].destinations.length >= 1) { %>
             <!-- Get Earliest Start Date by sorted array at 0th position-->

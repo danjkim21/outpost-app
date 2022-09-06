@@ -9,10 +9,12 @@
 }
 .header--title {
   margin-right: auto;
-  font-weight: 400;
+  font-weight: 700;
+  font-size: 20px;
 }
 .header--logo {
   margin-right: 10px;
+  height: 38.5px;
 }
 
 /* NAV STYLING */
@@ -107,7 +109,10 @@
 
 /* --------- FOOTER STYLING --------- */
 footer {
-  padding: 0 8.75vw;
+  margin: 1vh 0;
+	padding-top: 5.5vh;
+	padding-bottom: 5.5vh;
+	border-top: 1px solid #74797865;
 }
 
 /* --------- MEDIA QUERIES --------- */
