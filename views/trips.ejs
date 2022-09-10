@@ -5,9 +5,13 @@
 
     <p>Welcome back, you have <%= left %> <%= left === 1 ? "trip" : "trips" %> upcoming trips.</p>
 
+    <section class="tripsCard--tabs">
+      <h2 class="tripsCard--title__Upcoming selected">Upcoming</h2>
+      <h2 class="tripsCard--title__Completed">Completed</h2>
+    </section>
+
     <!-- Upcoming Trips Cards -->
-    <h2>Upcoming</h2>
-    <section class="tripsCard">
+    <section class="tripsCard tripsCard--upcoming__tab selectedCard">
 
       <% trips.filter( el => !el.completed ).map( el => { %>
         <section class="tripsCard--upcoming" data-id='<%=el._id%>'>
@@ -30,8 +34,7 @@
     </section>
 
     <!-- Completed Trips Cards -->
-    <h2>Completed</h2>
-    <section class="tripsCard">
+    <section class="tripsCard tripsCard--completed__tab">
       
       <% trips.filter( el => el.completed ).map( el => { %>
 

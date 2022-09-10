@@ -123,8 +123,27 @@ body {
 }
 
 /* Trips Cards Styling */
-.tripsCard {
+.tripsCard--tabs {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+.tripsCard--title__Upcoming, .tripsCard--title__Completed {
+  display: inline-block;
+  cursor: pointer;
+  color: #676769ca;
+  font-size: 1.35rem;
+  margin: 1rem 0 0.5rem 0;
+
+}
+.tripsCard--title__Upcoming.selected, .tripsCard--title__Completed.selected {
+  color: #000000;
+}
+
+.tripsCard {
+  /* display: flex; */
+  display: none;
   justify-content: flex-start;
   gap: 1.5rem;
   align-items: center;
@@ -133,6 +152,10 @@ body {
   width: 100%;
   overflow-x: scroll;
 }
+.tripsCard.selectedCard {
+  display: flex;
+}
+
 .tripsCard--upcoming,
 .tripsCard--completed {
   height: 265px;
@@ -150,9 +173,6 @@ body {
   width: 180px;
   object-fit: cover;
   border-radius: 2px;
-}
-.tripsCard--img.hidden-img {
-  filter: grayscale(100%);
 }
 .tripsCard--overview {
   display: flex;
