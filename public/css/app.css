@@ -149,7 +149,7 @@ body {
   height: 180px;
   width: 180px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .tripsCard--img.hidden-img {
   filter: grayscale(100%);
