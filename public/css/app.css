@@ -33,14 +33,16 @@ body {
 }
 .sidebar .sidebar--nav li {
   display: block;
-  padding: 2vh 3.5vw;
+  /* padding: 2vh 3.5vw; */
 }
 .sidebar .sidebar--nav li:hover {
   background-color: #ccd6f8;
 }
 .sidebar .sidebar--nav a {
+  display: block;
   text-decoration: none;
   color: #000000;
+  padding: 2vh 3.5vw;
 }
 
 /* --------- MAIN APP STYLING --------- */
@@ -185,6 +187,9 @@ body {
 .tripsCard--text {
   width: 85%;
 }
+.tripsCard--title, .tripsCard--date {
+  font-size: 0.9rem;
+}
 .tripsCard--title {
   margin: 0;
   letter-spacing: normal;
@@ -194,7 +199,7 @@ body {
   text-overflow: ellipsis;
 }
 .tripsCard--date {
-  color: #585858da;
+  color: #5c5f72da;
   letter-spacing: normal;
   font-weight: 500;
   padding-top: 5px;
@@ -377,10 +382,4 @@ body {
 }
 .newDestination--btn:hover {
   cursor: pointer;
-}
-
-/* --------- OLD - FROM TODO APP TEST --------- */
-.completed {
-  text-decoration: line-through;
-  color: gray;
 }

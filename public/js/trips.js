@@ -3,15 +3,6 @@ const deleteBtn = document.querySelectorAll('.del');
 const tripItem = document.querySelectorAll('h4.not');
 const tripComplete = document.querySelectorAll('h4.completed');
 const tripEditor = document.querySelectorAll('.editTrip');
-const tripTitleEdit = document.querySelector('.trip--title');
-const tripDescEdit = document.querySelector('.trip--description');
-const coverImgEdit = document.querySelector('.changeCoverImg-btn');
-const addDestination = document.querySelector('.newDestination--btn');
-const deleteDestinationBtn = document.querySelectorAll('.deleteDestination--btn');
-const destinationStartDate = document.querySelectorAll('.destination--startDate');
-const destinationEndDate = document.querySelectorAll('.destination--endDate');
-const destinationContentTabs = document.querySelectorAll('.content--tabs');
-
 const upcomingTripsTab = document.querySelector('.tripsCard--title__Upcoming');
 const completedTripsTab = document.querySelector('.tripsCard--title__Completed');
 

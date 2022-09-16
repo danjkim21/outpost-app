@@ -7,11 +7,6 @@ module.exports = {
       limitNumber = 1;
       let tripById = await Trip.find({ _id: tripId }).limit(limitNumber);
 
-      // let tripByIdTest = await Trip.aggregate([
-      //   { $match: { _id: tripId }},
-      // ])
-      // console.log(tripByIdTest)
-
       res.render('tripEditor.ejs', { trip: tripById, user: req.user });
       console.log(tripById);
     } catch (err) {

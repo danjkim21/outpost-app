@@ -17,7 +17,7 @@
         <section class="tripsCard--upcoming" data-id='<%=el._id%>'>
           <img class="tripsCard--img" src="<%= el.displayImg %>" alt="trip img placeholder">
           <section class="tripsCard--overview">
-            <section class="tripsCard--text">
+            <section class="tripsCard--text" data-id='<%=el._id%>'>
               <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>
               <div class="tripsCard--date"><%= el.destinations.length >= 1 ? el.destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[0].startDate : '' %></div>
             </section>
