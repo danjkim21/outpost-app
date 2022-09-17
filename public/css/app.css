@@ -317,6 +317,10 @@ body {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
+.modal--content.expanded > .newDestination--location {
+  margin-bottom: 0;
+}
+
 .destination--startDate,
 .destination--endDate {
   color: #303030;
@@ -347,8 +351,9 @@ body {
   border-top: 1px solid #ccd6f8;
   border-bottom: 1px solid #ccd6f8;
 }
-.content--nav {
-  width: auto;
+.modal.expanded .content--nav {
+  padding: 0.95rem 0;
+  width: 100%;
   overflow-x: overlay;
 }
 .content--tabs {
@@ -363,6 +368,20 @@ body {
 .content--tabs.active {
   color: #1d48e4;
   background-color: #ccd6f8;
+}
+.content--area {
+  height: auto;
+}
+.content--areaDisplay {
+  display: none;
+  height: auto;
+  /* margin: 0.95rem 0; */
+}
+.content--areaDisplay.active {
+  display: block;
+}
+.areaDisplay--titles {
+  margin: 0.75rem 0;
 }
 
 /* Add new destination input/btn component */

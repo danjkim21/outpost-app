@@ -70,7 +70,7 @@
             </section>
 
             <!-- Editable Card Information -->
-            <section class="newDestination--info" data-id="<%=trip[0]._id%>" >
+            <section class="newDestination--info" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" >
               <!-- Location -->
               <h4 class="newDestination--location editable" contenteditable="true"> <%= destination.location %> </h4> 
               <!-- Start - End Dates -->
@@ -78,12 +78,6 @@
                 <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
                 <input class="destination--endDate" type="date" 
                 name="destination--endDate" id="" value="<%= destination.endDate %>">
-                <!-- <% if (destination.startDate && destination.endDate) { %>
-                  <section>
-                    <span><%= destination.startDate.split('-').join('.') %></span> → 
-                    <span><%= destination.endDate.split('-').join('.') %></span>
-                  </section>
-                <% } %> -->
               </section>
             </section>
 
@@ -96,26 +90,50 @@
 
           <!-- Destination Expanded Modal -->
           <section id="<%= destination.location %>" class="modal expanded">
-            <section class="modal--content expanded">
+            <section class="modal--content expanded" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
               <!-- Location -->
               <h2 class="newDestination--location editable" contenteditable="true"><%= destination.location %></h2>
 
-              <!-- Start - End Dates -->
-              <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
-                <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
-                <input class="destination--endDate" type="date" 
-                name="destination--endDate" id="" value="<%= destination.endDate %>">
-              </section>
-
-              <!-- Editable Notes -->
-              <p class="destination--notes editable" contenteditable="true"><%= destination.description ? destination.description : "Add notes..." %></p>
-
               <!-- Destination Content Tabs -->
               <section class="content--nav">
-                <button class="content--tabs active">Summary</button>
-                <button class="content--tabs">Itinerary</button>
-                <button class="content--tabs">Flights/Travel</button>
-                <button class="content--tabs">Accomodations</button>
+                <button class="content--tabs tab--overview active">Overview</button>
+                <button class="content--tabs tab--itinerary">Itinerary</button>
+                <button class="content--tabs tab--travel">Flights/Travel</button>
+                <button class="content--tabs tab--accomodations">Accomodations</button>
+              </section>
+
+              <!-- Destination Content -->
+              <section class="content--area">
+                  <section class="content--areaDisplay areaDisplay--overview active">
+                    <!-- Start - End Dates -->
+                    <h3 class="areaDisplay--titles">Travel Dates</h3>
+                    <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
+                      <label for="destination--startDate">Start</label>
+                      <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
+                      <label for="destination--endDate">End</label>
+                      <input class="destination--endDate" type="date" 
+                      name="destination--endDate" id="" value="<%= destination.endDate %>">
+                    </section>
+
+                    <!-- Editable Notes -->
+                    <p class="destination--notes editable" contenteditable="true"><%= destination.description ? destination.description : "Add notes..." %></p>
+
+                  </section>
+
+                  <section class="content--areaDisplay areaDisplay--itinerary">
+                    <h3 class="areaDisplay--titles">Log</h3>
+
+                  </section>
+
+                  <section class="content--areaDisplay areaDisplay--travel">
+                    <h3 class="areaDisplay--titles">Tickets</h3>
+
+                  </section>
+
+                  <section class="content--areaDisplay areaDisplay--accomodations">
+                    <h3 class="areaDisplay--titles">Addresses</h3>
+
+                  </section>
               </section>
 
               <!-- Close Modal Btn -->

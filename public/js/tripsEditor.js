@@ -8,14 +8,19 @@ const tripDescEdit = document.querySelector('.trip--description');
 const coverImgEdit = document.querySelector('.changeCoverImg-btn');
 const addDestination = document.querySelector('.newDestination--btn');
 const deleteDestinationBtn = document.querySelectorAll('.deleteDestination--btn');
+const destinationLocation = document.querySelectorAll('.newDestination--location');
 const destinationStartDate = document.querySelectorAll('.destination--startDate');
 const destinationEndDate = document.querySelectorAll('.destination--endDate');
 const destinationContentTabs = document.querySelectorAll('.content--tabs');
+const destinationContentAreas = document.querySelectorAll('.content--areaDisplay');
 
 // ********** Event Listeners ********** //
 // –––––––– TRIP EDITOR –––––––– //
 Array.from(deleteDestinationBtn).forEach((el) => {
   el.addEventListener('click', deleteDestination);
+});
+Array.from(destinationLocation).forEach((el) => {
+  el.addEventListener('focusout', editDestName);
 });
 Array.from(destinationStartDate).forEach((el) => {
   el.addEventListener('input', editDestStartDate);
@@ -97,6 +102,8 @@ async function changeCoverImage() {
   }
 }
 
+// –––––––– DESTINATION RELATED FUNCTIONS –––––––– //
+
 async function addNewDestination() {
   const tripId = this.parentNode.dataset.id;
   const newDestination = document.querySelector('.newDestination--input').value.trim();
@@ -136,6 +143,29 @@ async function deleteDestination() {
     const data = await response.json();
     console.log(data);
     location.reload();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function editDestName() {
+  const tripId = this.parentNode.dataset.id;
+  const destination = this.parentNode.dataset.loc;
+  const newDestName = this.innerText;
+  console.log(`${tripId}, ${destination}, ${newDestName}`);
+
+  try {
+    const response = await fetch('editDestName', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        destinationFromJSFile: destination,
+        newDestNameFromJSFile: newDestName,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
   } catch (err) {
     console.error(err);
   }
@@ -188,9 +218,57 @@ async function editDestEndDate() {
 }
 
 async function toggleContentTab() {
-  Array.from(destinationContentTabs).forEach((tab) => {
-    tab.classList.remove('active');
-  });
+  // Array.from(destinationContentTabs).forEach((tab) => {
+  //   tab.classList.remove('active');
+  // });
 
-  this.classList.toggle('active');
+  // this.classList.toggle('active');
+
+  // Array.from(destinationContentTabs).forEach(tab => {
+  //   if (tab.classList.contains('active')) {
+  //     tab.classList.remove('active');
+  //   } else if(!tab.classList.contains('active')) {
+  //     tab.classList.add('active');
+  //   }
+  // });
+
+  // Array.from(destinationContentAreas).forEach(area => {
+  //   if (area.classList.contains('active')) {
+  //     area.classList.remove('active');
+  //   } else if(!area.classList.contains('active')) {
+  //     area.classList.add('active');
+  //   }
+  // });
+
+  if (!this.classList.contains('active')) {
+    let overviewTab = document.querySelector('.tab--overview');
+    let itineraryTab = document.querySelector('.tab--itinerary');
+    let travelTab = document.querySelector('.tab--travel');
+    let accomTab = document.querySelector('.tab--accomodations');
+
+    let overviewArea = document.querySelector('.areaDisplay--overview');
+    let itineraryArea = document.querySelector('.areaDisplay--itinerary');
+    let travelArea = document.querySelector('.areaDisplay--travel');
+    let accomArea = document.querySelector('.areaDisplay--accomodations');
+
+    Array.from(destinationContentTabs).forEach((tab) => {
+      tab.classList.remove('active');
+    });
+
+    Array.from(destinationContentAreas).forEach((area) => {
+      area.classList.remove('active');
+    });
+
+    this.classList.add('active');
+
+    if (overviewTab.classList.contains('active')) {
+      overviewArea.classList.add('active');
+    } else if (itineraryTab.classList.contains('active')) {
+      itineraryArea.classList.add('active');
+    } else if (travelTab.classList.contains('active')) {
+      travelArea.classList.add('active');
+    } else if (accomTab.classList.contains('active')) {
+      accomArea.classList.add('active');
+    }
+  }
 }
