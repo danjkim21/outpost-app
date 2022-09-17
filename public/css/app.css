@@ -367,18 +367,22 @@ body {
 
 /* Add new destination input/btn component */
 .newDestination--input {
-  padding: 10px 5px;
-  width: 250px;
+  padding: 10px 10px;
+  width: 300px;
   border: 2px solid #ccd6f8;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
+  border-right: none;
 }
 .newDestination--btn {
   padding: 10px 2px;
-  width: 155px;
-  background-color: #335ae5;
-  color: #ffffff;
-  border: 1px solid #335ae5;
-  border-radius: 4px;
+  width: 35px;
+  background-color: #ffffff;
+  border: 2px solid #ccd6f8;
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+.newDestination--btn i {
+  color: #335ae5;
 }
 .newDestination--btn:hover {
   cursor: pointer;
