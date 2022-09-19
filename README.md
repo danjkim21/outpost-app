@@ -15,7 +15,7 @@
     <a href="https://github.com/danjkim21/outpost-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="outpost-trips.herokuapp.com/">View Demo</a>
+    <a href="https://outpost-trips.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/danjkim21/outpost-app/issues">Report Bug</a>
     ·
@@ -49,7 +49,7 @@ I created this app to organize my travel plans, keep track of flights and AirBnb
 
 ## Getting Started
 
-This app can be accessed via [outpost-trips.herokuapp.com/](outpost-trips.herokuapp.com/) or as a local copy. To get a local copy up and running follow these simple example steps.
+This app can be accessed via [outpost-trips.herokuapp.com/](https://outpost-trips.herokuapp.com/) or as a local copy. To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
@@ -119,6 +119,6 @@ Your Name - [@devdanielk](https://twitter.com/devdanielk) - dan.jkim21@gmail.com
 
 Project Link: [https://github.com/danjkim21/outpost-app](https://github.com/danjkim21/outpost-app)
 
-Live Link: [outpost-trips.herokuapp.com/](outpost-trips.herokuapp.com/)
+Live Link: [outpost-trips.herokuapp.com/](https://outpost-trips.herokuapp.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
