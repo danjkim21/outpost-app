@@ -167,4 +167,27 @@ module.exports = {
       console.log(err);
     }
   },
+  editDestNotes: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        {
+          _id: req.body.tripIdFromJSFile,
+        },
+        {
+          $set: { 'destinations.$[destination].notes': req.body.destNoteFromJSFile },
+        },
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.body.destinationFromJSFile,
+            },
+          ],
+        }
+      );
+      console.log(`Edited Destination Location`);
+      res.json('Edited Destination Location');
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

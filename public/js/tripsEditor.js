@@ -13,6 +13,7 @@ const destinationStartDate = document.querySelectorAll('.destination--startDate'
 const destinationEndDate = document.querySelectorAll('.destination--endDate');
 const destinationContentTabs = document.querySelectorAll('.content--tabs');
 const destinationContentAreas = document.querySelectorAll('.content--areaDisplay');
+const destinationNotesEdit = document.querySelector('.destination--notes');
 
 // ********** Event Listeners ********** //
 // –––––––– TRIP EDITOR –––––––– //
@@ -36,6 +37,7 @@ tripTitleEdit.addEventListener('focusout', editTitle);
 tripDescEdit.addEventListener('focusout', editDescription);
 coverImgEdit.addEventListener('click', changeCoverImage);
 addDestination.addEventListener('click', addNewDestination);
+destinationNotesEdit.addEventListener('focusout', editDestNotes);
 
 // ********** Functions ********** //
 // –––––––– TRIP EDITOR FUNCTIONS –––––––– //
@@ -217,29 +219,29 @@ async function editDestEndDate() {
   }
 }
 
+async function editDestNotes() {
+  const tripId = this.parentNode.dataset.id;
+  const destination = this.parentNode.dataset.loc;
+  const destinationNote = this.textContent.trim();
+
+  try {
+    const response = await fetch('editDestNotes', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        destinationFromJSFile: destination,
+        destNoteFromJSFile: destinationNote,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 async function toggleContentTab() {
-  // Array.from(destinationContentTabs).forEach((tab) => {
-  //   tab.classList.remove('active');
-  // });
-
-  // this.classList.toggle('active');
-
-  // Array.from(destinationContentTabs).forEach(tab => {
-  //   if (tab.classList.contains('active')) {
-  //     tab.classList.remove('active');
-  //   } else if(!tab.classList.contains('active')) {
-  //     tab.classList.add('active');
-  //   }
-  // });
-
-  // Array.from(destinationContentAreas).forEach(area => {
-  //   if (area.classList.contains('active')) {
-  //     area.classList.remove('active');
-  //   } else if(!area.classList.contains('active')) {
-  //     area.classList.add('active');
-  //   }
-  // });
-
   if (!this.classList.contains('active')) {
     let overviewTab = document.querySelector('.tab--overview');
     let itineraryTab = document.querySelector('.tab--itinerary');

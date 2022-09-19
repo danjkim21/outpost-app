@@ -104,36 +104,36 @@
 
               <!-- Destination Content -->
               <section class="content--area">
-                  <section class="content--areaDisplay areaDisplay--overview active">
-                    <!-- Start - End Dates -->
-                    <h3 class="areaDisplay--titles">Travel Dates</h3>
-                    <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
-                      <label for="destination--startDate">Start</label>
-                      <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
-                      <label for="destination--endDate">End</label>
-                      <input class="destination--endDate" type="date" 
+                <section class="content--areaDisplay areaDisplay--overview active" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
+                  <!-- Start - End Dates -->
+                  <h3 class="areaDisplay--titles">Travel Dates</h3>
+                  <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
+                    <label for="destination--startDate">Start</label>
+                    <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
+                    <label for="destination--endDate">End</label>
+                    <input class="destination--endDate" type="date" 
                       name="destination--endDate" id="" value="<%= destination.endDate %>">
-                    </section>
-
-                    <!-- Editable Notes -->
-                    <p class="destination--notes editable" contenteditable="true"><%= destination.description ? destination.description : "Add notes..." %></p>
-
                   </section>
 
-                  <section class="content--areaDisplay areaDisplay--itinerary">
-                    <h3 class="areaDisplay--titles">Log</h3>
+                  <!-- Editable Notes -->
+                  <p class="destination--notes editable" contenteditable="true"><%= destination.notes ? destination.notes : "Add notes..." %></p>
 
-                  </section>
+                </section>
 
-                  <section class="content--areaDisplay areaDisplay--travel">
-                    <h3 class="areaDisplay--titles">Tickets</h3>
+                <section class="content--areaDisplay areaDisplay--itinerary">
+                  <h3 class="areaDisplay--titles">Log</h3>
 
-                  </section>
+                </section>
 
-                  <section class="content--areaDisplay areaDisplay--accomodations">
-                    <h3 class="areaDisplay--titles">Addresses</h3>
+                <section class="content--areaDisplay areaDisplay--travel">
+                  <h3 class="areaDisplay--titles">Tickets</h3>
 
-                  </section>
+                </section>
+
+                <section class="content--areaDisplay areaDisplay--accomodations">
+                  <h3 class="areaDisplay--titles">Addresses</h3>
+
+                </section>
               </section>
 
               <!-- Close Modal Btn -->
