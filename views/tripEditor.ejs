@@ -131,7 +131,49 @@
                 </section>
 
                 <section class="content--areaDisplay areaDisplay--accomodations">
-                  <h3 class="areaDisplay--titles">Addresses</h3>
+                  <!-- Add Accomodation formset -->
+                  <form class="" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
+                    <Legend class="">Add Accomodation</Legend>
+
+                    <!-- Select type of accomodation -->
+                    <label class="" for="accomodationType">Type</label>
+                    <input class="" list="select--accomodation" name="accomodationType">
+                    <datalist class="" id="select--accomodation">
+                      <option value="Hotel">Hotel</option>
+                      <option value="AirBnb">AirBnb</option>
+                      <option value="Vrbo">Vrbo</option>
+                      <option value="Rental">Rental</option>
+                      <option value="Other">Other</option>
+                    </datalist>
+
+                    <!-- Add accomodation address -->
+                    <label class="" for="accomodationAddress">Address</label>
+                    <input class="" type="text" name="accomodationAddress">
+
+                    <!-- Add Stay dates -->
+                    <label class="" for="accomodationStartDate">Start</label>
+                    <input class="" type="date" name="accomodationStartDate">
+
+                    <label class="" for="accomodationEndDate">End</label>
+                    <input class="" type="date" name="accomodationEndDate">
+
+                    <!-- Submit form btn -->
+                    <input class="" type="submit">
+                  </form>
+
+                  <!-- View Accomodations -->
+                  <% if (destination.accomodations) { %>
+                    <% destination.accomodations.map(accomodation => { %>
+                      <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-accom="<%= accomodation.accomAddress %>"> 
+                        <span> <%= accomodation.accomType %> </span>
+                        <div> <%= accomodation.accomAddress %> </div>
+                        <div> <%= accomodation.accomStartDate %> </div>
+                        <div> <%= accomodation.accomEndDate %> </div>
+                        <i class="deleteAccom--btn fa-solid fa-trash-can"></i>
+                      </section>                      
+                      
+                    <% }) %>
+                  <% } %>
 
                 </section>
               </section>

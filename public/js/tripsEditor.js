@@ -14,6 +14,7 @@ const destinationEndDate = document.querySelectorAll('.destination--endDate');
 const destinationContentTabs = document.querySelectorAll('.content--tabs');
 const destinationContentAreas = document.querySelectorAll('.content--areaDisplay');
 const destinationNotesEdit = document.querySelector('.destination--notes');
+const deleteAccomodationBtn = document.querySelectorAll('.deleteAccom--btn');
 
 // ********** Event Listeners ********** //
 // –––––––– TRIP EDITOR –––––––– //
@@ -31,6 +32,9 @@ Array.from(destinationEndDate).forEach((el) => {
 });
 Array.from(destinationContentTabs).forEach((el) => {
   el.addEventListener('click', toggleContentTab);
+});
+Array.from(deleteAccomodationBtn).forEach((el) => {
+  el.addEventListener('click', deleteAccomodation);
 });
 
 tripTitleEdit.addEventListener('focusout', editTitle);
@@ -236,6 +240,28 @@ async function editDestNotes() {
     });
     const data = await response.json();
     console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function deleteAccomodation() {
+  const tripId = this.parentNode.dataset.id;
+  const accomodation = this.parentNode.dataset.accom;
+  console.log(tripId, accomodation);
+
+  try {
+    const response = await fetch('deleteAccomodation', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        accomodationFromJSFile: accomodation,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    location.reload();
   } catch (err) {
     console.error(err);
   }

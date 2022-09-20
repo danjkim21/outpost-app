@@ -1,6 +1,7 @@
 const Trip = require('../models/Trip');
 
 module.exports = {
+  // Trip Detailing Controls
   getTripEditor: async (req, res) => {
     try {
       let tripId = req.params.id;
@@ -57,6 +58,8 @@ module.exports = {
       console.log(err);
     }
   },
+
+  // Trip Destination Controls
   addDestination: async (req, res) => {
     try {
       await Trip.findOneAndUpdate(
@@ -105,7 +108,9 @@ module.exports = {
           _id: req.body.tripIdFromJSFile,
         },
         {
-          $set: { 'destinations.$[destination].location': req.body.newDestNameFromJSFile },
+          $set: {
+            'destinations.$[destination].location': req.body.newDestNameFromJSFile,
+          },
         },
         {
           arrayFilters: [
@@ -186,6 +191,60 @@ module.exports = {
       );
       console.log(`Edited Destination Location`);
       res.json('Edited Destination Location');
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  // Destination Detailing Controls
+  addAccomodation: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        {
+          _id: req.params.id,
+        },
+        {
+          $push: {
+            'destinations.$[destination].accomodations': {
+              accomType: req.body.accomodationType,
+              accomAddress: req.body.accomodationAddress,
+              accomStartDate: req.body.accomodationStartDate,
+              accomEndDate: req.body.accomodationEndDate,
+            },
+          },
+        },
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.params.loc,
+            },
+          ],
+        }
+      );
+
+      console.log(`Accomodation: ${req.body.accomodationType} has been added!`);
+      res.redirect(`/tripEditor/${req.params.id}#${req.params.loc}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  deleteAccomodation: async (req, res) => {
+    try {
+      //TODO -- Fix the Mongoose $pull req 
+      await Trip.findOneAndUpdate(
+        { _id: req.body.tripIdFromJSFile },
+        {
+          $pull: {
+            destinations: {
+              accomodations: { accomAddress: req.body.accomodationFromJSFile },
+            },
+          },
+        }
+      );
+      console.log(
+        `Deleted: ${req.body.accomodationFromJSFile} from ${req.body.tripIdFromJSFile}`
+      );
+      res.json(`Deleted: ${req.body.accomodationFromJSFile}`);
     } catch (err) {
       console.log(err);
     }

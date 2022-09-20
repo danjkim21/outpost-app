@@ -3,7 +3,7 @@ const router = express.Router();
 const tripEditorController = require('../controllers/tripEditor');
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
-// Trip Detailing routes
+// Trip Detailing Routes
 router.get('/:id', ensureAuth, tripEditorController.getTripEditor);
 
 router.put('/editTitle', tripEditorController.editTitle);
@@ -23,6 +23,11 @@ router.put('/editDestStartDate', tripEditorController.editDestStartDate);
 
 router.put('/editDestEndDate', tripEditorController.editDestEndDate);
 
-router.put('/editDestNotes', tripEditorController.editDestNotes)
+router.put('/editDestNotes', tripEditorController.editDestNotes);
+
+// Destination Detailing Routes
+router.put('/addAccomodation/:id/:loc', tripEditorController.addAccomodation);
+
+router.put('/deleteAccomodation', tripEditorController.deleteAccomodation);
 
 module.exports = router;
