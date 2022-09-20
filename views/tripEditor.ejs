@@ -164,7 +164,7 @@
                   <!-- View Accomodations -->
                   <% if (destination.accomodations) { %>
                     <% destination.accomodations.map(accomodation => { %>
-                      <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-accom="<%= accomodation.accomAddress %>"> 
+                      <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-accom="<%= accomodation.accomAddress %>"> 
                         <span> <%= accomodation.accomType %> </span>
                         <div> <%= accomodation.accomAddress %> </div>
                         <div> <%= accomodation.accomStartDate %> </div>

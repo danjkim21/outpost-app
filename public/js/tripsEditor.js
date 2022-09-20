@@ -247,8 +247,9 @@ async function editDestNotes() {
 
 async function deleteAccomodation() {
   const tripId = this.parentNode.dataset.id;
+  const destination = this.parentNode.dataset.loc;
   const accomodation = this.parentNode.dataset.accom;
-  console.log(tripId, accomodation);
+  console.log(tripId, accomodation, destination);
 
   try {
     const response = await fetch('deleteAccomodation', {
@@ -257,6 +258,7 @@ async function deleteAccomodation() {
       body: JSON.stringify({
         tripIdFromJSFile: tripId,
         accomodationFromJSFile: accomodation,
+        destinationFromJSFile: destination,
       }),
     });
     const data = await response.json();

@@ -230,17 +230,36 @@ module.exports = {
   },
   deleteAccomodation: async (req, res) => {
     try {
-      //TODO -- Fix the Mongoose $pull req 
+      //TODO -- Fix the Mongoose $pull req
+      // await Trip.findOneAndUpdate(
+      //   { _id: req.body.tripIdFromJSFile },
+      //   {
+      //     $pull: {
+      //       destinations: {
+      //         accomodations: { accomAddress: req.body.accomodationFromJSFile },
+      //       },
+      //     },
+      //   }
+      // );
+
       await Trip.findOneAndUpdate(
         { _id: req.body.tripIdFromJSFile },
         {
           $pull: {
-            destinations: {
-              accomodations: { accomAddress: req.body.accomodationFromJSFile },
+            'destinations.$[destination].accomodations': {
+              accomAddress: req.body.accomodationFromJSFile,
             },
           },
+        },
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.body.destinationFromJSFile,
+            },
+          ],
         }
       );
+
       console.log(
         `Deleted: ${req.body.accomodationFromJSFile} from ${req.body.tripIdFromJSFile}`
       );
