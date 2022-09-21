@@ -372,6 +372,8 @@ body {
 .content--area {
   height: auto;
 }
+
+/* Modal Content Tab Display Area Styling */
 .content--areaDisplay {
   display: none;
   height: auto;
@@ -382,6 +384,55 @@ body {
 }
 .areaDisplay--titles {
   margin: 0.75rem 0;
+}
+
+.destinationDetail--form {
+  padding: 0.65rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
+  /* border: 2px solid #ccd6f8; */
+}
+input::-webkit-calendar-picker-indicator {
+  opacity: 100;
+}
+.destinationDetail--label, .destinationDetail--inpt {
+  display: block;
+}
+.destinationDetail--inpt {
+  width: 100%;
+  padding: 0.2rem 0.35rem;
+  border: 2px solid #ccd6f8;
+  border-radius: 4px;
+}
+.destinationDetail--form__submit {
+  min-width: 85px;
+  max-width: 100px;
+  padding: 0.35rem;
+  background-color: #1d48e4;
+  border: 1px solid #1d48e4;
+  border-radius: 4px;
+  color: #ffffff;
+}
+.destinationDetail--form__multi > section {
+  width: 22.5%;
+}
+.destinationDetail--form__single, .destinationDetail--form__multi {
+  padding-bottom: 0.55rem;
+}
+.destinationDetail--form__single input {
+  width: 100%;
+}
+.destinationDetail--form__single.right{
+  display: flex;
+  justify-content: flex-end;
+}
+.destinationDetail--form__single.right > .destinationDetail--form__submit {
+  width: 22.5%;
+}
+.destinationDetail--form__multi {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Add new destination input/btn component */

@@ -208,6 +208,7 @@ module.exports = {
             'destinations.$[destination].accomodations': {
               accomType: req.body.accomodationType,
               accomAddress: req.body.accomodationAddress,
+              accomConfirmation: req.body.accomodationConfirmation,
               accomStartDate: req.body.accomodationStartDate,
               accomEndDate: req.body.accomodationEndDate,
             },

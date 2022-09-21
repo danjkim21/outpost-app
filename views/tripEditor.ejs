@@ -132,41 +132,62 @@
 
                 <section class="content--areaDisplay areaDisplay--accomodations">
                   <!-- Add Accomodation formset -->
-                  <form class="" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
-                    <Legend class="">Add Accomodation</Legend>
+                  <h3 class="areaDisplay--titles">Add Accomodation</h3>
+                  <form class="destinationDetail--form" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
+                    
+                    <section class="destinationDetail--form__single">
+                      <!-- Add accomodation address -->
+                      <label class="destinationDetail--label" for="accomodationAddress">Address</label>
+                      <input class="destinationDetail--inpt" type="text" name="accomodationAddress" placeholder="P. Sherman 42 Wallaby Way">
+                    </section>
+                    
+                    <section class="destinationDetail--form__multi">
+                      <section>
+                        <!-- Add accomodation confirmation code -->
+                        <label class="destinationDetail--label" for="accomodationConfirmation">Confirmation</label>
+                        <input class="destinationDetail--inpt" type="text" name="accomodationConfirmation" placeholder="REF421A">
+                      </section>
 
-                    <!-- Select type of accomodation -->
-                    <label class="" for="accomodationType">Type</label>
-                    <input class="" list="select--accomodation" name="accomodationType">
-                    <datalist class="" id="select--accomodation">
-                      <option value="Hotel">Hotel</option>
-                      <option value="AirBnb">AirBnb</option>
-                      <option value="Vrbo">Vrbo</option>
-                      <option value="Rental">Rental</option>
-                      <option value="Other">Other</option>
-                    </datalist>
+                      <section>
+                        <!-- Select type of accomodation -->
+                        <label class="destinationDetail--label" for="accomodationType">Type</label>
+                        <input class="destinationDetail--inpt" list="select--accomodation" name="accomodationType" placeholder="Select Type">
+                        <datalist class="" id="select--accomodation">
+                          <option value="Hotel">Hotel</option>
+                          <option value="AirBnb">AirBnb</option>
+                          <option value="Vrbo">Vrbo</option>
+                          <option value="Rental">Rental</option>
+                          <option value="Other">Other</option>
+                        </datalist>
+                      </section>
 
-                    <!-- Add accomodation address -->
-                    <label class="" for="accomodationAddress">Address</label>
-                    <input class="" type="text" name="accomodationAddress">
-
-                    <!-- Add Stay dates -->
-                    <label class="" for="accomodationStartDate">Start</label>
-                    <input class="" type="date" name="accomodationStartDate">
-
-                    <label class="" for="accomodationEndDate">End</label>
-                    <input class="" type="date" name="accomodationEndDate">
+                      <!-- Add Stay dates -->
+                      <section>
+                        <label class="destinationDetail--label" for="accomodationStartDate">Start</label>
+                        <input class="destinationDetail--inpt" type="date" name="accomodationStartDate" value="<%= destination.startDate %>" min="<%= destination.startDate %>">
+                      </section>
+                      
+                      <!-- Add Stay dates -->
+                      <section>
+                        <label class="destinationDetail--label" for="accomodationEndDate">End</label>
+                        <input class="destinationDetail--inpt" type="date" name="accomodationEndDate" value="<%= destination.endDate %>" max="<%= destination.endDate %>">
+                      </section>
+                    </section>
 
                     <!-- Submit form btn -->
-                    <input class="" type="submit">
+                    <section class="destinationDetail--form__single right">
+                      <input class="destinationDetail--form__submit" type="submit">
+                    </section>
+                    
                   </form>
 
                   <!-- View Accomodations -->
                   <% if (destination.accomodations) { %>
                     <% destination.accomodations.map(accomodation => { %>
                       <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-accom="<%= accomodation.accomAddress %>"> 
-                        <span> <%= accomodation.accomType %> </span>
                         <div> <%= accomodation.accomAddress %> </div>
+                        <div> <%= accomodation.accomConfirmation %> </div>
+                        <span> <%= accomodation.accomType %> </span>
                         <div> <%= accomodation.accomStartDate %> </div>
                         <div> <%= accomodation.accomEndDate %> </div>
                         <i class="deleteAccom--btn fa-solid fa-trash-can"></i>
