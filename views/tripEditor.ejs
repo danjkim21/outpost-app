@@ -192,8 +192,8 @@
                   <% if (destination.accomodations) { %>
                     <% destination.accomodations.map(accomodation => { %>
                         <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-accom="<%= accomodation.accomAddress %>"> 
-                          <section class="newAccomodation--item__main">
-                            <h4><%= accomodation.accomType %> <i class="deleteAccom--btn fa-solid fa-trash-can"></i> </h4>
+                          <section class="newAccomodation--item__main" >
+                            <h4 data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-accom="<%= accomodation.accomAddress %>"><%= accomodation.accomType %> <i class="deleteAccom--btn fa-solid fa-trash-can"></i> </h4>
                             <div> <%= accomodation.accomConfirmation %> </div>
                           </section>
 
