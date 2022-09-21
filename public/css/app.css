@@ -385,7 +385,7 @@ body {
 .areaDisplay--titles {
   margin: 0.75rem 0;
 }
-
+/* Modal Destination Form Styling */
 .destinationDetail--form {
   padding: 0.65rem;
   background-color: #ffffff;
@@ -433,6 +433,48 @@ input::-webkit-calendar-picker-indicator {
 .destinationDetail--form__multi {
   display: flex;
   justify-content: space-between;
+}
+
+/* Accomodations Card */
+.newAccomodation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 0.95rem;
+}
+.newAccomodation--item {
+  width: 385px;
+  min-height: 160px;
+  border: 2px solid #ccd6f8;
+  border-radius: 8px;
+  padding: 0.85rem;
+}
+.newAccomodation--item__main {
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #ccd6f8;
+}
+.newAccomodation--item__main h4{
+  margin: 0 0 0.25rem 0;
+}
+.newAccomodation--item__details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 0.85rem;
+}
+.details--dates {
+  width: 35%;
+  padding-right: 0.85rem
+}
+.details--address {
+  border-left: 1px solid #ccd6f8;
+  width: 65%;
+  padding-left: 0.85rem
+}
+.deleteAccom--btn:hover {
+  cursor: pointer;
 }
 
 /* Add new destination input/btn component */

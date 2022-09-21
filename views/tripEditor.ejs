@@ -106,7 +106,7 @@
               <section class="content--area">
                 <section class="content--areaDisplay areaDisplay--overview active" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
                   <!-- Start - End Dates -->
-                  <h3 class="areaDisplay--titles">Travel Dates</h3>
+                  <h3 class="areaDisplay--titles">Dates</h3>
                   <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
                     <label for="destination--startDate">Start</label>
                     <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
@@ -114,6 +114,13 @@
                     <input class="destination--endDate" type="date" 
                       name="destination--endDate" id="" value="<%= destination.endDate %>">
                   </section>
+
+                  <h3 class="areaDisplay--titles">Accomodations</h3>
+                    <% if (destination.accomodations) { %>
+                      <p>You have <b> <%= destination.accomodations.length %> </b> planned <%= destination.accomodations.length === 1 ? "accomodation" : "accomodations" %>.</p>
+                    <% } else { %>
+                      <p>You have no planned accomodations.</p>
+                    <% } %>
 
                   <!-- Editable Notes -->
                   <p class="destination--notes editable" contenteditable="true"><%= destination.notes ? destination.notes : "Add notes..." %></p>
@@ -134,7 +141,6 @@
                   <!-- Add Accomodation formset -->
                   <h3 class="areaDisplay--titles">Add Accomodation</h3>
                   <form class="destinationDetail--form" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
-                    
                     <section class="destinationDetail--form__single">
                       <!-- Add accomodation address -->
                       <label class="destinationDetail--label" for="accomodationAddress">Address</label>
@@ -182,19 +188,28 @@
                   </form>
 
                   <!-- View Accomodations -->
+                  <section class="newAccomodation">
                   <% if (destination.accomodations) { %>
                     <% destination.accomodations.map(accomodation => { %>
-                      <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-accom="<%= accomodation.accomAddress %>"> 
-                        <div> <%= accomodation.accomAddress %> </div>
-                        <div> <%= accomodation.accomConfirmation %> </div>
-                        <span> <%= accomodation.accomType %> </span>
-                        <div> <%= accomodation.accomStartDate %> </div>
-                        <div> <%= accomodation.accomEndDate %> </div>
-                        <i class="deleteAccom--btn fa-solid fa-trash-can"></i>
-                      </section>                      
-                      
+                        <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-accom="<%= accomodation.accomAddress %>"> 
+                          <section class="newAccomodation--item__main">
+                            <h4><%= accomodation.accomType %> <i class="deleteAccom--btn fa-solid fa-trash-can"></i> </h4>
+                            <div> <%= accomodation.accomConfirmation %> </div>
+                          </section>
+
+                          <section class="newAccomodation--item__details"> 
+                            <section class="details--dates">
+                              <div> <%= accomodation.accomStartDate %> </div>
+                              <div> <%= accomodation.accomEndDate %> </div>
+                            </section>
+                            <section class="details--address">
+                              <div> <a target="_blank" href="https://www.google.com/maps/search/<%=accomodation.accomAddress%>"> <%= accomodation.accomAddress %> </a></div>
+                            </section>
+                          </section>   
+                        </section>                     
                     <% }) %>
                   <% } %>
+                  </section>
 
                 </section>
               </section>
