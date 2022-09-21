@@ -447,6 +447,7 @@ input::-webkit-calendar-picker-indicator {
 .newAccomodation--item {
   width: 385px;
   min-height: 160px;
+  background-color: #ffffff;
   border: 2px solid #ccd6f8;
   border-radius: 8px;
   padding: 0.85rem;
@@ -472,6 +473,10 @@ input::-webkit-calendar-picker-indicator {
   border-left: 1px solid #ccd6f8;
   width: 65%;
   padding-left: 0.85rem
+}
+.details--address a {
+  text-decoration: none;
+  color:#335ae5;
 }
 .deleteAccom--btn:hover {
   cursor: pointer;
