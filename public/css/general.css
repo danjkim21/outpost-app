@@ -6,9 +6,9 @@
   letter-spacing: 0.06em;
 
 
-  color-scheme: light dark;
+  /* color-scheme: light dark;
   color: #000000;
-  background-color: #ffffff;
+  background-color: #ffffff; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,9 +28,9 @@
 
 /* --------- MEDIA QUERIES --------- */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     color: rgba(255, 255, 255, 0.87);
     background-color: #22242b;
   }
-}
+} */
