@@ -104,6 +104,7 @@
 
               <!-- Destination Content -->
               <section class="content--area">
+                <!-- Destination Overview Tab -->
                 <section class="content--areaDisplay areaDisplay--overview active" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
                   <!-- Start - End Dates -->
                   <h3 class="areaDisplay--titles">Dates</h3>
@@ -114,51 +115,82 @@
                     <input class="destination--endDate" type="date" 
                       name="destination--endDate" id="" value="<%= destination.endDate %>">
                   </section>
-                  <!-- Accomodations -->
+
+                  <!-- Itinerary Overview -->
+                  <h3 class="areaDisplay--titles">Itinerary</h3>
+                  <section class="areaDisplay--section">
+                    <% if (destination.itinerary) { %>
+                      <p>You have <b> <%= destination.itinerary.length %> </b> planned <%= destination.itinerary.length === 1 ? "activity" : "activities" %>.</p>
+                    <% } else { %>
+                      <p>You have <b> no </b> planned activities.</p>
+                    <% } %>
+                  </section>
+
+                  <!-- Tickets Overview -->
+                  <h3 class="areaDisplay--titles">Flights/Travel</h3>
+                  <section class="areaDisplay--section">
+                    <% if (destination.tickets) { %>
+                      <p>You have <b> <%= destination.tickets.length %> </b> saved <%= destination.tickets.length === 1 ? "ticket" : "tickets" %>.</p>
+                    <% } else { %>
+                      <p>You have <b> no </b> saved tickets.</p>
+                    <% } %>
+                  </section>
+                    
+                  <!-- Accomodations Overview -->
                   <h3 class="areaDisplay--titles">Accomodations</h3>
+                  <section class="areaDisplay--section">
                     <% if (destination.accomodations) { %>
                       <p>You have <b> <%= destination.accomodations.length %> </b> planned <%= destination.accomodations.length === 1 ? "accomodation" : "accomodations" %>.</p>
                     <% } else { %>
-                      <p>You have no planned accomodations.</p>
+                      <p>You have no <b> planned </b> accomodations.</p>
                     <% } %>
+                  </section>
+                    
                   <!-- Editable Notes -->
-                  <p class="destination--notes editable" contenteditable="true"><%= destination.notes ? destination.notes : "Add notes..." %></p>
+                  <h3 class="areaDisplay--titles">Notes</h3>
+                  <section class="areaDisplay--section">
+                    <p class="destination--notes editable" contenteditable="true"><%= destination.notes ? destination.notes : "Add notes..." %></p>
+                  </section>
                 </section>
 
                 <!-- Destination Travel Itinerary Tab -->
                 <section class="content--areaDisplay areaDisplay--itinerary">
                   <!-- Add Accomodation Itinerary Item form -->
                   <h3 class="areaDisplay--titles">Add Travel Activity</h3>
-                  <!-- TODO: complete itinerary item form -->
                   <form class="destinationDetail--form" action="/tripEditor/addActivity/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__single">
                       <!-- Add Itinerary Activity -->
-                      <label class="destinationDetail--label" for="">Activity</label>
-                      <input class="destinationDetail--inpt" type="text" name="" placeholder="Hiking at ...">
+                      <label class="destinationDetail--label" for="activityDescrip">Activity</label>
+                      <input class="destinationDetail--inpt" type="text" name="activityDescrip" placeholder="Storming Blackwater Bay">
                     </section>
                     <section class="destinationDetail--form__multi">
                       <section>
                         <!-- Add Activity Location-->
-                        <label class="destinationDetail--label" for="">Location</label>
-                        <input class="destinationDetail--inpt" type="text" name="" placeholder="">
+                        <label class="destinationDetail--label" for="activityLocation">Location</label>
+                        <input class="destinationDetail--inpt" type="text" name="activityLocation" placeholder="King's Landing">
                       </section>
                       <section>
                         <!-- Select type of activity -->
-                        <label class="destinationDetail--label" for="accomodationType">Type</label>
-                        <input class="destinationDetail--inpt" list="" name="" placeholder="Select Type">
-                        <datalist class="" id="">
-                          <option value="">Test</option>
+                        <label class="destinationDetail--label" for="activityType">Type</label>
+                        <input class="destinationDetail--inpt" list="activityType" name="activityType" placeholder="Select Type">
+                        <datalist class="" id="activityType">
+                          <option value="Restaurant">Restaurant</option>
+                          <option value="Bar">Bar</option>
+                          <option value="Park">Park</option>
+                          <option value="Attraction">Attraction</option>
+                          <option value="Museum">Museum</option>
+                          <option value="Other">Other</option>
                         </datalist>
                       </section>
                       <!-- Add Start Time/Date -->
                       <section>
-                        <label class="destinationDetail--label" for="accomodationStartDate">Start</label>
-                        <input class="destinationDetail--inpt" type="datetime-local" name="">
+                        <label class="destinationDetail--label" for="startDateTime">Start</label>
+                        <input class="destinationDetail--inpt" type="datetime-local" name="startDateTime">
                       </section>
                       <!-- Add End Time/Date -->
                       <section>
-                        <label class="destinationDetail--label" for="accomodationEndDate">End</label>
-                        <input class="destinationDetail--inpt" type="datetime-local" name="">
+                        <label class="destinationDetail--label" for="endDateTime">End</label>
+                        <input class="destinationDetail--inpt" type="datetime-local" name="endDateTime">
                       </section>
                     </section>
                     <!-- Submit form btn -->
@@ -166,6 +198,30 @@
                       <input class="destinationDetail--form__submit" type="submit">
                     </section>
                   </form>
+
+                  <!-- View Activity Cards -->
+                  <section class="newActivity">
+                    <% if (destination.itinerary) { %>
+                      <% destination.itinerary.map(activity => { %>
+                          <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-activityDesc="<%= activity.activityDescrip %>"> 
+                            <section class="newAccomodation--item__main" >
+                              <h4 data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-activityDesc="<%= activity.activityDescrip %>"><%= activity.activityLocation %> <i class="deleteActivity--btn fa-solid fa-trash-can"></i> </h4>
+                              <div> <%= activity.activityDescrip %> </div>
+                            </section>
+  
+                            <section class="newAccomodation--item__details"> 
+                              <section class="details--dates__depart">
+                                <div> <%= activity.startDateTime %> </div>
+                                <div> <%= activity.endDateTime %> </div>
+                              </section>
+                              <section class="details--dates__arrive flex">
+                                <span class="activityType--tag"> <%= activity.activityType %> </span>
+                              </section>
+                            </section>   
+                          </section>                     
+                      <% }) %>
+                    <% } %>
+                  </section>
                 </section>
 
                 <!-- Destination Flights/Tickets Tab -->

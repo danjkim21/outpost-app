@@ -34,4 +34,9 @@ router.put('/addTicket/:id/:loc', tripEditorController.addTicket);
 
 router.put('/deleteFlight', tripEditorController.deleteFlight);
 
+router.put('/addActivity/:id/:loc', tripEditorController.addActivity);
+
+router.put('/deleteActivity', tripEditorController.deleteActivity);
+
+
 module.exports = router;

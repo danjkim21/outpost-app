@@ -318,4 +318,64 @@ module.exports = {
       console.log(err);
     }
   },
+  addActivity: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        {
+          _id: req.params.id,
+        },
+        {
+          $push: {
+            'destinations.$[destination].itinerary': {
+              activityDescrip: req.body.activityDescrip,
+              activityLocation: req.body.activityLocation,
+              activityType: req.body.activityType,
+              startDateTime: req.body.startDateTime,
+              endDateTime: req.body.endDateTime,
+            },
+          },
+        },
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.params.loc,
+            },
+          ],
+        }
+      );
+
+      console.log(`Activity: ${req.body.activityDescrip} has been added!`);
+      res.redirect(`/tripEditor/${req.params.id}#${req.params.loc}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  deleteActivity: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        { _id: req.body.tripIdFromJSFile },
+        {
+          $pull: {
+            'destinations.$[destination].itinerary': {
+              activityDescrip: req.body.activityFromJSFile,
+            },
+          },
+        },
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.body.destinationFromJSFile,
+            },
+          ],
+        }
+      );
+
+      console.log(
+        `Deleted: ${req.body.activityFromJSFile} from ${req.body.tripIdFromJSFile}`
+      );
+      res.json(`Deleted: ${req.body.activityFromJSFile}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

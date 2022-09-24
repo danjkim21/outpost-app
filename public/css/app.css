@@ -433,7 +433,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 /* Accomodations Card */
-.newAccomodation, .newFlight {
+.newAccomodation, .newFlight, .newActivity {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -469,9 +469,22 @@ input::-webkit-calendar-picker-indicator {
 .newFlight .newAccomodation--item__details {
   justify-content: space-between;
 }
-/* .details--dates__depart, .details--dates__arrive {
+.details--dates__depart, .details--dates__arrive {
   width: 45%;
-} */
+}
+.details--dates__arrive.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.details--dates__arrive > .activityType--tag {
+  text-align: center;
+  color: #335ae5;
+  background-color: #ccd6f8;
+  border: 1px solid #ccd6f8;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
 .details--address {
   border-left: 1px solid #ccd6f8;
   width: 65%;
