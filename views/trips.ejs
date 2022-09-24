@@ -15,7 +15,8 @@
 
       <% trips.filter( el => !el.completed ).map( el => { %>
         <section class="tripsCard--upcoming" data-id='<%=el._id%>'>
-          <img class="tripsCard--img" src="<%= el.displayImg %>" alt="trip img placeholder">
+          <a href="/tripEditor/<%= el._id%>"><img class="tripsCard--img" src="<%= el.displayImg %>" alt="trip img placeholder"></a>
+          
           <section class="tripsCard--overview">
             <section class="tripsCard--text" data-id='<%=el._id%>'>
               <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>

@@ -105,7 +105,7 @@ body {
 /* Destination expanded specific styling */
 .modal--content.expanded {
   width: 850px;
-  height: 650px;
+  height: 100vh;
   max-height: 90%;
   overflow: auto;
 }
@@ -154,7 +154,6 @@ body {
   height: auto;
   width: 100%;
   margin-bottom: 40px
-  /* overflow-x: scroll; */
 }
 .tripsCard.selectedCard {
   display: flex;
@@ -162,27 +161,25 @@ body {
 
 .tripsCard--upcoming,
 .tripsCard--completed {
-  height: 265px;
-  width: 200px;
-  /* background-color: #f2f5fd; */
+  height: 295px;
+  width: 220px;
   background-color: #f0f2fc;
-  /* border: 1px solid #f2f5fd; */
-  border-radius: 4px;
-  padding: 0.55rem;
-  /* -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 2.5px 2.5px 15px 5.5px rgba(163, 163, 163, 0.3); */
+  border-radius: 4px 4px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2.5px 2.5px 15px 5.5px rgba(163, 163, 163, 0.3);
 }
 .tripsCard--img {
-  height: 180px;
-  width: 180px;
+  height: 220px;
+  width: 220px;
   object-fit: cover;
-  border-radius: 2px;
+  border-radius: 4px 4px 0 0;
 }
 .tripsCard--overview {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin: 0.55rem 0;
+  padding: 0 0.55rem 0 0.55rem;
 }
 .tripsCard--text {
   width: 85%;
