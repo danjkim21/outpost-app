@@ -15,6 +15,7 @@ const destinationContentTabs = document.querySelectorAll('.content--tabs');
 const destinationContentAreas = document.querySelectorAll('.content--areaDisplay');
 const destinationNotesEdit = document.querySelector('.destination--notes');
 const deleteAccomodationBtn = document.querySelectorAll('.deleteAccom--btn');
+const deleteFlightBtn = document.querySelectorAll('.deleteTicket--btn');
 
 // ********** Event Listeners ********** //
 // –––––––– TRIP EDITOR –––––––– //
@@ -35,6 +36,9 @@ Array.from(destinationContentTabs).forEach((el) => {
 });
 Array.from(deleteAccomodationBtn).forEach((el) => {
   el.addEventListener('click', deleteAccomodation);
+});
+Array.from(deleteFlightBtn).forEach((el) => {
+  el.addEventListener('click', deleteFlight);
 });
 
 tripTitleEdit.addEventListener('focusout', editTitle);
@@ -258,6 +262,30 @@ async function deleteAccomodation() {
       body: JSON.stringify({
         tripIdFromJSFile: tripId,
         accomodationFromJSFile: accomodation,
+        destinationFromJSFile: destination,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    location.reload();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function deleteFlight() {
+  const tripId = this.parentNode.dataset.id;
+  const destination = this.parentNode.dataset.loc;
+  const flightTicket = this.parentNode.dataset.flightcode;
+  console.log(tripId, destination, flightTicket);
+
+  try {
+    const response = await fetch('deleteFlight', {
+      method: 'put',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        tripIdFromJSFile: tripId,
+        flightFromJSFile: flightTicket,
         destinationFromJSFile: destination,
       }),
     });

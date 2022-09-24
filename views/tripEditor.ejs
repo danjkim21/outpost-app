@@ -128,9 +128,9 @@
                 <!-- Destination Travel Itinerary Tab -->
                 <section class="content--areaDisplay areaDisplay--itinerary">
                   <!-- Add Accomodation Itinerary Item form -->
-                  <h3 class="areaDisplay--titles">Add Travel Activities</h3>
+                  <h3 class="areaDisplay--titles">Add Travel Activity</h3>
                   <!-- TODO: complete itinerary item form -->
-                  <form class="destinationDetail--form" action="" method='POST'>
+                  <form class="destinationDetail--form" action="/tripEditor/addActivity/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__single">
                       <!-- Add Itinerary Activity -->
                       <label class="destinationDetail--label" for="">Activity</label>
@@ -171,48 +171,72 @@
                 <!-- Destination Flights/Tickets Tab -->
                 <section class="content--areaDisplay areaDisplay--travel">
                   <!-- Add Accomodation Tickets form -->
-                  <h3 class="areaDisplay--titles">Add Tickets</h3>
-                  <!-- TODO: complete tickets item form -->
-                  <form class="destinationDetail--form" action="" method='POST'>
+                  <h3 class="areaDisplay--titles">Add Ticket</h3>
+                  <form class="destinationDetail--form" action="/tripEditor/addTicket/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__multi">
                       <!-- Add Departure date/time -->
                       <section>
-                        <label class="destinationDetail--label" for="">Departure</label>
-                        <input class="destinationDetail--inpt" type="datetime-local" name="">
+                        <label class="destinationDetail--label" for="departDateTime">Departure</label>
+                        <input class="destinationDetail--inpt" type="datetime-local" name="departDateTime">
                       </section>
                       <section>
                         <!-- Add Flight confirmation code -->
-                        <label class="destinationDetail--label" for="">Airport</label>
-                        <input class="destinationDetail--inpt" type="text" name="" placeholder="IAD, Virginia">
+                        <label class="destinationDetail--label" for="departLoc">Airport</label>
+                        <input class="destinationDetail--inpt" type="text" name="departLoc" placeholder="IAD, Virginia">
                       </section>
                       <section>
-                        <label class="destinationDetail--label" for="">Arrival</label>
-                        <input class="destinationDetail--inpt" type="datetime-local" name="">
+                        <label class="destinationDetail--label" for="arriveDateTime">Arrival</label>
+                        <input class="destinationDetail--inpt" type="datetime-local" name="arriveDateTime">
                       </section>
                       <section>
                         <!-- Add Flight confirmation code -->
-                        <label class="destinationDetail--label" for="">Airport</label>
-                        <input class="destinationDetail--inpt" type="text" name="" placeholder="DCA, Washington DC">
+                        <label class="destinationDetail--label" for="arriveLoc">Airport</label>
+                        <input class="destinationDetail--inpt" type="text" name="arriveLoc" placeholder="DCA, Washington DC">
                       </section>
                     </section>
                     <section class="destinationDetail--form__multi two">
                       <section>
                         <!-- Add Flight confirmation code -->
-                        <label class="destinationDetail--label" for="">Confirmation</label>
-                        <input class="destinationDetail--inpt" type="text" name="" placeholder="FLY360">
+                        <label class="destinationDetail--label" for="flightConfirmation">Confirmation</label>
+                        <input class="destinationDetail--inpt" type="text" name="flightConfirmation" placeholder="FLY360">
                       </section>
                       <section>
                         <!-- Select Airlines -->
-                        <label class="destinationDetail--label" for="">Airlines</label>
-                        <input class="destinationDetail--inpt" type="text" name="" placeholder="">
+                        <label class="destinationDetail--label" for="flightAirline">Airlines</label>
+                        <input class="destinationDetail--inpt" type="text" name="flightAirline" placeholder="">
                       </section>
                     </section>
-
                     <!-- Submit form btn -->
                     <section class="destinationDetail--form__single right">
                       <input class="destinationDetail--form__submit" type="submit">
                     </section>
                   </form>
+
+                  <!-- View Ticket Cards -->
+                  <section class="newFlight">
+                    <% if (destination.tickets) { %>
+                      <% destination.tickets.map(ticket => { %>
+                          <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-flightCode="<%= ticket.flightConfirmation %>"> 
+                            <section class="newAccomodation--item__main" >
+                              <h4 data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-flightCode="<%= ticket.flightConfirmation %>"><%= ticket.flightAirline %> <i class="deleteTicket--btn fa-solid fa-trash-can"></i> </h4>
+                              <div> <%= ticket.flightConfirmation %> </div>
+                            </section>
+  
+                            <section class="newAccomodation--item__details"> 
+                              <section class="details--dates__depart">
+                                <div> <%= ticket.departDateTime %> </div>
+                                <div> <%= ticket.departLoc %> </div>
+                              </section>
+                              <i class="fa-solid fa-plane"></i>
+                              <section class="details--dates__arrive">
+                                <div> <%= ticket.arriveDateTime %> </div>
+                                <div> <%= ticket.arriveLoc %> </div>
+                              </section>
+                            </section>   
+                          </section>                     
+                      <% }) %>
+                    <% } %>
+                  </section>
                 </section>
 
                 <!-- Destination Accomodation Tab -->
@@ -260,7 +284,7 @@
                     </section>
                   </form>
 
-                  <!-- View Accomodations -->
+                  <!-- View Accomodation Cards -->
                   <section class="newAccomodation">
                   <% if (destination.accomodations) { %>
                     <% destination.accomodations.map(accomodation => { %>

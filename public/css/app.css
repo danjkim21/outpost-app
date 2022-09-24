@@ -433,7 +433,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 /* Accomodations Card */
-.newAccomodation {
+.newAccomodation, .newFlight {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -466,6 +466,12 @@ input::-webkit-calendar-picker-indicator {
   width: 35%;
   padding-right: 0.85rem
 }
+.newFlight .newAccomodation--item__details {
+  justify-content: space-between;
+}
+/* .details--dates__depart, .details--dates__arrive {
+  width: 45%;
+} */
 .details--address {
   border-left: 1px solid #ccd6f8;
   width: 65%;

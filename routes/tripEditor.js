@@ -30,4 +30,8 @@ router.put('/addAccomodation/:id/:loc', tripEditorController.addAccomodation);
 
 router.put('/deleteAccomodation', tripEditorController.deleteAccomodation);
 
+router.put('/addTicket/:id/:loc', tripEditorController.addTicket);
+
+router.put('/deleteFlight', tripEditorController.deleteFlight);
+
 module.exports = router;

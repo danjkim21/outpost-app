@@ -257,4 +257,65 @@ module.exports = {
       console.log(err);
     }
   },
+  addTicket: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        {
+          _id: req.params.id,
+        },
+        {
+          $push: {
+            'destinations.$[destination].tickets': {
+              departDateTime: req.body.departDateTime,
+              departLoc: req.body.departLoc,
+              arriveDateTime: req.body.arriveDateTime,
+              arriveLoc: req.body.arriveLoc,
+              flightConfirmation: req.body.flightConfirmation,
+              flightAirline: req.body.flightAirline,
+            },
+          },
+        },
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.params.loc,
+            },
+          ],
+        }
+      );
+
+      console.log(`Ticket: ${req.body.flightConfirmation} has been added!`);
+      res.redirect(`/tripEditor/${req.params.id}#${req.params.loc}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  deleteFlight: async (req, res) => {
+    try {
+      await Trip.findOneAndUpdate(
+        { _id: req.body.tripIdFromJSFile },
+        {
+          $pull: {
+            'destinations.$[destination].tickets': {
+              flightConfirmation: req.body.flightFromJSFile,
+            },
+          },
+        },
+        {
+          arrayFilters: [
+            {
+              'destination.location': req.body.destinationFromJSFile,
+            },
+          ],
+        }
+      );
+
+      console.log(
+        `Deleted: ${req.body.flightFromJSFile} from ${req.body.tripIdFromJSFile}`
+      );
+      res.json(`Deleted: ${req.body.flightFromJSFile}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
