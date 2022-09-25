@@ -382,6 +382,38 @@ body {
 .areaDisplay--titles {
   margin: 0.75rem 0;
 }
+.areaDisplay--titles__cards {
+  margin: 0 0 0.65rem 0;
+  font-weight: 400;
+}
+.areaDisplay--section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.areaDisplay--card {
+  height: 135px;
+  width: 215px;
+  padding: 1.55rem 1.10rem;
+  background-color: #ffffff;
+  border: 2px solid #ccd6f8;
+  border-radius: 4px;
+}
+.areaDisplay--card label {
+  display: inline-block;
+  width: 42.5px;
+}
+.areaDisplay--card .destination--startDate, 
+.areaDisplay--card .destination--endDate {
+  width: 125px;
+}
+.areaDisplay--cardStat {
+  font-weight: 700;
+  font-size: 1.55rem;
+}
+
 /* Modal Destination Form Styling */
 .destinationDetail--form {
   padding: 0.65rem;

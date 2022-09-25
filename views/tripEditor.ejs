@@ -106,51 +106,52 @@
               <section class="content--area">
                 <!-- Destination Overview Tab -->
                 <section class="content--areaDisplay areaDisplay--overview active" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
-                  <!-- Start - End Dates -->
-                  <h3 class="areaDisplay--titles">Dates</h3>
-                  <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
-                    <label for="destination--startDate">Start</label>
-                    <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
-                    <label for="destination--endDate">End</label>
-                    <input class="destination--endDate" type="date" 
-                      name="destination--endDate" id="" value="<%= destination.endDate %>">
-                  </section>
-
-                  <!-- Itinerary Overview -->
-                  <h3 class="areaDisplay--titles">Itinerary</h3>
+                  <h3 class="areaDisplay--titles">Trip Summary</h3>
+                  <!-- Destination Overview Cards -->
                   <section class="areaDisplay--section">
-                    <% if (destination.itinerary) { %>
-                      <p>You have <b> <%= destination.itinerary.length %> </b> planned <%= destination.itinerary.length === 1 ? "activity" : "activities" %>.</p>
-                    <% } else { %>
-                      <p>You have <b> no </b> planned activities.</p>
-                    <% } %>
-                  </section>
-
-                  <!-- Tickets Overview -->
-                  <h3 class="areaDisplay--titles">Flights/Travel</h3>
-                  <section class="areaDisplay--section">
-                    <% if (destination.tickets) { %>
-                      <p>You have <b> <%= destination.tickets.length %> </b> saved <%= destination.tickets.length === 1 ? "ticket" : "tickets" %>.</p>
-                    <% } else { %>
-                      <p>You have <b> no </b> saved tickets.</p>
-                    <% } %>
-                  </section>
-                    
-                  <!-- Accomodations Overview -->
-                  <h3 class="areaDisplay--titles">Accomodations</h3>
-                  <section class="areaDisplay--section">
-                    <% if (destination.accomodations) { %>
-                      <p>You have <b> <%= destination.accomodations.length %> </b> planned <%= destination.accomodations.length === 1 ? "accomodation" : "accomodations" %>.</p>
-                    <% } else { %>
-                      <p>You have no <b> planned </b> accomodations.</p>
-                    <% } %>
+                    <!-- Start - End Dates -->
+                    <section class="areaDisplay--card">
+                      <h4 class="areaDisplay--titles__cards">Trip Dates</h4>
+                      <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
+                        <label for="destination--startDate">Start</label>
+                        <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
+                        <label for="destination--endDate">End</label>
+                        <input class="destination--endDate" type="date" 
+                          name="destination--endDate" id="" value="<%= destination.endDate %>">
+                      </section>
+                    </section>
+                    <!-- Itinerary Overview -->
+                    <section class="areaDisplay--card">
+                      <h4 class="areaDisplay--titles__cards">Planned Activities</h4>
+                      <% if (destination.itinerary) { %>
+                        <span class="areaDisplay--cardStat"><i class="fa-solid fa-person-walking"></i> <%= destination.itinerary.length %></span>
+                      <% } else { %>
+                        <span class="areaDisplay--cardStat"><i class="fa-solid fa-person-walking"></i> None</span>
+                      <% } %>
+                    </section>
+                    <!-- Tickets Overview -->
+                    <section class="areaDisplay--card">
+                      <h4 class="areaDisplay--titles__cards">Saved Tickets</h4>
+                      <% if (destination.tickets) { %>
+                        <span class="areaDisplay--cardStat"><i class="fa-solid fa-ticket"></i> <%= destination.tickets.length %></span>
+                      <% } else { %>
+                        <span class="areaDisplay--cardStat"><i class="fa-solid fa-ticket"></i> None</span>
+                      <% } %>
+                    </section>
+                    <!-- Accomodations Overview -->
+                    <section class="areaDisplay--card">
+                      <h4 class="areaDisplay--titles__cards">Planned Accomodations</h4>
+                      <% if (destination.accomodations) { %>
+                        <span class="areaDisplay--cardStat"><i class="fa-solid fa-bed"></i> <%= destination.accomodations.length %></span>
+                      <% } else { %>
+                        <span class="areaDisplay--cardStat"><i class="fa-solid fa-bed"></i> None</span>
+                      <% } %>
+                    </section>
                   </section>
                     
                   <!-- Editable Notes -->
                   <h3 class="areaDisplay--titles">Notes</h3>
-                  <section class="areaDisplay--section">
                     <p class="destination--notes editable" contenteditable="true"><%= destination.notes ? destination.notes : "Add notes..." %></p>
-                  </section>
                 </section>
 
                 <!-- Destination Travel Itinerary Tab -->
@@ -259,7 +260,7 @@
                       <section>
                         <!-- Select Airlines -->
                         <label class="destinationDetail--label" for="flightAirline">Airlines</label>
-                        <input class="destinationDetail--inpt" type="text" name="flightAirline" placeholder="">
+                        <input class="destinationDetail--inpt" type="text" name="flightAirline" placeholder="Aer Lingus">
                       </section>
                     </section>
                     <!-- Submit form btn -->
