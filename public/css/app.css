@@ -9,7 +9,7 @@ body {
   top: 0;
   left: 0;
   height: 100vh;
-  width: 25%;
+  width: 25vw;
   background: #f2f5fd;
   /* padding: 5vh 3.5vw; */
 }
@@ -44,6 +44,12 @@ body {
   color: #000000;
   padding: 2vh 3.5vw;
 }
+
+.nav--dropdownBtn {
+  display: none;
+  font-size: 1.25rem
+}
+
 
 /* --------- MAIN APP STYLING --------- */
 .content--body.appmain {
@@ -551,4 +557,112 @@ input::-webkit-calendar-picker-indicator {
 }
 .newDestination--btn:hover {
   cursor: pointer;
+}
+
+/* --------- MEDIA QUERIES --------- */
+@media screen and (max-width: 850px) {
+  /* Side Bar */
+  .sidebar {
+    width: 45px;
+    z-index: 1;
+  }
+  .nav--dropdownBtn {
+    display: inline-block;
+    padding: 5vh 15px;
+  }
+  .profile {
+    display: none;
+  }
+  .nav {
+    display: none;
+  }
+  .sidebar.open {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    background-color: #f2f5fdf8;
+  }
+  .profile.open {
+    display: block;
+    text-align: center;
+  }
+  .nav.open {
+    display: block;
+    text-align: center;
+  }
+
+  /* Main App Right */
+  .content--body.appmain {
+    width: 100vw !important;
+    padding-top: 5.5vh !important;
+    margin-left: 45px !important;
+  }
+
+    /* Trips Editor Page */
+  .trip--coverImg {
+    width: 100%;
+    max-width: 100%;
+    z-index: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  /* Side Bar */
+  .sidebar {
+    background: rgba(247, 249, 253, 0.5);
+  }
+  .nav--dropdownBtn {
+    display: inline-block;
+    padding: 2.5vh 15px;
+    z-index: 1;
+    font-size: 1.5rem;
+    color: #335ae5;
+  }
+  .content--body.appmain {
+    padding-top: 5.5vh !important;
+    padding-left: 0px;
+    padding-right: 25px;
+  }
+
+  /* Trips Dashboard Page */
+  .wrapper {
+    position: fixed;
+    right: 3.5vw;
+    bottom: 3.5vh;
+  }
+  .tripsCard--upcoming,
+  .tripsCard--completed {
+    width: 275px;
+    background-color: #f0f2fc;
+    border-radius: 4px 4px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2.5px 2.5px 15px 5.5px rgba(163, 163, 163, 0.3);
+  }
+  .tripsCard--img {
+    height: 220px;
+    width: 275px;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+  }
+
+  /* Trips Editor Page */
+  .trip--coverImg {
+    height: 20vh;
+    width: 100%;
+    max-width: 100%;
+    z-index: -1;
+  }
+  .overview--details > .detail--title {
+    width: 45%;
+  }
+  .overview--details > .detail--value {
+    width: 52.5%;
+  }
+  .newDestination--input {
+    width: 90%;
+  }
+  .newDestination--btn {
+    width: 10%;
+  }
 }

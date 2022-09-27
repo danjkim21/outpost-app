@@ -86,7 +86,7 @@ This app can be accessed via [outpost-trips.herokuapp.com/](https://outpost-trip
 
 - [x] Update "My Trips" Dashboard UI
 - [x] Build out Trip Destination Modal content
-- [ ] Add Mobile Responsiveness
+- [x] Add Mobile Responsiveness
 - [ ] Add "Destinations" Model to MVC (TBD)
 - [ ] Integrate Google Maps API
 - [ ] Add dark mode styling
