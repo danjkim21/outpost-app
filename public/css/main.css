@@ -31,6 +31,10 @@
   margin-left: 15px;
 }
 
+.nav--dropdownBtn {
+  display: none;
+  font-size: 1.25rem
+}
 /* --------- LANDING PAGE STYLING --------- */
 .content--body.main {
   padding-top: 2.5vh;
@@ -43,6 +47,7 @@
 }
 .hero--content {
   width: 50vw;
+  z-index: 2;
 }
 .hero--title {
   font-weight: 400;
@@ -50,8 +55,8 @@
 .hero--desc {
   line-height: 1.35rem;
 }
-.hero--content {
-  z-index: 2;
+.hero--img {
+  overflow: hidden;
 }
 .hero--img__backdrop {
   position: absolute;
@@ -148,3 +153,67 @@ footer .socials--link {
 }
 
 /* --------- MEDIA QUERIES --------- */
+@media screen and (max-width: 740px){
+  /* Header/Nav */
+  .nav--dropdownBtn {
+    display: inline-block;
+  }
+  .nav--list {
+    display: none;
+  }
+  .header.open {
+    flex-wrap: wrap;
+    gap: 50px;
+    
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    padding: 0 8.75vw;
+    z-index: 4;
+    background-color: #f2f5fde7;
+  }
+  .nav.open {
+    width: 100vw;
+    height: auto;
+  }
+  .nav--list.open {
+    display: block;
+    text-align: center;
+    height: 87.5vh;
+    margin: 0;
+    padding: 0;
+  }
+  .nav--list.open > li {
+    margin-bottom: 45px;
+    display: block;
+  }
+  .nav--list .btns--primary{
+    margin-left: 0;
+  }
+  .btns--primary {
+    width: 85px;
+    height: 45px;
+    padding: 12px 20px;
+    margin: 0;
+  
+  }
+  .btns--secondary {
+    width: 85px;
+    height: 45px;
+    padding: 12px 20px;
+
+  }
+
+  /* Landing Page Body */
+  .hero--content {
+    width: 80vw;
+  }
+  .hero--img__backdrop {
+    width: 80vw;
+    height: 60vh;
+  }
+  /* Footer */
+}
+@media screen and (max-width: 430px){
+  
+}
