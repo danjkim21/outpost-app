@@ -3,9 +3,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <!-- <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+  <a href="https://github.com/danjkim21/outpost-app">
+    <img src="public/images/outpost-logo.svg" alt="Logo" width="80" height="80">
+  </a>
 
 <h3 align="center">Outpost</h3>
 
@@ -28,7 +28,7 @@
 ## About The Project
 
 <p align="center">
-  <!-- <img src="public/images/" width="75%" alt="outpost app recording"/> -->
+  <img src="public/images/outpost-demo.gif" width="75%" alt="outpost app recording"/>
 </p>
 
 Like many others, traveling is stressful for me. Particularily when you are juggling multiple flights, accomodations, logistics, etc. I often find myself burning out on just planning the logistics than getting excited by looking for fun or interesting sites, attractions and good food! 
