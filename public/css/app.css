@@ -74,6 +74,9 @@ body {
   text-transform: uppercase;
   color: white;
 }
+.wrapper a:hover {
+  background-color: #446bf8;
+}
 .modal--content {
   border-radius: 4px;
   position: relative;
@@ -225,6 +228,17 @@ body {
 .tripsCard-btns > a:hover, .tripsCard-btns span:hover {
   cursor: pointer;
 }
+h4.not:hover {
+  cursor: pointer;
+  text-decoration: line-through;
+}
+h4.completed {
+  text-decoration: line-through;
+}
+h4.completed:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
 
 /* --------- TRIPS EDITOR PAGE STYLING --------- */
 /* Cover Img Styling */
@@ -235,7 +249,7 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  height: 25vh;
+  height: 22.5vh;
   width: 75vw;
   max-width: 75%;
   object-fit: cover;
@@ -330,13 +344,14 @@ body {
   background-color: #f2f5fd;
   border: 2px solid #ccd6f8;
   border-radius: 4px;
+  margin-bottom: 1px;
 }
 .newDestination--icon {
   margin-right: 1rem;
 }
 .newDestination--icon > i {
   color: #99adf2;
-  font-size: 2.5rem;
+  font-size: 2.15rem;
 }
 .newDestination--btns {
   margin-left: auto;
@@ -355,9 +370,12 @@ body {
   border-bottom: 1px solid #ccd6f8;
 }
 .modal.expanded .content--nav {
-  padding: 0.95rem 0;
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.50rem 0;
+  margin: 0.45rem 0;
   width: 100%;
-  overflow-x: overlay;
+  overflow-y: hidden;
 }
 .content--tabs {
   background-color: #f2f5fd;
@@ -448,6 +466,10 @@ input::-webkit-calendar-picker-indicator {
   border: 1px solid #1d48e4;
   border-radius: 4px;
   color: #ffffff;
+}
+.destinationDetail--form__submit:hover {
+  cursor: pointer;
+  background-color: #2956fa;
 }
 .destinationDetail--form__multi > section {
   width: 22.5%;
@@ -605,11 +627,19 @@ input::-webkit-calendar-picker-indicator {
     max-width: 100%;
     z-index: 0;
   }
+
+  .destinationDetail--form__multi {
+    flex-wrap: wrap;
+  }
+  .destinationDetail--form__multi > section {
+    width: 47.5%;
+  }
 }
 
 @media screen and (max-width: 450px) {
   /* Side Bar */
   .sidebar {
+    width: 30px;
     background: rgba(247, 249, 253, 0.5);
   }
   .nav--dropdownBtn {
@@ -623,9 +653,15 @@ input::-webkit-calendar-picker-indicator {
     padding-top: 5.5vh !important;
     padding-left: 0px;
     padding-right: 25px;
+    margin-left: 30px !important;
+
   }
 
   /* Trips Dashboard Page */
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
   .wrapper {
     position: fixed;
     right: 3.5vw;
@@ -633,7 +669,7 @@ input::-webkit-calendar-picker-indicator {
   }
   .tripsCard--upcoming,
   .tripsCard--completed {
-    width: 275px;
+    width: 332.5px;
     background-color: #f0f2fc;
     border-radius: 4px 4px;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
@@ -641,17 +677,20 @@ input::-webkit-calendar-picker-indicator {
   }
   .tripsCard--img {
     height: 220px;
-    width: 275px;
+    width: 332.5px;
     object-fit: cover;
     border-radius: 4px 4px 0 0;
   }
 
   /* Trips Editor Page */
   .trip--coverImg {
-    height: 20vh;
+    height: 18vh;
     width: 100%;
     max-width: 100%;
     z-index: -1;
+  }
+  .trip--title {
+    margin-top: 18vh;
   }
   .overview--details > .detail--title {
     width: 45%;

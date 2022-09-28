@@ -19,7 +19,7 @@
           
           <section class="tripsCard--overview">
             <section class="tripsCard--text" data-id='<%=el._id%>'>
-              <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>
+              <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>" title="Mark Completed"><%= el.trip %></h4>
               <div class="tripsCard--date"><%= el.destinations.length >= 1 ? el.destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[0].startDate : '' %></div>
             </section>
             
@@ -42,7 +42,7 @@
         <section class="tripsCard--completed" data-id='<%=el._id%>'>
           <img class="tripsCard--img <%= el.completed && 'hidden-img' %>" src="<%= el.displayImg %>" alt="trip img placeholder">
           <section class="tripsCard--overview" data-id='<%=el._id%>'>
-            <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>"><%= el.trip %></h4>            
+            <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>" title="Mark Incomplete"><%= el.trip %></h4>            
             <section class="tripsCard-btns" data-id='<%=el._id%>'>
               <a class="editTrip" href="/tripEditor/<%= el._id%>"><i class="fa-regular fa-pen-to-square"></i></a>
              <span class='del'><i class="fa-regular fa-circle-xmark"></i></span>
