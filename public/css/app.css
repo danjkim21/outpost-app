@@ -33,6 +33,7 @@ body {
 }
 .sidebar .sidebar--nav li {
   display: block;
+  transition: all ease-in-out 85ms;
   /* padding: 2vh 3.5vw; */
 }
 .sidebar .sidebar--nav li:hover {
@@ -299,6 +300,7 @@ h4.completed:hover {
   padding: 0.35rem;
   padding-right: 1rem;
   width: 30%;
+  transition: all ease-in-out 85ms;
 }
 .detail--title > i {
   color: #667dd1;
@@ -306,6 +308,7 @@ h4.completed:hover {
 .overview--details > .detail--value {
   padding: 0.35rem;
   width: 65%;
+  transition: all ease-in-out 75ms;
 }
 .detail--title:hover,
 .detail--value:hover {
@@ -437,6 +440,32 @@ h4.completed:hover {
   font-weight: 700;
   font-size: 1.55rem;
 }
+/* Modal title-form interaction */
+.areaDisplay--flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.areaDisplay--flex > .areaDisplay--titles {
+  display: inline-block;
+  margin-right: 1rem;
+}
+.destinationDetail--form.hidden {
+  display: none;
+}
+.toggleForm {
+  padding: 2.5px 7.5px;
+  border-radius: 4px;
+  border: 1px solid #1d48e4;
+  background-color: #1d48e4;
+  color: #ffffff;
+  transition: all ease-in-out 85ms;
+}
+.toggleForm:hover {
+  background-color: #2956fa;
+  border: 1px solid #2956fa;
+  cursor: pointer;
+}
 
 /* Modal Destination Form Styling */
 .destinationDetail--form {
@@ -466,6 +495,7 @@ input::-webkit-calendar-picker-indicator {
   border: 1px solid #1d48e4;
   border-radius: 4px;
   color: #ffffff;
+  transition: all ease-in-out 85ms;
 }
 .destinationDetail--form__submit:hover {
   cursor: pointer;

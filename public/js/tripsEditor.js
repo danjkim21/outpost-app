@@ -6,6 +6,7 @@ const tripEditor = document.querySelectorAll('.editTrip');
 const tripTitleEdit = document.querySelector('.trip--title');
 const tripDescEdit = document.querySelector('.trip--description');
 const coverImgEdit = document.querySelector('.changeCoverImg-btn');
+const toggleFormBtn = document.querySelectorAll('.toggleForm');
 const addDestination = document.querySelector('.newDestination--btn');
 const deleteDestinationBtn = document.querySelectorAll('.deleteDestination--btn');
 const destinationLocation = document.querySelectorAll('.newDestination--location');
@@ -20,6 +21,9 @@ const deleteActivityBtn = document.querySelectorAll('.deleteActivity--btn');
 
 // ********** Event Listeners ********** //
 // –––––––– TRIP EDITOR –––––––– //
+Array.from(toggleFormBtn).forEach((el) => {
+  el.addEventListener('click', toggleFormOpenClose);
+});
 Array.from(deleteDestinationBtn).forEach((el) => {
   el.addEventListener('click', deleteDestination);
 });
@@ -325,6 +329,8 @@ async function deleteActivity() {
   }
 }
 
+// UI Interactivity Functions
+
 async function toggleContentTab() {
   if (!this.classList.contains('active')) {
     let overviewTab = document.querySelector('.tab--overview');
@@ -356,5 +362,16 @@ async function toggleContentTab() {
     } else if (accomTab.classList.contains('active')) {
       accomArea.classList.add('active');
     }
+  }
+}
+
+async function toggleFormOpenClose() {
+  let selectedBtnIdentity = this.classList[1];
+  let selectedForm = document.querySelector(`#${selectedBtnIdentity}Form`);
+
+  if (selectedForm.classList.contains('hidden')) {
+    selectedForm.classList.remove('hidden');
+  } else if (!selectedForm.classList.contains('hidden')) {
+    selectedForm.classList.add('hidden');
   }
 }

@@ -158,8 +158,12 @@
                 <!-- Destination Travel Itinerary Tab -->
                 <section class="content--areaDisplay areaDisplay--itinerary">
                   <!-- Add Accomodation Itinerary Item form -->
-                  <h3 class="areaDisplay--titles">Add Travel Activity</h3>
-                  <form class="destinationDetail--form" action="/tripEditor/addActivity/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
+                  <section class="areaDisplay--flex">
+                    <h3 class="areaDisplay--titles">Travel Activities</h3>
+                    <button class="toggleForm activity">Add</button>
+                  </section>
+                  
+                  <form id="activityForm" class="destinationDetail--form hidden" action="/tripEditor/addActivity/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__single">
                       <!-- Add Itinerary Activity -->
                       <label class="destinationDetail--label" for="activityDescrip">Activity</label>
@@ -229,8 +233,11 @@
                 <!-- Destination Flights/Tickets Tab -->
                 <section class="content--areaDisplay areaDisplay--travel">
                   <!-- Add Accomodation Tickets form -->
-                  <h3 class="areaDisplay--titles">Add Ticket</h3>
-                  <form class="destinationDetail--form" action="/tripEditor/addTicket/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
+                  <section class="areaDisplay--flex">
+                    <h3 class="areaDisplay--titles">Tickets</h3>
+                    <button class="toggleForm ticket">Add</button>
+                  </section>
+                  <form id="ticketForm" class="destinationDetail--form hidden" action="/tripEditor/addTicket/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__multi">
                       <!-- Add Departure date/time -->
                       <section>
@@ -300,8 +307,11 @@
                 <!-- Destination Accomodation Tab -->
                 <section class="content--areaDisplay areaDisplay--accomodations">
                   <!-- Add Accomodation form -->
-                  <h3 class="areaDisplay--titles">Add Accomodation</h3>
-                  <form class="destinationDetail--form" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
+                  <section class="areaDisplay--flex">
+                    <h3 class="areaDisplay--titles">Accomodations</h3>
+                    <button class="toggleForm accomodation">Add</button>
+                  </section>
+                  <form id="accomodationForm" class="destinationDetail--form hidden" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__single">
                       <!-- Add accomodation address -->
                       <label class="destinationDetail--label" for="accomodationAddress">Address</label>
