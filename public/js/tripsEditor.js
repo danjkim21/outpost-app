@@ -346,7 +346,7 @@ async function toggleContentTab() {
   if (!this.classList.contains('active')) {
     this.classList.add('active');
 
-    console.log(selectedTabIdentity, selectedtabSpaces);
+    // console.log(selectedTabIdentity, selectedtabSpaces);
 
     Array.from(selectedtabSpaces).forEach((elem) => {
       elem.classList.add('active');
@@ -355,12 +355,23 @@ async function toggleContentTab() {
 }
 
 async function toggleFormOpenClose() {
-  let selectedBtnIdentity = this.classList[1];
-  let selectedForm = document.querySelector(`#${selectedBtnIdentity}Form`);
+  // let selectedBtnIdentity = this.classList[1];
+  // let selectedForm = document.querySelector(`#${selectedBtnIdentity}Form`);
 
-  if (selectedForm.classList.contains('hidden')) {
-    selectedForm.classList.remove('hidden');
-  } else if (!selectedForm.classList.contains('hidden')) {
-    selectedForm.classList.add('hidden');
-  }
+  // if (selectedForm.classList.contains('hidden')) {
+  //   selectedForm.classList.remove('hidden');
+  // } else if (!selectedForm.classList.contains('hidden')) {
+  //   selectedForm.classList.add('hidden');
+  // }
+
+  let selectedBtnIdentity = this.classList[1];
+  let selectedForm = document.querySelectorAll(`.${selectedBtnIdentity}Form`);
+
+  Array.from(selectedForm).forEach((elem) => {
+    if (elem.classList.contains('hidden')) {
+      elem.classList.remove('hidden');
+    } else if (!elem.classList.contains('hidden')) {
+      elem.classList.add('hidden');
+    }
+  });
 }

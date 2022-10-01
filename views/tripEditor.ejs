@@ -163,7 +163,7 @@
                     <button class="toggleForm activity">Add</button>
                   </section>
                   
-                  <form id="activityForm" class="destinationDetail--form hidden" action="/tripEditor/addActivity/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
+                  <form class="activityForm destinationDetail--form hidden" action="/tripEditor/addActivity/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__single">
                       <!-- Add Itinerary Activity -->
                       <label class="destinationDetail--label" for="activityDescrip">Activity</label>
@@ -237,7 +237,7 @@
                     <h3 class="areaDisplay--titles">Tickets</h3>
                     <button class="toggleForm ticket">Add</button>
                   </section>
-                  <form id="ticketForm" class="destinationDetail--form hidden" action="/tripEditor/addTicket/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
+                  <form class="ticketForm destinationDetail--form hidden" action="/tripEditor/addTicket/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__multi">
                       <!-- Add Departure date/time -->
                       <section>
@@ -311,7 +311,7 @@
                     <h3 class="areaDisplay--titles">Accomodations</h3>
                     <button class="toggleForm accomodation">Add</button>
                   </section>
-                  <form id="accomodationForm" class="destinationDetail--form hidden" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
+                  <form class="accomodationForm destinationDetail--form hidden" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__single">
                       <!-- Add accomodation address -->
                       <label class="destinationDetail--label" for="accomodationAddress">Address</label>
