@@ -332,36 +332,25 @@ async function deleteActivity() {
 // UI Interactivity Functions
 
 async function toggleContentTab() {
+  let selectedTabIdentity = `areaDisplay--${this.classList[1].substring(5)}`;
+  let selectedtabSpaces = document.querySelectorAll(`.${selectedTabIdentity}`);
+
+  Array.from(destinationContentTabs).forEach((tab) => {
+    tab.classList.remove('active');
+  });
+
+  Array.from(destinationContentAreas).forEach((area) => {
+    area.classList.remove('active');
+  });
+
   if (!this.classList.contains('active')) {
-    let overviewTab = document.querySelector('.tab--overview');
-    let itineraryTab = document.querySelector('.tab--itinerary');
-    let travelTab = document.querySelector('.tab--travel');
-    let accomTab = document.querySelector('.tab--accomodations');
-
-    let overviewArea = document.querySelector('.areaDisplay--overview');
-    let itineraryArea = document.querySelector('.areaDisplay--itinerary');
-    let travelArea = document.querySelector('.areaDisplay--travel');
-    let accomArea = document.querySelector('.areaDisplay--accomodations');
-
-    Array.from(destinationContentTabs).forEach((tab) => {
-      tab.classList.remove('active');
-    });
-
-    Array.from(destinationContentAreas).forEach((area) => {
-      area.classList.remove('active');
-    });
-
     this.classList.add('active');
 
-    if (overviewTab.classList.contains('active')) {
-      overviewArea.classList.add('active');
-    } else if (itineraryTab.classList.contains('active')) {
-      itineraryArea.classList.add('active');
-    } else if (travelTab.classList.contains('active')) {
-      travelArea.classList.add('active');
-    } else if (accomTab.classList.contains('active')) {
-      accomArea.classList.add('active');
-    }
+    console.log(selectedTabIdentity, selectedtabSpaces);
+
+    Array.from(selectedtabSpaces).forEach((elem) => {
+      elem.classList.add('active');
+    });
   }
 }
 
