@@ -211,17 +211,28 @@
                       <% destination.itinerary.map(activity => { %>
                           <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-activityDesc="<%= activity.activityDescrip %>"> 
                             <section class="newAccomodation--item__main" >
-                              <h4 data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-activityDesc="<%= activity.activityDescrip %>"><%= activity.activityLocation %> <i class="deleteActivity--btn fa-solid fa-trash-can"></i> </h4>
-                              <div> <%= activity.activityDescrip %> </div>
-                            </section>
-  
-                            <section class="newAccomodation--item__details"> 
-                              <section class="details--dates__depart">
-                                <div> <%= activity.startDateTime %> </div>
-                                <div> <%= activity.endDateTime %> </div>
+                              <section>
+                                <h4 data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-activityDesc="<%= activity.activityDescrip %>"><%= activity.activityLocation %> <i class="deleteActivity--btn fa-solid fa-trash-can"></i> </h4>
+                                <div> <%= activity.activityDescrip %> </div>
                               </section>
                               <section class="details--dates__arrive flex">
                                 <span class="activityType--tag"> <%= activity.activityType %> </span>
+                              </section>
+                            </section>
+  
+                            <section class="newAccomodation--item__details"> 
+                              <% let startDate = activity.startDateTime.split('T')[0] %>
+                              <% let startTime = activity.startDateTime.split('T')[1] %>
+                              <% let endDate = activity.endDateTime.split('T')[0] %>
+                              <% let endTime = activity.endDateTime.split('T')[1] %>
+                              <section class="details--dates__depart">
+                                <div> <%= startDate %> </div>
+                                <div class="ticket--time"> <%= startTime %> </div>
+                              </section>
+                              <p class="arrow__right">	&#8594;</p>
+                              <section class="details--dates__arrive">
+                                <div> <%= endDate %> </div>
+                                <div class="ticket--time"> <%= endTime %> </div>
                               </section>
                             </section>   
                           </section>                     
@@ -289,13 +300,22 @@
   
                             <section class="newAccomodation--item__details"> 
                               <section class="details--dates__depart">
-                                <div> <%= ticket.departDateTime %> </div>
-                                <div> <%= ticket.departLoc %> </div>
+                                <% let departDate = ticket.departDateTime.split('T')[0] %>
+                                <% let departTime = ticket.departDateTime.split('T')[1] %>
+
+                                <div class="ticket--date"> <%= departDate %> </div>
+                                <div class="ticket--time"> <%= departTime %> </div>
+                                <div class="ticket--loc"> <%= ticket.departLoc %> </div>
+                                
                               </section>
                               <i class="fa-solid fa-plane"></i>
                               <section class="details--dates__arrive">
-                                <div> <%= ticket.arriveDateTime %> </div>
-                                <div> <%= ticket.arriveLoc %> </div>
+                                <% let arriveDate = ticket.arriveDateTime.split('T')[0] %>
+                                <% let arriveTime = ticket.arriveDateTime.split('T')[1] %>
+
+                                <div class="ticket--date"> <%= arriveDate %> </div>
+                                <div class="ticket--time"> <%= arriveTime %> </div>
+                                <div class="ticket--loc"> <%= ticket.arriveLoc %> </div>
                               </section>
                             </section>   
                           </section>                     
