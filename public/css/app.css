@@ -171,7 +171,7 @@ body {
 
 .tripsCard--upcoming,
 .tripsCard--completed {
-  height: 295px;
+  height: 305px;
   width: 220px;
   background-color: #f0f2fc;
   border-radius: 4px 4px;
@@ -698,9 +698,9 @@ input::-webkit-calendar-picker-indicator {
   }
 
   /* Trips Dashboard Page */
-  h1 {
-    text-align: center;
+  .trip--title {
     margin-bottom: 2rem;
+    font-size: 1.55rem;
   }
   .wrapper {
     position: fixed;
@@ -743,5 +743,24 @@ input::-webkit-calendar-picker-indicator {
   }
   .newDestination--btn {
     width: 10%;
+  }
+  .newDestination--btns i {
+    font-size: 1.15rem;
+  }
+  .newDestination--icon {
+    display: none;
+  }
+  .deleteDestination--btn {
+    margin-top: 8.5px;
+  }
+  /* Destination Modal */
+  .modal--close {
+    font-size: 1.55rem;
+  }
+  .modal--content {
+    padding: 0 0.85rem 1rem 0.85rem;
+  }
+  .areaDisplay--card {
+    width: 100%;
   }
 }

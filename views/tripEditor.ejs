@@ -114,11 +114,15 @@
                     <section class="areaDisplay--card">
                       <h4 class="areaDisplay--titles__cards">Trip Dates</h4>
                       <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
-                        <label for="destination--startDate">Start</label>
-                        <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
-                        <label for="destination--endDate">End</label>
-                        <input class="destination--endDate" type="date" 
-                          name="destination--endDate" id="" value="<%= destination.endDate %>">
+                        <section data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
+                          <label for="destination--startDate">Start</label>
+                          <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
+                        </section>
+                        <section data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
+                          <label for="destination--endDate">End</label>
+                          <input class="destination--endDate" type="date" 
+                            name="destination--endDate" id="" value="<%= destination.endDate %>">
+                        </section>
                       </section>
                     </section>
                     <!-- Itinerary Overview -->
@@ -219,22 +223,43 @@
                                 <span class="activityType--tag"> <%= activity.activityType %> </span>
                               </section>
                             </section>
-  
-                            <section class="newAccomodation--item__details"> 
-                              <% let startDate = activity.startDateTime.split('T')[0] %>
-                              <% let startTime = activity.startDateTime.split('T')[1] %>
-                              <% let endDate = activity.endDateTime.split('T')[0] %>
-                              <% let endTime = activity.endDateTime.split('T')[1] %>
-                              <section class="details--dates__depart">
-                                <div> <%= startDate %> </div>
-                                <div class="ticket--time"> <%= startTime %> </div>
+                            
+                            <% if (activity.startDateTime && activity.endDateTime) { %>
+                              <section class="newAccomodation--item__details"> 
+                                <% let startDate = activity.startDateTime.split('T')[0] %>
+                                <% let startTime = activity.startDateTime.split('T')[1] %>
+                                <% let endDate = activity.endDateTime.split('T')[0] %>
+                                <% let endTime = activity.endDateTime.split('T')[1] %>
+                                <section class="details--dates__depart">
+                                  <div> <%= startDate %> </div>
+                                  <div class="ticket--time"> <%= startTime %> </div>
+                                </section>
+                                <p class="arrow__right">	&#8594;</p>
+                                <section class="details--dates__arrive">
+                                  <div> <%= endDate %> </div>
+                                  <div class="ticket--time"> <%= endTime %> </div>
+                                </section>
+                              </section>   
+                            <% } else { %> 
+                              <section>
+                                <h5>Schedule Activity</h5>
+                                <!-- TODO: add controller/routing to update Activity Date/Times -->
+                                <!-- <form class="" action="/tripEditor/updateActivity/<%=trip[0]._id%>/<%=destination.location%>/<%=activity.activityDescrip%>?_method=PUT" method='POST'>
+                                  <section>
+                                    <label class="destinationDetail--label" for="startDateTime">Start</label>
+                                    <input class="destinationDetail--inpt" type="datetime-local" name="startDateTime">
+                                  </section>
+                                  <section>
+                                    <label class="destinationDetail--label" for="endDateTime">End</label>
+                                    <input class="destinationDetail--inpt" type="datetime-local" name="endDateTime">
+                                  </section>
+                                  <section class="destinationDetail--form__single right">
+                                    <input class="destinationDetail--form__submit" type="submit">
+                                  </section>
+                                </form> -->
                               </section>
-                              <p class="arrow__right">	&#8594;</p>
-                              <section class="details--dates__arrive">
-                                <div> <%= endDate %> </div>
-                                <div class="ticket--time"> <%= endTime %> </div>
-                              </section>
-                            </section>   
+                            <% } %>
+
                           </section>                     
                       <% }) %>
                     <% } %>
