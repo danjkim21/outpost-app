@@ -1,0 +1,19 @@
+<%- include("partials/sidebar") %>
+
+  <section class="content--body appmain">
+    <h1>Hello <%= user.userName %>! 👋</h1>
+
+    <form class="" action="/userPage/updateUserName/<%= user._id %>/?_method=PUT" method='POST'>
+      <section class="destinationDetail--form__single">
+        <!-- Add Itinerary Activity -->
+        <label class="destinationDetail--label" for="newUserName">Update User Name</label>
+        <input class="destinationDetail--inpt" type="text" name="newUserName" placeholder="<%= user.userName %>">
+      </section>
+      <!-- Submit form btn -->
+      <input class="destinationDetail--form__submit" type="submit">
+    </form>
+    
+  </section>
+  <script src="/js/sidebar.js"></script>
+  </body>
+</html>

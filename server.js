@@ -14,6 +14,7 @@ const connectDB = require('./config/database');
 const mainRoutes = require('./routes/main');
 const tripsRoutes = require('./routes/trips');
 const tripEditorRoutes = require('./routes/tripEditor')
+const userPageRoutes = require('./routes/userPage')
 
 // ***** .ENV config ***** //
 require('dotenv').config({ path: './config/.env' });
@@ -52,9 +53,8 @@ app.use(flash());
 // ***** Routes/Pathing ***** //
 app.use('/', mainRoutes);  // --landing page, login, auth
 app.use('/trips', tripsRoutes);  // --main dashboard, trip CRUD creator
-
-// !!!!!!! TODO !!!!!!!
 app.use('/tripEditor', tripEditorRoutes)  // --trip editor and planner feature 
+app.use('/userPage', userPageRoutes);  // --user page for info and settings
 
 // ***** Run Server Connection ***** //
 app.listen(process.env.PORT, () => {
