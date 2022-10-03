@@ -94,6 +94,46 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* --------- ABOUT PAGE STYLING --------- */
+.hero--img__cover {
+  z-index: 1;
+  width:100%;
+  max-width: 400px;
+}
+.hero--content.about {
+  margin-left: 5vw;
+}
+.section--title {
+  font-weight: 400;
+}
+.section--appAbout {
+  height: 50vh;
+}
+.cardsContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.card {
+  width: 300px;
+  height: 250px;
+  border: 2px solid #CCD6F8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all ease-in-out 95ms;
+
+}
+.card:hover {
+  background-color: #CCD6F8;
+}
+.card--icon {
+  font-size: 1.85rem;
+}
+
 /* --------- LOGIN/SIGNUP STYLING --------- */
 .content--body.register {
   display: flex;
@@ -129,6 +169,20 @@
   border: 1px solid #335AE5;
   border-radius: 4px; 
 }
+.regist--btns {
+  margin-top: 32px;
+}
+.regist--btns > .btns--primary {
+  min-width: 100px;
+  padding: 10px 28px;
+  transition: all ease-in-out 95ms;
+
+}
+.regist--btns > .btns--primary:hover {
+  background-color: #335AE5;
+  color: #FFFFFF;
+  border: 1px solid #335AE5;
+}
 .registrationCard--navigate a {
   color: #0031DE;
   text-decoration: none;
@@ -153,6 +207,12 @@ footer .socials--link {
 }
 
 /* --------- MEDIA QUERIES --------- */
+@media screen and (max-width: 1160px){
+  /* ABOUT PAGE STYLING */
+  .section--appAbout {
+    height: 80vh;
+  }
+}
 @media screen and (max-width: 740px){
   /* Header/Nav */
   .nav--dropdownBtn {
@@ -212,6 +272,18 @@ footer .socials--link {
     width: 80vw;
     height: 60vh;
   }
+  /* ABOUT PAGE STYLING */
+  .section--appAbout {
+    height: 110vh;
+  }
+  .hero.about {
+    display: block;
+    height: 650px;
+  }
+  .hero.about .hero--img__backdrop {
+    z-index: -1;
+  }
+
   /* Footer */
 }
 @media screen and (max-width: 430px){
