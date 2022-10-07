@@ -1,0 +1,31 @@
+<%- include("partials/sidebar") %>
+
+  <section class="content--body appmain">
+    <h1>Hello <%= user.userName %>! 👋</h1>
+
+    <p>Check out what others have planned!</p>
+
+    <!-- Upcoming Trips Cards -->
+    <section class="tripsCard tripsCard--upcoming__tab selectedCard">
+
+      <% allTrips.filter( el => !el.completed ).map( el => { %>
+        <section class="tripsCard--upcoming" data-id='<%=el._id%>'>
+          <a href="/tripEditor/<%= el._id%>"><img class="tripsCard--img" src="<%= el.displayImg %>" alt="trip img placeholder"></a>
+          
+          <section class="tripsCard--overview">
+            <section class="tripsCard--text" data-id='<%=el._id%>'>
+              <h4 class="tripsCard--title" title="Mark Completed"><%= el.trip %></h4>
+              <div class="tripsCard--date"><%= el.destinations.length >= 1 ? el.destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[0].startDate : 'Not Planned' %></div>
+            </section>
+          </section>
+          
+        </section>
+
+      <% }) %> 
+    </section>
+    
+  </section>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/trips.js"></script>
+  </body>
+</html>

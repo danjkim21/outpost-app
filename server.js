@@ -15,6 +15,7 @@ const mainRoutes = require('./routes/main');
 const tripsRoutes = require('./routes/trips');
 const tripEditorRoutes = require('./routes/tripEditor')
 const userPageRoutes = require('./routes/userPage')
+const explorePageRoutes = require('./routes/explorePage')
 
 // ***** .ENV config ***** //
 require('dotenv').config({ path: './config/.env' });
@@ -55,6 +56,7 @@ app.use('/', mainRoutes);  // --landing page, login, auth
 app.use('/trips', tripsRoutes);  // --main dashboard, trip CRUD creator
 app.use('/tripEditor', tripEditorRoutes)  // --trip editor and planner feature 
 app.use('/userPage', userPageRoutes);  // --user page for info and settings
+app.use('/explorePage', explorePageRoutes); // --explore page for all user trips
 
 // ***** Run Server Connection ***** //
 app.listen(process.env.PORT, () => {
