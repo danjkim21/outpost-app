@@ -1,18 +1,23 @@
 <%- include("partials/sidebar") %>
 
+  <% const sharedUsers = String(trip[0].sharedUsers.map(obj => Object.keys(obj))) %> 
+
   <section class="content--body appmain" data-id="<%=trip[0]._id%>">
     <!-- Editable Trip Cover Image -->
     <section class="trip--cover">
       <img class="trip--coverImg" src="<%= trip[0].displayImg %>" alt="">
 
-      <section class="changeCoverImg" data-id="<%=trip[0]._id%>">
-        <input class="changeCoverImg-input" type="text" name="displayImg" placeholder="enter URL"><button class="changeCoverImg-btn">Change Cover</button>
-      </section>
+      <% if (sharedUsers.includes(user._id.toString())) { %>
+        <section class="changeCoverImg" data-id="<%=trip[0]._id%>">
+          <input class="changeCoverImg-input" type="text" name="displayImg" placeholder="enter URL"><button class="changeCoverImg-btn">Change Cover</button>
+        </section>
+      <% } %>
     </section>
 
     <!-- Trip Title -->
-    <h1 class="trip--title editable" contenteditable="true"><%= trip[0].trip %></h1>
+    <h1 class="trip--title editable" contenteditable="<%= sharedUsers.includes(user._id.toString()) ? "true" : "false" %>"><%= trip[0].trip %></h1>
     
+    <p><%= sharedUsers.includes(user._id.toString()) ? 'shared' : 'not shared' %></p>
     <!-- Trip Overview Section -->
     <section class="trip--overview">
       <section class="overview--details">
@@ -48,16 +53,18 @@
     </section>
 
     <!-- Editable Trip Description -->
-    <p class="trip--description editable" contenteditable="true"><%= trip[0].description ? trip[0].description : 'Enter trip description...' %></p> 
+    <p class="trip--description editable" contenteditable="<%= sharedUsers.includes(user._id.toString()) ? "true" : "false" %>"><%= trip[0].description ? trip[0].description : 'Enter trip description...' %></p> 
 
     <!-- Trip Destination Card Template EJS -->
     <section class="trip--destinations">
       <h3 class="destination--title">Destinations</h3>
 
       <!-- Add new destination components -->
-      <section class="newDestination" data-id="<%=trip[0]._id%>">
-        <input class="newDestination--input" type="text" name="newDestination" placeholder="Add New Destination"><button class="newDestination--btn"><i class="fa-solid fa-plus"></i></button>
-      </section>
+      <% if (sharedUsers.includes(user._id.toString())) { %>
+        <section class="newDestination" data-id="<%=trip[0]._id%>">
+          <input class="newDestination--input" type="text" name="newDestination" placeholder="Add New Destination"><button class="newDestination--btn"><i class="fa-solid fa-plus"></i></button>
+        </section>  
+      <% } %>
 
       <!-- Render destination cards if available -->
       <% if (trip[0].destinations) { %>
@@ -73,19 +80,21 @@
             <!-- Editable Card Information -->
             <section class="newDestination--info" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" >
               <!-- Location -->
-              <h4 class="newDestination--location editable" contenteditable="true"> <%= destination.location %> </h4> 
+              <h4 class="newDestination--location editable" contenteditable="<%= sharedUsers.includes(user._id.toString()) ? "true" : "false" %>"> <%= destination.location %> </h4> 
               <!-- Start - End Dates -->
               <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
-                <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>"> -
+                <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>" <%= sharedUsers.includes(user._id.toString()) ? "" : "disabled" %>> -
                 <input class="destination--endDate" type="date" 
-                name="destination--endDate" id="" value="<%= destination.endDate %>">
+                name="destination--endDate" id="" value="<%= destination.endDate %>" <%= sharedUsers.includes(user._id.toString()) ? "" : "disabled" %>>
               </section>
             </section>
 
             <!-- Card Btns -->
             <section class="newDestination--btns" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" >
               <a href="#<%= destination.location %>"><i class="editDestination--btn fa-solid fa-expand"></i></a>
-              <i class="deleteDestination--btn fa-solid fa-trash-can"></i>
+              <% if (sharedUsers.includes(user._id.toString())) { %>
+                <i class="deleteDestination--btn fa-solid fa-trash-can"></i>              
+              <% } %>
             </section>
           </section>
 
@@ -93,7 +102,7 @@
           <section id="<%= destination.location %>" class="modal expanded">
             <section class="modal--content expanded" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
               <!-- Location -->
-              <h2 class="newDestination--location editable" contenteditable="true"><%= destination.location %></h2>
+              <h2 class="newDestination--location editable" contenteditable="<%= sharedUsers.includes(user._id.toString()) ? "true" : "false" %>"><%= destination.location %></h2>
 
               <!-- Destination Content Tabs -->
               <section class="content--nav">
@@ -116,12 +125,12 @@
                       <section class="newDestination--dates" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
                         <section data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
                           <label for="destination--startDate">Start</label>
-                          <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>">
+                          <input class="destination--startDate" type="date" name="destination--startDate" id="" value="<%= destination.startDate %>" <%= sharedUsers.includes(user._id.toString()) ? "" : "disabled" %>>
                         </section>
                         <section data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>">
                           <label for="destination--endDate">End</label>
                           <input class="destination--endDate" type="date" 
-                            name="destination--endDate" id="" value="<%= destination.endDate %>">
+                            name="destination--endDate" id="" value="<%= destination.endDate %>" <%= sharedUsers.includes(user._id.toString()) ? "" : "disabled" %>>
                         </section>
                       </section>
                     </section>
@@ -156,7 +165,7 @@
                     
                   <!-- Editable Notes -->
                   <h3 class="areaDisplay--titles">Notes</h3>
-                  <p class="destination--notes editable" contenteditable="true"><%= destination.notes ? destination.notes : "Add notes..." %></p>
+                  <p class="destination--notes editable" contenteditable="<%= sharedUsers.includes(user._id.toString()) ? "true" : "false" %>"><%= destination.notes ? destination.notes : "Add notes..." %></p>
                 </section>
 
                 <!-- Destination Travel Itinerary Tab -->
@@ -164,7 +173,9 @@
                   <!-- Add Accomodation Itinerary Item form -->
                   <section class="areaDisplay--flex">
                     <h3 class="areaDisplay--titles">Travel Activities</h3>
-                    <button class="toggleForm activity">Add</button>
+                    <% if (sharedUsers.includes(user._id.toString())) { %>
+                      <button class="toggleForm activity">Add</button>
+                    <% } %>
                   </section>
                   
                   <form class="activityForm destinationDetail--form hidden" action="/tripEditor/addActivity/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
@@ -271,7 +282,9 @@
                   <!-- Add Accomodation Tickets form -->
                   <section class="areaDisplay--flex">
                     <h3 class="areaDisplay--titles">Tickets</h3>
-                    <button class="toggleForm ticket">Add</button>
+                    <% if (sharedUsers.includes(user._id.toString())) { %>
+                      <button class="toggleForm ticket">Add</button>
+                    <% } %>
                   </section>
                   <form class="ticketForm destinationDetail--form hidden" action="/tripEditor/addTicket/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__multi">
@@ -354,7 +367,9 @@
                   <!-- Add Accomodation form -->
                   <section class="areaDisplay--flex">
                     <h3 class="areaDisplay--titles">Accomodations</h3>
-                    <button class="toggleForm accomodation">Add</button>
+                    <% if (sharedUsers.includes(user._id.toString())) { %>
+                      <button class="toggleForm accomodation">Add</button>
+                    <% } %>
                   </section>
                   <form class="accomodationForm destinationDetail--form hidden" action="/tripEditor/addAccomodation/<%=trip[0]._id%>/<%=destination.location%>?_method=PUT" method='POST'>
                     <section class="destinationDetail--form__single">
