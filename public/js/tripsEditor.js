@@ -14,7 +14,7 @@ const destinationStartDate = document.querySelectorAll('.destination--startDate'
 const destinationEndDate = document.querySelectorAll('.destination--endDate');
 const destinationContentTabs = document.querySelectorAll('.content--tabs');
 const destinationContentAreas = document.querySelectorAll('.content--areaDisplay');
-const destinationNotesEdit = document.querySelector('.destination--notes');
+const destinationNotesEdit = document.querySelectorAll('.destination--notes');
 const deleteAccomodationBtn = document.querySelectorAll('.deleteAccom--btn');
 const deleteFlightBtn = document.querySelectorAll('.deleteTicket--btn');
 const deleteActivityBtn = document.querySelectorAll('.deleteActivity--btn');
@@ -48,12 +48,15 @@ Array.from(deleteFlightBtn).forEach((el) => {
 Array.from(deleteActivityBtn).forEach((el) => {
   el.addEventListener('click', deleteActivity);
 });
+Array.from(destinationNotesEdit).forEach((el) => {
+  el.addEventListener('focusout', editDestNotes);
+});
 
 tripTitleEdit.addEventListener('focusout', editTitle);
 tripDescEdit.addEventListener('focusout', editDescription);
 coverImgEdit.addEventListener('click', changeCoverImage);
 addDestination.addEventListener('click', addNewDestination);
-destinationNotesEdit.addEventListener('focusout', editDestNotes);
+// destinationNotesEdit.addEventListener('focusout', editDestNotes);
 
 // ********** Functions ********** //
 // –––––––– TRIP EDITOR FUNCTIONS –––––––– //
