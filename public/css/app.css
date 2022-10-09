@@ -48,9 +48,8 @@ body {
 
 .nav--dropdownBtn {
   display: none;
-  font-size: 1.25rem
+  font-size: 1.25rem;
 }
-
 
 /* --------- MAIN APP STYLING --------- */
 .content--body.appmain {
@@ -142,15 +141,16 @@ body {
   gap: 1.5rem;
   margin-bottom: 0.5rem;
 }
-.tripsCard--title__Upcoming, .tripsCard--title__Completed {
+.tripsCard--title__Upcoming,
+.tripsCard--title__Completed {
   display: inline-block;
   cursor: pointer;
   color: #676769ca;
   font-size: 1.35rem;
   margin: 1rem 0 0.5rem 0;
-
 }
-.tripsCard--title__Upcoming.selected, .tripsCard--title__Completed.selected {
+.tripsCard--title__Upcoming.selected,
+.tripsCard--title__Completed.selected {
   color: #000000;
 }
 
@@ -163,7 +163,7 @@ body {
   align-items: center;
   height: auto;
   width: 100%;
-  margin-bottom: 40px
+  margin-bottom: 40px;
 }
 .tripsCard.selectedCard {
   display: flex;
@@ -194,7 +194,8 @@ body {
 .tripsCard--text {
   width: 85%;
 }
-.tripsCard--title, .tripsCard--date {
+.tripsCard--title,
+.tripsCard--date {
   font-size: 0.9rem;
 }
 .tripsCard--title {
@@ -220,13 +221,15 @@ body {
   align-items: center;
   gap: 0.25rem;
 }
-.tripsCard-btns > a, .tripsCard-btns i {
+.tripsCard-btns > a,
+.tripsCard-btns i {
   color: #667dd1;
 }
 .tripsCard-btns i {
   font-size: 20px;
 }
-.tripsCard-btns > a:hover, .tripsCard-btns span:hover {
+.tripsCard-btns > a:hover,
+.tripsCard-btns span:hover {
   cursor: pointer;
 }
 h4.not:hover {
@@ -270,7 +273,7 @@ h4.completed:hover {
 .changeCoverImg-btn {
   width: 135px;
   padding: 5px 5px;
-  color: white; 
+  color: white;
   background-color: #335ae5;
   border: 2px solid #335ae5;
   border-radius: 0 4px 4px 0;
@@ -365,6 +368,17 @@ h4.completed:hover {
 .newDestination--btns i:hover {
   cursor: pointer;
 }
+.newDestination--btns.addUser {
+  display: none;
+  margin-left: auto;
+}
+.detail--value.addUser {
+  display: flex;
+  justify-content: space-between;
+}
+.detail--value.addUser:hover .newDestination--btns.addUser {
+  display: inline;
+}
 
 /* New Destination Card Modal Content Styling */
 .destination--notes {
@@ -375,7 +389,7 @@ h4.completed:hover {
 .modal.expanded .content--nav {
   display: flex;
   gap: 0.35rem;
-  padding: 0.50rem 0;
+  padding: 0.5rem 0;
   margin: 0.45rem 0;
   width: 100%;
   overflow-y: hidden;
@@ -423,7 +437,7 @@ h4.completed:hover {
 .areaDisplay--card {
   height: 135px;
   width: 215px;
-  padding: 1.55rem 1.10rem;
+  padding: 1.55rem 1.1rem;
   background-color: #ffffff;
   border: 2px solid #ccd6f8;
   border-radius: 4px;
@@ -432,7 +446,7 @@ h4.completed:hover {
   display: inline-block;
   width: 42.5px;
 }
-.areaDisplay--card .destination--startDate, 
+.areaDisplay--card .destination--startDate,
 .areaDisplay--card .destination--endDate {
   width: 125px;
 }
@@ -478,7 +492,8 @@ h4.completed:hover {
 input::-webkit-calendar-picker-indicator {
   opacity: 100;
 }
-.destinationDetail--label, .destinationDetail--inpt {
+.destinationDetail--label,
+.destinationDetail--inpt {
   display: block;
 }
 .destinationDetail--inpt {
@@ -504,13 +519,14 @@ input::-webkit-calendar-picker-indicator {
 .destinationDetail--form__multi > section {
   width: 22.5%;
 }
-.destinationDetail--form__single, .destinationDetail--form__multi {
+.destinationDetail--form__single,
+.destinationDetail--form__multi {
   padding-bottom: 0.55rem;
 }
 .destinationDetail--form__single input {
   width: 100%;
 }
-.destinationDetail--form__single.right{
+.destinationDetail--form__single.right {
   display: flex;
   justify-content: flex-end;
 }
@@ -523,7 +539,9 @@ input::-webkit-calendar-picker-indicator {
 }
 
 /* Accomodations Card */
-.newAccomodation, .newFlight, .newActivity {
+.newAccomodation,
+.newFlight,
+.newActivity {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -543,7 +561,7 @@ input::-webkit-calendar-picker-indicator {
   padding-bottom: 0.85rem;
   border-bottom: 1px solid #ccd6f8;
 }
-.newAccomodation--item__main h4{
+.newAccomodation--item__main h4 {
   margin: 0 0 0.25rem 0;
 }
 .newActivity .newAccomodation--item__main {
@@ -558,12 +576,14 @@ input::-webkit-calendar-picker-indicator {
 }
 .details--dates {
   width: 35%;
-  padding-right: 0.85rem
+  padding-right: 0.85rem;
 }
-.newFlight .newAccomodation--item__details, .newActivity .newAccomodation--item__details {
+.newFlight .newAccomodation--item__details,
+.newActivity .newAccomodation--item__details {
   justify-content: space-between;
 }
-.details--dates__depart, .details--dates__arrive {
+.details--dates__depart,
+.details--dates__arrive {
   width: 40%;
 }
 .ticket--time {
@@ -579,22 +599,24 @@ input::-webkit-calendar-picker-indicator {
   color: #335ae5;
   background-color: #ccd6f8;
   border: 1px solid #ccd6f8;
-  padding: 0.35rem .85rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 10px;
 }
 .arrow__right {
-  font-size: 1.65rem
+  font-size: 1.65rem;
 }
 .details--address {
   border-left: 1px solid #ccd6f8;
   width: 65%;
-  padding-left: 0.85rem
+  padding-left: 0.85rem;
 }
 .details--address a {
   text-decoration: none;
-  color:#335ae5;
+  color: #335ae5;
 }
-.deleteAccom--btn:hover, .deleteTicket--btn:hover, .deleteActivity--btn:hover {
+.deleteAccom--btn:hover,
+.deleteTicket--btn:hover,
+.deleteActivity--btn:hover {
   cursor: pointer;
 }
 
@@ -661,7 +683,7 @@ input::-webkit-calendar-picker-indicator {
     margin-left: 45px !important;
   }
 
-    /* Trips Editor Page */
+  /* Trips Editor Page */
   .trip--coverImg {
     width: 100%;
     max-width: 100%;
@@ -694,7 +716,6 @@ input::-webkit-calendar-picker-indicator {
     padding-left: 0px;
     padding-right: 25px;
     margin-left: 30px !important;
-
   }
 
   /* Trips Dashboard Page */

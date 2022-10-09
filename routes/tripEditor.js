@@ -12,6 +12,8 @@ router.put('/editDescription', tripEditorController.editDescription);
 
 router.put('/changeCoverImg', tripEditorController.changeCoverImg);
 
+router.put('/addUser/:id', tripEditorController.addUser);
+
 // Trip Destination Routes
 router.put('/addDestination', tripEditorController.addDestination);
 

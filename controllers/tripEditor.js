@@ -1,4 +1,5 @@
 const Trip = require('../models/Trip');
+const User = require('../models/User');
 
 module.exports = {
   // Trip Detailing Controls
@@ -7,8 +8,9 @@ module.exports = {
       let tripId = req.params.id;
       limitNumber = 1;
       let tripById = await Trip.find({ _id: tripId }).limit(limitNumber);
+      let allUsers = await User.find({}, { userName: 1 });
 
-      res.render('tripEditor.ejs', { trip: tripById, user: req.user });
+      res.render('tripEditor.ejs', { trip: tripById, user: req.user, users: allUsers });
       console.log(tripById);
     } catch (err) {
       console.error(err);
@@ -56,6 +58,34 @@ module.exports = {
       res.json('Changed Cover Image');
     } catch (err) {
       console.log(err);
+    }
+  },
+  addUser: async (req, res) => {
+    try {
+      let usersMatched = await User.find(
+        { userName: req.body.userNameShared },
+        { userName: 1 }
+      );
+      let idMatched = usersMatched[0]._id.toString();
+      await Trip.findOneAndUpdate(
+        {
+          _id: req.params.id,
+        },
+        {
+          $push: {
+            sharedUsers: {
+              [idMatched]: req.body.userNameShared,
+            },
+          },
+        }
+      );
+      console.log(idMatched);
+      console.log(`User: ${req.body.userNameShared} has been added!`);
+      res.redirect(`/tripEditor/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+      res.json('No user found');
+      // res.redirect(`/tripEditor/${req.params.id}`);
     }
   },
 

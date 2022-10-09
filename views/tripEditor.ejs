@@ -17,13 +17,31 @@
     <!-- Trip Title -->
     <h1 class="trip--title editable" contenteditable="<%= sharedUsers.includes(user._id.toString()) ? "true" : "false" %>"><%= trip[0].trip %></h1>
   
+    <!-- <p><%= sharedUsers %></p>
+    <p><%= user %></p>
+    <p><%= users %></p> -->
+
     <!-- Trip Overview Section -->
     <section class="trip--overview">
       <section class="overview--details">
         <span class="detail--title">
           <i class="fa-solid fa-user-group"></i> Travelers: </span>
           <!-- Gets all usernames from sharedUsers Object -->
-        <span class="detail--value"><%= trip[0].sharedUsers.map(user => Object.values(user)) %></span>
+        <span class="detail--value addUser"><%= trip[0].sharedUsers.map(user => Object.values(user)) %>     
+          <!-- On hover, display add user btn -->
+          <div class="newDestination--btns addUser">
+            <a href="#modal"> <i class="fa-solid fa-plus"></i> </a>
+          </div>
+          <div id="modal" class="modal">
+            <div class="modal--content">
+                <form class="addSharedUser" action="/tripEditor/addUser/<%=trip[0]._id%>?_method=PUT" method='POST'>
+                  <input class="addTripForm--input" type="text" placeholder="Enter Username" name='userNameShared'>
+                  <input class="addtTripForm--submit" type="submit">
+                </form>
+                <a href="#" class="modal--close">&times;</a>
+            </div>
+          </div>
+      </span>
       </section>
       <section class="overview--details">
         <span class="detail--title">
