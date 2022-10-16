@@ -15,6 +15,7 @@ const mainRoutes = require('./routes/main');
 const tripsRoutes = require('./routes/trips');
 const tripEditorRoutes = require('./routes/tripEditor')
 const userPageRoutes = require('./routes/userPage')
+const sharedPageRoutes = require('./routes/sharedPage')
 const explorePageRoutes = require('./routes/explorePage')
 
 // ***** .ENV config ***** //
@@ -77,6 +78,7 @@ app.use('/', mainRoutes);  // --landing page, login, auth
 app.use('/trips', tripsRoutes);  // --main dashboard, trip CRUD creator
 app.use('/tripEditor', tripEditorRoutes)  // --trip editor and planner feature 
 app.use('/userPage', userPageRoutes);  // --user page for info and settings
+app.use('/sharedPage', sharedPageRoutes);  // --shared page for shared trips
 app.use('/explorePage', explorePageRoutes); // --explore page for all user trips
 
 // ***** Run Server Connection ***** //
