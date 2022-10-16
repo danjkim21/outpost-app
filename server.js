@@ -24,7 +24,28 @@ require('dotenv').config({ path: './config/.env' });
 require('./config/passport')(passport);
 
 // *****  MongoDB connection ***** //
-connectDB();
+// connectDB();
+const connectDBtest = async () => {
+  try {
+    // ***** DB Connection ***** //
+    const conn = await mongoose.connect(process.env.DB_STRING, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+
+    // ***** Run Server Connection ***** //
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on http://localhost:${process.env.PORT}/`);
+    });
+    
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+};
+connectDBtest();
 
 // *****  Middleware ***** //
 app.set('view engine', 'ejs');
@@ -59,6 +80,6 @@ app.use('/userPage', userPageRoutes);  // --user page for info and settings
 app.use('/explorePage', explorePageRoutes); // --explore page for all user trips
 
 // ***** Run Server Connection ***** //
-app.listen(process.env.PORT, () => {
-  console.log(`Server is running on http://localhost:${process.env.PORT}/`);
-});
+// app.listen(process.env.PORT, () => {
+//   console.log(`Server is running on http://localhost:${process.env.PORT}/`);
+// });
