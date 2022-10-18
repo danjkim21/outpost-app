@@ -199,18 +199,18 @@
                     <section class="destinationDetail--form__single">
                       <!-- Add Itinerary Activity -->
                       <label class="destinationDetail--label" for="activityDescrip">Activity</label>
-                      <input class="destinationDetail--inpt" type="text" name="activityDescrip" placeholder="Storming Blackwater Bay">
+                      <input class="destinationDetail--inpt" type="text" name="activityDescrip" placeholder="Storming Blackwater Bay" required>
                     </section>
                     <section class="destinationDetail--form__multi">
                       <section>
                         <!-- Add Activity Location-->
                         <label class="destinationDetail--label" for="activityLocation">Location</label>
-                        <input class="destinationDetail--inpt" type="text" name="activityLocation" placeholder="King's Landing">
+                        <input class="destinationDetail--inpt" type="text" name="activityLocation" placeholder="King's Landing" required>
                       </section>
                       <section>
                         <!-- Select type of activity -->
                         <label class="destinationDetail--label" for="activityType">Type</label>
-                        <input class="destinationDetail--inpt" list="activityType" name="activityType" placeholder="Select Type">
+                        <input class="destinationDetail--inpt" list="activityType" name="activityType" placeholder="Select Type" required>
                         <datalist class="" id="activityType">
                           <option value="Restaurant">Restaurant</option>
                           <option value="Bar">Bar</option>
@@ -308,33 +308,33 @@
                       <!-- Add Departure date/time -->
                       <section>
                         <label class="destinationDetail--label" for="departDateTime">Departure</label>
-                        <input class="destinationDetail--inpt" type="datetime-local" name="departDateTime">
+                        <input class="destinationDetail--inpt" type="datetime-local" name="departDateTime" required>
                       </section>
                       <section>
                         <!-- Add Flight confirmation code -->
                         <label class="destinationDetail--label" for="departLoc">Airport</label>
-                        <input class="destinationDetail--inpt" type="text" name="departLoc" placeholder="IAD, Virginia">
+                        <input class="destinationDetail--inpt" type="text" name="departLoc" placeholder="IAD, Virginia" required>
                       </section>
                       <section>
                         <label class="destinationDetail--label" for="arriveDateTime">Arrival</label>
-                        <input class="destinationDetail--inpt" type="datetime-local" name="arriveDateTime">
+                        <input class="destinationDetail--inpt" type="datetime-local" name="arriveDateTime" required>
                       </section>
                       <section>
                         <!-- Add Flight confirmation code -->
                         <label class="destinationDetail--label" for="arriveLoc">Airport</label>
-                        <input class="destinationDetail--inpt" type="text" name="arriveLoc" placeholder="DCA, Washington DC">
+                        <input class="destinationDetail--inpt" type="text" name="arriveLoc" placeholder="DCA, Washington DC" required>
                       </section>
                     </section>
                     <section class="destinationDetail--form__multi two">
                       <section>
                         <!-- Add Flight confirmation code -->
                         <label class="destinationDetail--label" for="flightConfirmation">Confirmation</label>
-                        <input class="destinationDetail--inpt" type="text" name="flightConfirmation" placeholder="FLY360">
+                        <input class="destinationDetail--inpt" type="text" name="flightConfirmation" placeholder="FLY360" required>
                       </section>
                       <section>
                         <!-- Select Airlines -->
                         <label class="destinationDetail--label" for="flightAirline">Airlines</label>
-                        <input class="destinationDetail--inpt" type="text" name="flightAirline" placeholder="Aer Lingus">
+                        <input class="destinationDetail--inpt" type="text" name="flightAirline" placeholder="Aer Lingus" required>
                       </section>
                     </section>
                     <!-- Submit form btn -->
@@ -392,18 +392,18 @@
                     <section class="destinationDetail--form__single">
                       <!-- Add accomodation address -->
                       <label class="destinationDetail--label" for="accomodationAddress">Address</label>
-                      <input class="destinationDetail--inpt" type="text" name="accomodationAddress" placeholder="P. Sherman 42 Wallaby Way">
+                      <input class="destinationDetail--inpt" type="text" name="accomodationAddress" placeholder="P. Sherman 42 Wallaby Way" required>
                     </section>
                     <section class="destinationDetail--form__multi">
                       <section>
                         <!-- Add accomodation confirmation code -->
                         <label class="destinationDetail--label" for="accomodationConfirmation">Confirmation</label>
-                        <input class="destinationDetail--inpt" type="text" name="accomodationConfirmation" placeholder="REF421A">
+                        <input class="destinationDetail--inpt" type="text" name="accomodationConfirmation" placeholder="REF421A" required>
                       </section>
                       <section>
                         <!-- Select type of accomodation -->
                         <label class="destinationDetail--label" for="accomodationType">Type</label>
-                        <input class="destinationDetail--inpt" list="select--accomodation" name="accomodationType" placeholder="Select Type">
+                        <input class="destinationDetail--inpt" list="select--accomodation" name="accomodationType" placeholder="Select Type" required>
                         <datalist class="" id="select--accomodation">
                           <option value="Hotel">Hotel</option>
                           <option value="AirBnb">AirBnb</option>
@@ -415,12 +415,12 @@
                       <!-- Add Stay dates -->
                       <section>
                         <label class="destinationDetail--label" for="accomodationStartDate">Start</label>
-                        <input class="destinationDetail--inpt" type="date" name="accomodationStartDate" value="<%= destination.startDate %>" min="<%= destination.startDate %>">
+                        <input class="destinationDetail--inpt" type="date" name="accomodationStartDate" value="<%= destination.startDate %>" min="<%= destination.startDate %>" required>
                       </section>
                       <!-- Add Stay dates -->
                       <section>
                         <label class="destinationDetail--label" for="accomodationEndDate">End</label>
-                        <input class="destinationDetail--inpt" type="date" name="accomodationEndDate" value="<%= destination.endDate %>" max="<%= destination.endDate %>">
+                        <input class="destinationDetail--inpt" type="date" name="accomodationEndDate" value="<%= destination.endDate %>" max="<%= destination.endDate %>" required>
                       </section>
                     </section>
                     <!-- Submit form btn -->
