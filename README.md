@@ -87,13 +87,12 @@ This app can be accessed via [https://outpost.cyclic.app/](https://outpost.cycli
 - [x] Update "My Trips" Dashboard UI
 - [x] Build out Trip Destination Modal content
 - [x] Add Mobile Responsiveness
+- [x] Build out shared trips feature
+- [x] Build out "Explorer" feature
+- [x] Build out User Profile feature
 - [ ] Add "Destinations" Model to MVC (TBD)
 - [ ] Integrate Google Maps API
 - [ ] Add dark mode styling
-- [ ] Build out "My Calendar" feature
-- [ ] Build out "Explorer" feature
-- [ ] Build out User Profile feature
-
 
 See the [open issues](https://github.com/danjkim21/outpost-app/issues) for a full list of proposed features (and known issues).
 
