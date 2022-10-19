@@ -121,7 +121,8 @@
 .card {
   width: 300px;
   height: 250px;
-  border: 2px solid #CCD6F8;
+  background-color: #F2F5FD;
+  border: 2px solid #F2F5FD;
   border-radius: 8px;
   padding: 1.5rem;
   transition: all ease-in-out 95ms;
@@ -129,9 +130,11 @@
 }
 .card:hover {
   background-color: #CCD6F8;
+  border-radius: 2px solid #CCD6F8;
 }
 .card--icon {
-  font-size: 1.85rem;
+  font-size: 2.15rem;
+  color: #335AE5;
 }
 
 /* --------- LOGIN/SIGNUP STYLING --------- */

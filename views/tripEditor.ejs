@@ -237,10 +237,12 @@
                     </section>
                   </form>
 
-                  <!-- View Activity Cards -->
+                  <!-- View Activity Cards For SCHEDULED Activities -->
+                  <!-- <h4 class="areaDisplay--titles">Scheduled Activities</h4> -->
                   <section class="newActivity">
                     <% if (destination.itinerary) { %>
                       <% destination.itinerary.map(activity => { %>
+                        <% if (activity.startDateTime && activity.endDateTime) { %>
                           <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-activityDesc="<%= activity.activityDescrip %>"> 
                             <section class="newAccomodation--item__main" >
                               <section>
@@ -251,8 +253,6 @@
                                 <span class="activityType--tag"> <%= activity.activityType %> </span>
                               </section>
                             </section>
-                            
-                            <% if (activity.startDateTime && activity.endDateTime) { %>
                               <section class="newAccomodation--item__details"> 
                                 <% let startDate = activity.startDateTime.split('T')[0] %>
                                 <% let startTime = activity.startDateTime.split('T')[1] %>
@@ -268,7 +268,28 @@
                                   <div class="ticket--time"> <%= endTime %> </div>
                                 </section>
                               </section>   
-                            <% } else { %> 
+                          </section>     
+                          <% } %>                
+                      <% }) %>
+                    <% } %>
+                  </section>
+
+                  <!-- View Activity Cards For NOT SCHEDULED Activities -->
+                  <!-- <h4 class="areaDisplay--titles sub">Not Scheduled</h4> -->
+                  <section class="newActivity">
+                    <% if (destination.itinerary) { %>
+                      <% destination.itinerary.map(activity => { %>
+                        <% if (!activity.startDateTime && !activity.endDateTime) { %>
+                          <section class="newAccomodation--item" data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-activityDesc="<%= activity.activityDescrip %>"> 
+                            <section class="newAccomodation--item__main" >
+                              <section>
+                                <h4 data-id="<%=trip[0]._id%>" data-loc="<%= destination.location %>" data-activityDesc="<%= activity.activityDescrip %>"><%= activity.activityLocation %> <i class="deleteActivity--btn fa-solid fa-trash-can"></i> </h4>
+                                <div> <%= activity.activityDescrip %> </div>
+                              </section>
+                              <section class="details--dates__arrive flex">
+                                <span class="activityType--tag"> <%= activity.activityType %> </span>
+                              </section>
+                            </section>
                               <section>
                                 <h5>Schedule Activity</h5>
                                 <!-- TODO: add controller/routing to update Activity Date/Times -->
@@ -286,9 +307,9 @@
                                   </section>
                                 </form> -->
                               </section>
-                            <% } %>
 
-                          </section>                     
+                          </section>    
+                          <% } %>                 
                       <% }) %>
                     <% } %>
                   </section>
