@@ -323,18 +323,25 @@ h4.completed:hover {
 .trip--destinations {
   margin-bottom: 12.5vh;
 }
+.newDestination {
+  margin-bottom: 1.5rem;
+}
 .newDestination--item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 115px;
-  margin: 1rem 0;
-  padding: 0 1rem;
+  height: 110px;
+  padding: 0.65rem;
+  border-left: 1px solid #99acf2a7;
+  border-radius: 0 4px 4px 0;
+  align-items: flex-start;
+  transition: all ease-in-out 75ms;
+}
+.newDestination--item:hover {
   background-color: #f0f2fc;
-  border-radius: 4px;
 }
 .newDestination--location {
-  font-weight: 400;
+  font-weight: 500;
 }
 .newDestination--info > .newDestination--location {
   margin-top: 0;
@@ -353,11 +360,12 @@ h4.completed:hover {
   margin-bottom: 1px;
 }
 .newDestination--icon {
-  margin-right: 1rem;
+  position: relative;
+  left: -1.075rem;
 }
 .newDestination--icon > i {
   color: #99adf2;
-  font-size: 2.15rem;
+  font-size: 1.05rem;
 }
 .newDestination--btns {
   margin-left: auto;
@@ -766,12 +774,15 @@ input::-webkit-calendar-picker-indicator {
   .newDestination--btn {
     width: 10%;
   }
+  .newDestination--btns {
+    justify-content: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+  }
   .newDestination--btns i {
     font-size: 1.15rem;
   }
-  .newDestination--icon {
-    display: none;
-  }
+
   .deleteDestination--btn {
     margin-top: 8.5px;
   }
