@@ -285,6 +285,11 @@ h4.completed:hover {
   width: auto;
   height: auto;
   margin-top: 22.5vh;
+  transition: all ease-in-out 85ms;
+}
+.trip--title:hover {
+  background-color: #f0f2fc;
+  border-radius: 4px;
 }
 .trip--user {
   font-weight: 700;
@@ -293,6 +298,10 @@ h4.completed:hover {
   padding: 0.95rem 0;
   border-top: 1px solid #ccd6f8;
   border-bottom: 1px solid #ccd6f8;
+  transition: all ease-in-out 85ms;
+}
+.trip--description:hover {
+  background-color: #f0f2fc;
 }
 
 /* Trip Overview Section Styling */
@@ -307,6 +316,8 @@ h4.completed:hover {
 }
 .detail--title > i {
   color: #667dd1;
+  width: 16px;
+  margin-right: 0.5rem;
 }
 .overview--details > .detail--value {
   padding: 0.35rem;
@@ -331,8 +342,9 @@ h4.completed:hover {
   justify-content: space-between;
   align-items: center;
   height: 110px;
-  padding: 0.65rem;
-  border-left: 1px solid #99acf2a7;
+  margin-left: 0.5rem;
+  padding: 1rem 1rem 1rem 0;
+  border-left: 2px solid #99acf294;
   border-radius: 0 4px 4px 0;
   align-items: flex-start;
   transition: all ease-in-out 75ms;
@@ -356,16 +368,27 @@ h4.completed:hover {
   color: #303030;
   background-color: #f2f5fd;
   border: 2px solid #ccd6f8;
+  padding: 0.2rem 0.35rem;
   border-radius: 4px;
   margin-bottom: 1px;
 }
 .newDestination--icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(251, 252, 254);
+  background-color: #f2f5fd;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
   position: relative;
-  left: -1.075rem;
+  left: -0.98rem;
+  top: -0.3rem;
 }
 .newDestination--icon > i {
   color: #99adf2;
-  font-size: 1.05rem;
+  color: #667dd1;
+  font-size: 1rem;
 }
 .newDestination--btns {
   margin-left: auto;
@@ -767,6 +790,10 @@ input::-webkit-calendar-picker-indicator {
   }
   .overview--details > .detail--value {
     width: 52.5%;
+  }
+  .newDestination--item {
+    height: 135px;
+    padding: 1rem 0 1rem 0;
   }
   .newDestination--input {
     width: 90%;
