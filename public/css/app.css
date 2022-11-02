@@ -15,26 +15,44 @@ body {
 }
 
 .sidebar .profile {
+  display: flex;
+  align-items: center;
+  height: 15%;
   padding: 5vh 3.5vw;
 }
-.sidebar .profile--img {
-  padding: 5px 6px;
+.sidebar .profile--container {
+  height: 32px;
+  width: 32px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid #335ae5;
   border-radius: 50%;
 }
+.profile--container .profile--img {
+  font-size: 1.175rem;
+}
 .sidebar .profile--userName {
   font-size: 1.25rem;
-  padding-left: 0.55rem;
+  padding-left: 1rem;
 }
-
+.nav {
+  height: 85%;
+}
 .sidebar .sidebar--nav {
   margin: 0;
   padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar .sidebar--nav li {
   display: block;
   transition: all ease-in-out 85ms;
   /* padding: 2vh 3.5vw; */
+}
+.sidebar .sidebar--nav li:last-child {
+  margin-top: auto;
 }
 .sidebar .sidebar--nav li:hover {
   background-color: #ccd6f8;
@@ -43,12 +61,27 @@ body {
   display: block;
   text-decoration: none;
   color: #000000;
-  padding: 2vh 3.5vw;
+  padding: 2.55vh 3.5vw;
 }
 
 .nav--dropdownBtn {
   display: none;
   font-size: 1.25rem;
+}
+.nav--container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  width: 24px;
+  background-color: #335ae5;
+  border: 2px solid #335ae5;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+.nav--icons {
+  font-size: 0.85rem;
+  color: white;
 }
 
 /* --------- MAIN APP STYLING --------- */

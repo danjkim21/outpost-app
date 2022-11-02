@@ -2,11 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -15,29 +28,73 @@
       src="https://kit.fontawesome.com/a2f02755e4.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="icon" href="/images/outpost-logo-dark.svg">
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/general.css" />
-    <link rel="stylesheet" href="/css/app.css" />
+    <link
+      rel="icon"
+      href="/images/outpost-logo-dark.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/general.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/app.css"
+    />
     <title>Outpost</title>
   </head>
   <body>
-
     <section class="sidebar">
       <i class="nav--dropdownBtn fa-solid fa-bars"></i>
 
       <section class="profile">
-        <i class="fa-solid fa-user profile--img"></i>
+        <span class="profile--container"
+          ><i class="fa-solid fa-user-astronaut profile--img"></i></span>
         <span class="profile--userName"><%= user.userName %></span>
       </section>
 
       <nav class="nav">
         <ul class="sidebar--nav">
-          <li><a href="/trips">My Trips</a></li>
-          <li><a href="/sharedPage">Shared Trips</a></li>
-          <li><a href="/explorePage">Explorer</a></li>
-          <li><a href="/userPage">Settings</a></li>
-          <li><a href="/logout">Logout</a></li>
+          <li>
+            <a href="/trips">
+              <span class="nav--container"
+                ><i class="nav--icons fa-solid fa-suitcase"></i></span
+              >My Trips</a
+            >
+          </li>
+          <li>
+            <a href="/sharedPage">
+              <span class="nav--container"
+                ><i class="nav--icons fa-solid fa-user-group"></i></span
+              >Shared Trips</a
+            >
+          </li>
+          <li>
+            <a href="/explorePage"
+              ><span class="nav--container"
+                ><i class="nav--icons fa-solid fa-earth-africa"></i></span
+              >Explorer</a
+            >
+          </li>
+          <li>
+            <a href="/userPage"
+              ><span class="nav--container"
+                ><i class="nav--icons fa-solid fa-user-gear"></i></span
+              >Settings</a
+            >
+          </li>
+          <li>
+            <a href="/logout"
+              ><span class="nav--container"
+                ><i class="nav--icons fa-solid fa-right-from-bracket"></i></span
+              >Logout</a
+            >
+          </li>
         </ul>
       </nav>
     </section>
+  </body>
+</html>
