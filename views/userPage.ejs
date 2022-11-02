@@ -1,7 +1,7 @@
 <%- include("partials/sidebar") %>
 
   <section class="content--body appmain">
-    <h1 class="page--title">Hello <%= user.userName %>! 👋</h1>
+    <h1 class="page--title">User & App Settings</h1>
     <p class="page--subtitle">Update your Information.</p>
 
     <form class="" action="/userPage/updateUserName/<%= user._id %>/?_method=PUT" method='POST'>
