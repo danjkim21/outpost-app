@@ -3,6 +3,16 @@ body {
   display: flex;
 }
 
+/* --------- GENERAL STYLING --------- */
+.page--title {
+  font-size: 1.55rem;
+  font-weight: 400;
+}
+.page--subtitle {
+  font-size: 1.15rem;
+  margin-bottom: 3rem;
+}
+
 /* --------- SIDE BAR STYLING --------- */
 .sidebar {
   position: fixed;
@@ -14,7 +24,7 @@ body {
   /* padding: 5vh 3.5vw; */
 }
 
-.sidebar .profile {
+.profile {
   display: flex;
   align-items: center;
   height: 15%;
@@ -179,7 +189,7 @@ body {
   display: inline-block;
   cursor: pointer;
   color: #676769ca;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   margin: 1rem 0 0.5rem 0;
 }
 .tripsCard--title__Upcoming.selected,
@@ -190,13 +200,16 @@ body {
 .tripsCard {
   /* display: flex; */
   display: none;
-  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 1.5rem;
+  justify-content: flex-start;
   align-items: center;
   height: auto;
   width: 100%;
   margin-bottom: 40px;
+  padding: 1rem;
+  background-color: #ccd6f8c0;
+  border-radius: 4px;
 }
 .tripsCard.selectedCard {
   display: flex;
@@ -732,9 +745,21 @@ input::-webkit-calendar-picker-indicator {
     z-index: 2;
     background-color: #f2f5fdf8;
   }
+  .sidebar .sidebar--nav li:last-child {
+    margin-top: 0;
+  }
   .profile.open {
     display: block;
-    text-align: center;
+    height: 5rem;
+    text-align: left;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 4rem;
+  }
+
+  .sidebar .sidebar--nav a {
+    text-align: left;
+    padding-left: 4rem;
   }
   .nav.open {
     display: block;
@@ -795,7 +820,7 @@ input::-webkit-calendar-picker-indicator {
   }
   .tripsCard--upcoming,
   .tripsCard--completed {
-    width: 332.5px;
+    width: 100%;
     background-color: #f0f2fc;
     border-radius: 4px 4px;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
@@ -803,7 +828,7 @@ input::-webkit-calendar-picker-indicator {
   }
   .tripsCard--img {
     height: 220px;
-    width: 332.5px;
+    width: 100%;
     object-fit: cover;
     border-radius: 4px 4px 0 0;
   }
