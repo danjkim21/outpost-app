@@ -40,7 +40,7 @@ const connectDBtest = async () => {
     app.listen(process.env.PORT, () => {
       console.log(`Server is running on http://localhost:${process.env.PORT}/`);
     });
-    
+
   } catch (err) {
     console.error(err);
     process.exit(1);
@@ -80,8 +80,3 @@ app.use('/tripEditor', tripEditorRoutes)  // --trip editor and planner feature
 app.use('/userPage', userPageRoutes);  // --user page for info and settings
 app.use('/sharedPage', sharedPageRoutes);  // --shared page for shared trips
 app.use('/explorePage', explorePageRoutes); // --explore page for all user trips
-
-// ***** Run Server Connection ***** //
-// app.listen(process.env.PORT, () => {
-//   console.log(`Server is running on http://localhost:${process.env.PORT}/`);
-// });
