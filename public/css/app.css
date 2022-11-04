@@ -10,7 +10,6 @@ body {
   padding: 1rem;
   border-radius: 4px;
   margin-bottom: 3rem;
-
 }
 .page--title {
   margin-top: 0;
@@ -33,8 +32,8 @@ body {
   height: 100vh;
   width: 25vw;
   color: white;
-  background: #f2f5fd;
-  background: #496be4;
+  /* background: #496be4; */
+  background: #495be4e5;
 }
 
 .profile {
@@ -77,7 +76,7 @@ body {
 .sidebar .sidebar--nav li:last-child {
   margin-bottom: 1.75rem;
 }
-.sidebar .sidebar--nav li:nth-last-child(2){
+.sidebar .sidebar--nav li:nth-last-child(2) {
   margin-top: auto;
 }
 .sidebar .sidebar--nav li:hover {
@@ -114,8 +113,8 @@ body {
   width: 75vw;
   padding-top: 7.5vh;
   margin-left: 25vw;
-  background-color: rgba(247, 249, 253, 0.5);
-  background-color: #ccd6f849;
+  background-color: #f3f5fc;
+  background-color: #f7f9ff82;
 }
 /* Modal Styling */
 .wrapper {
@@ -220,10 +219,11 @@ body {
   height: auto;
   width: 100%;
   margin-bottom: 40px;
-  padding: 1rem;
-  background-color: #ccd6f8c0;
+  padding: 1rem 0;
+  /* background-color: #ccd6f8c0;
   background-color: white;
-  border: 1px solid #bdc9f4ec;
+  border: 1px solid #bdc9f4ec; */
+  /* border: 2px solid #95acffba; */
   border-radius: 4px;
 }
 .tripsCard.selectedCard {
@@ -232,9 +232,11 @@ body {
 
 .tripsCard--upcoming,
 .tripsCard--completed {
-  height: 305px;
+  height: 380px;
   width: 31.28%;
   border-radius: 4px 4px;
+  background-color: white;
+  /* border: 1px solid #bdc9f4ec;  */
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 2.5px 2.5px 15px 5.5px rgba(163, 163, 163, 0.3);
 }
@@ -246,36 +248,55 @@ body {
   border-radius: 4px 4px 0 0;
 }
 .tripsCard--overview {
+  height: 155px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 0.55rem 0;
-  padding: 0 0.55rem 0 0.55rem;
-
+  padding: 0.95rem 1.15rem;
 }
 .tripsCard--text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
   width: 85%;
 }
 .tripsCard--title,
-.tripsCard--date {
+.tripsCard--date,
+.tripsCard--users,
+.tripsCard--creation {
   font-size: 0.9rem;
+  width: 100%;
+  letter-spacing: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .tripsCard--title {
   margin: 0;
-  letter-spacing: normal;
   font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .tripsCard--date {
-  color: #5c5f72da;
-  letter-spacing: normal;
+  color: #454a6cda;
   font-weight: 500;
   padding-top: 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+.tripsCard--container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: auto;
+}
+.users--icon {
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+}
+.tripsCard--users {
+  font-weight: 500;
+}
+.tripsCard--creation {
+  color: #5c5f72da;
+  font-weight: 500;
 }
 .tripsCard-btns {
   display: flex;
@@ -429,6 +450,7 @@ h4.completed:hover {
 .destination--endDate {
   color: #303030;
   background-color: #f2f5fd;
+  background-color: white;
   border: 2px solid #ccd6f8;
   padding: 0.2rem 0.35rem;
   border-radius: 4px;
@@ -759,9 +781,9 @@ input::-webkit-calendar-picker-indicator {
     height: 100vh;
     width: 100vw;
     z-index: 2;
-    background-color: #f2f5fdf8;
+    background-color: #495be4f9;
   }
-  .sidebar .sidebar--nav li:nth-last-child(2){
+  .sidebar .sidebar--nav li:nth-last-child(2) {
     margin-top: 0;
   }
   .profile.open {
@@ -842,7 +864,6 @@ input::-webkit-calendar-picker-indicator {
   .tripsCard--upcoming,
   .tripsCard--completed {
     width: 100%;
-    background-color: #f0f2fc;
     border-radius: 4px 4px;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 2.5px 2.5px 15px 5.5px rgba(163, 163, 163, 0.3);

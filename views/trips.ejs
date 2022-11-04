@@ -21,7 +21,15 @@
           <section class="tripsCard--overview">
             <section class="tripsCard--text" data-id='<%=el._id%>'>
               <h4 class="tripsCard--title <%= el.completed === true ? 'completed' : 'not' %>" title="Mark Completed"><%= el.trip %></h4>
-              <div class="tripsCard--date"><%= el.destinations.length >= 1 ? el.destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[0].startDate : 'Not Planned' %></div>
+              <div class="tripsCard--date"><%= el.destinations.length >= 1 ? 'Upcoming' : 'Not Planned' %></div>
+              <section class="tripsCard--container">
+                <i class="users--icon fa-solid fa-user-group"></i>
+                <section>
+                  <div class="tripsCard--users"><%= el.sharedUsers.map(user => Object.values(user)) %></div>
+                  <div class="tripsCard--creation"><%= el.creationDate.toDateString() %></div>
+                </section>
+              </section>
+
             </section>
             
             <section class="tripsCard-btns" data-id='<%=el._id%>'>
