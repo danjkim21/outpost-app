@@ -108,10 +108,10 @@
   font-weight: 400;
 }
 .section--appAbout {
-  height: 50vh;
+  height: 55vh;
 }
 .cardsContainer {
-  margin-top: 2rem;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -122,19 +122,18 @@
   width: 300px;
   height: 250px;
   background-color: #F2F5FD;
-  border: 2px solid #F2F5FD;
+  color: white;
+  background: radial-gradient(#6fb7f2, #3b62ed);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   padding: 1.5rem;
   transition: all ease-in-out 95ms;
-
 }
-.card:hover {
-  background-color: #CCD6F8;
-  border-radius: 2px solid #CCD6F8;
+.card--desc {
+  font-weight: 500;
 }
 .card--icon {
   font-size: 2.15rem;
-  color: #335AE5;
 }
 
 /* --------- LOGIN/SIGNUP STYLING --------- */
