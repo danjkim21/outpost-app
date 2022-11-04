@@ -1,8 +1,10 @@
 <%- include("partials/sidebar") %>
 
   <section class="content--body appmain">
-    <h1 class="page--title">User & App Settings</h1>
-    <p class="page--subtitle">Update your Information.</p>
+    <section class="tripsCard--header">
+      <h1 class="page--title">User & App Settings</h1>
+      <p class="page--subtitle">Update your Information.</p>
+    </section>
 
     <form class="" action="/userPage/updateUserName/<%= user._id %>/?_method=PUT" method='POST'>
       <section class="destinationDetail--form__single">
