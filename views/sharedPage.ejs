@@ -20,7 +20,7 @@
           <section class="tripsCard--overview">
             <section class="tripsCard--text" data-id='<%=el._id%>'>
               <h4 class="tripsCard--title" title="Mark Completed"><%= el.trip %></h4>
-              <div class="tripsCard--date"><%= el.destinations.length > 1 ? el.destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[0].startDate : 'Not Planned' %></div>
+              <div class="tripsCard--date"><%= el.destinations.length > 1  && el.destinations[0].startDate !== "" ? el.destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[0].startDate : 'Not Planned' %></div>
               <section class="tripsCard--container">
                 <i class="users--icon fa-solid fa-user-group"></i>
                 <section>

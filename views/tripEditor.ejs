@@ -55,7 +55,7 @@
         <span class="detail--title">
           <i class="fa-solid fa-calendar-day"></i> Travel Dates: </span>
         <span class="detail--value">
-          <% if (trip[0].destinations.length >= 1) { %>
+          <% if (trip[0].destinations.length >= 1 && trip[0].destinations[0].startDate !== "") { %>
             <!-- Get Earliest Start Date by sorted array at 0th position-->
             <span><%= trip[0].destinations.sort((a,b) => (a.startDate > b.startDate) ? 1 : -1)[0].startDate %> → </span>  
             <!-- Get Latest End Date by sorted array at end position -->

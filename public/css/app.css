@@ -278,9 +278,17 @@ body {
   font-weight: 600;
 }
 .tripsCard--date {
-  color: #454a6cda;
+  width: auto;
+  background-color: #adbdf867;
+  border: 1px solid #6787fcc4;
+  color: #446dff;
+  border-radius: 16px;
+
+  /* color: #454a6cda; */
   font-weight: 500;
-  padding-top: 5px;
+  /* padding-top: 5px; */
+  padding: 0.1rem 0.45rem;
+  margin-top: 5px;
 }
 .tripsCard--container {
   display: flex;
