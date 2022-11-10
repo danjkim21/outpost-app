@@ -768,6 +768,14 @@ input::-webkit-calendar-picker-indicator {
 }
 
 /* --------- MEDIA QUERIES --------- */
+@media screen and (max-width: 1200px) {
+  /* Trip Dashboard Page */
+  .tripsCard--upcoming,
+  .tripsCard--completed {
+    width: 47%;
+  }
+}
+
 @media screen and (max-width: 850px) {
   /* Side Bar */
   .sidebar {
@@ -819,11 +827,6 @@ input::-webkit-calendar-picker-indicator {
     margin-left: 45px !important;
   }
 
-  /* Trip Dashboard Page */
-  .tripsCard--upcoming,
-  .tripsCard--completed {
-    width: 47.77%;
-  }
   /* Trips Editor Page */
   .trip--coverImg {
     width: 100%;
@@ -835,7 +838,7 @@ input::-webkit-calendar-picker-indicator {
     flex-wrap: wrap;
   }
   .destinationDetail--form__multi > section {
-    width: 47.5%;
+    width: 47%;
   }
 }
 
